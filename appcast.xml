@@ -3,6 +3,21 @@
     <channel>
         <title>備份都ok</title>
         <item>
+            <title>2.5.1</title>
+            <pubDate>Mon, 12 Oct 2026 22:03:27 +0800</pubDate>
+            <link>https://felix5zheng.github.io/backup-ok</link>
+            <sparkle:version>26</sparkle:version>
+            <sparkle:shortVersionString>2.5.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>13.5</sparkle:minimumSystemVersion>
+            <description><![CDATA[<h2>備份都ok 2.5.1</h2>
+<ul>
+  <li>修正記憶卡圖示:金色接點不再凸出卡片外。</li>
+  <li>校驗中、完成、已中斷、找不到記憶卡等狀態的記憶卡圖示,也都畫上接點,各狀態樣式一致。</li>
+</ul>
+]]></description>
+            <enclosure url="https://felix5zheng.github.io/backup-ok/downloads/BackupOK-2.5.1.dmg" length="2195627" type="application/octet-stream" sparkle:edSignature="IPYpZrpQ36MVuon++8fYmP+ffE3KOl7hyGdZTOu6xWERhPtF2naAawaGR7cXDAxrlbDEWVTlhc9ovPXppJDFBQ=="/>
+        </item>
+        <item>
             <title>2.5</title>
             <pubDate>Fri, 09 Oct 2026 21:42:07 +0800</pubDate>
             <link>https://felix5zheng.github.io/backup-ok</link>
@@ -35,26 +50,6 @@
 </ul>
 ]]></description>
             <enclosure url="https://felix5zheng.github.io/backup-ok/downloads/BackupOK-2.3.dmg" length="2074600" type="application/octet-stream" sparkle:edSignature="PRYhCvE140rQNI8V8c/teSS6Xp8p3isuEDRshMkzSj3YWHNiTbVO5ywQJajzPBuyrBdR8QWvlU3wSYDC7cjFAA=="/>
-        </item>
-        <item>
-            <title>2.2</title>
-            <pubDate>Fri, 09 Oct 2026 14:00:23 +0800</pubDate>
-            <link>https://felix5zheng.github.io/backup-ok</link>
-            <sparkle:version>22</sparkle:version>
-            <sparkle:shortVersionString>2.2</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>13.5</sparkle:minimumSystemVersion>
-            <description><![CDATA[<h2>備份都ok 2.2</h2>
-<ul>
-  <li>新增自動更新:有新版本時會提示,備份進行中不會重新啟動。</li>
-  <li>自訂名稱可以有多個(最多 5 層),例如組成「日期_地點_模特」。</li>
-  <li>自訂名稱輸入後點別處即保存,滑鼠停留會提示操作方式。</li>
-  <li>已選預設集時按「儲存」會直接更新它。</li>
-  <li>任務視窗新增照片、影片、音檔各自的進度。</li>
-  <li>修正自訂名稱編輯框有時出現在錯誤位置的問題。</li>
-</ul>
-<p>從 2.1 以前的版本更新時,需要重新輸入一次金鑰;設定、預設集與歷史紀錄會自動保留。</p>
-]]></description>
-            <enclosure url="https://felix5zheng.github.io/backup-ok/downloads/BackupOK-2.2.dmg" length="2071065" type="application/octet-stream" sparkle:edSignature="6PrWtlta10lb/3Uka9EFJ8PBpjmUQYo+n/Lj977cjzBZjRviSVTyycDaSQFtiFIP0ZMyjf6N63A/JL+ZsopcBQ=="/>
         </item>
     </channel>
 </rss>
