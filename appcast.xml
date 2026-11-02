@@ -3,6 +3,21 @@
     <channel>
         <title>備份都ok</title>
         <item>
+            <title>2.5.3</title>
+            <pubDate>Mon, 02 Nov 2026 15:57:05 +0800</pubDate>
+            <link>https://felix5zheng.github.io/backup-ok</link>
+            <sparkle:version>28</sparkle:version>
+            <sparkle:shortVersionString>2.5.3</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>13.5</sparkle:minimumSystemVersion>
+            <description><![CDATA[<h2>備份都ok 2.5.3</h2>
+<ul>
+  <li>全新 App 圖示:紅樺底色、芥子黃接點、青綠勾,在 Dock 與 Finder 裡更清楚。</li>
+</ul>
+<p>更新後 Dock 圖示若還是舊的,把 App 從 Dock 移除再加回來即可(系統會快取圖示)。</p>
+]]></description>
+            <enclosure url="https://felix5zheng.github.io/backup-ok/downloads/BackupOK-2.5.3.dmg" length="2288265" type="application/octet-stream" sparkle:edSignature="yeHrvDQfZvREeJZOe3Z7ILV1POFX4BQwsfAjdodS9pARo2QqydHT5zHV6BseCyz5XkC6Mr0ApDfmw3jjWCDYCA=="/>
+        </item>
+        <item>
             <title>2.5.2</title>
             <pubDate>Wed, 28 Oct 2026 21:55:21 +0800</pubDate>
             <link>https://felix5zheng.github.io/backup-ok</link>
@@ -32,25 +47,6 @@
 </ul>
 ]]></description>
             <enclosure url="https://felix5zheng.github.io/backup-ok/downloads/BackupOK-2.5.1.dmg" length="2195627" type="application/octet-stream" sparkle:edSignature="IPYpZrpQ36MVuon++8fYmP+ffE3KOl7hyGdZTOu6xWERhPtF2naAawaGR7cXDAxrlbDEWVTlhc9ovPXppJDFBQ=="/>
-        </item>
-        <item>
-            <title>2.5</title>
-            <pubDate>Fri, 09 Oct 2026 21:42:07 +0800</pubDate>
-            <link>https://felix5zheng.github.io/backup-ok</link>
-            <sparkle:version>25</sparkle:version>
-            <sparkle:shortVersionString>2.5</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>13.5</sparkle:minimumSystemVersion>
-            <description><![CDATA[<h2>備份都ok 2.5</h2>
-<ul>
-  <li>全新介面:和紙白配灰紅樺的新配色,淺色與深色模式都重新設計。</li>
-  <li>主視窗新增記憶卡卡片:卡名、容量與已用空間一眼看到,也能直接重新整理或退卡。</li>
-  <li>同時插多張記憶卡時,可以用「1 / 3」清單切換;正在備份的卡不會被重複選取。</li>
-  <li>備份任務改成卡片:狀態(備份中、校驗中、完成、已中斷)、目的地、進度、速度與剩餘時間都清楚列出。</li>
-  <li>有新版本時會自己跳出更新視窗:每次打開 App 都會檢查,開著時每小時再檢查一次;在背景時先發通知,回到 App 就會跳出。</li>
-  <li>修正英文、簡體中文、日文、西班牙文、葡萄牙文介面的多處翻譯。</li>
-</ul>
-]]></description>
-            <enclosure url="https://felix5zheng.github.io/backup-ok/downloads/BackupOK-2.5.dmg" length="2195009" type="application/octet-stream" sparkle:edSignature="/g8nCvBkchiDL0zZrUA9Txu1EDCHhOwbocRaAn6g8+Dpd1E/2Tb0YTnVp10ieV9Cdn32rddrUxchq5VL8KSFDQ=="/>
         </item>
     </channel>
 </rss>
