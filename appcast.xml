@@ -3,6 +3,21 @@
     <channel>
         <title>備份都ok</title>
         <item>
+            <title>2.5.4</title>
+            <pubDate>Tue, 03 Nov 2026 22:03:49 +0800</pubDate>
+            <link>https://felix5zheng.github.io/backup-ok</link>
+            <sparkle:version>29</sparkle:version>
+            <sparkle:shortVersionString>2.5.4</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>13.5</sparkle:minimumSystemVersion>
+            <description><![CDATA[<h2>備份都ok 2.5.4</h2>
+<ul>
+  <li>新的通知浮窗:備份完成、失敗或有新版本時,畫面右上角會滑出小卡片,4.5 秒後自動收起,點一下就關。系統通知照常保留在通知中心。</li>
+  <li>有新版本的浮窗點一下,就會回到 App 並打開更新視窗。</li>
+</ul>
+]]></description>
+            <enclosure url="https://felix5zheng.github.io/backup-ok/downloads/BackupOK-2.5.4.dmg" length="2332085" type="application/octet-stream" sparkle:edSignature="EZTa/K3pa+pplSrR7eqKuBnj5VZy3IIcfVmigl4DXh8+D9QaOFfcjgriSEhpQ3P+wdRUhAIY8j7UafuOcXAcBA=="/>
+        </item>
+        <item>
             <title>2.5.3</title>
             <pubDate>Mon, 02 Nov 2026 15:57:05 +0800</pubDate>
             <link>https://felix5zheng.github.io/backup-ok</link>
@@ -32,21 +47,6 @@
 </ul>
 ]]></description>
             <enclosure url="https://felix5zheng.github.io/backup-ok/downloads/BackupOK-2.5.2.dmg" length="2203522" type="application/octet-stream" sparkle:edSignature="rZjPpD9TE/LJ6Ijcb2Te8s1/G4IlTaDAYTDpbwKnrw7prKeEgVhAxv40bPp/zvlvopO1NyrkucEXgaQZGu1SBQ=="/>
-        </item>
-        <item>
-            <title>2.5.1</title>
-            <pubDate>Mon, 12 Oct 2026 22:03:27 +0800</pubDate>
-            <link>https://felix5zheng.github.io/backup-ok</link>
-            <sparkle:version>26</sparkle:version>
-            <sparkle:shortVersionString>2.5.1</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>13.5</sparkle:minimumSystemVersion>
-            <description><![CDATA[<h2>備份都ok 2.5.1</h2>
-<ul>
-  <li>修正記憶卡圖示:金色接點不再凸出卡片外。</li>
-  <li>校驗中、完成、已中斷、找不到記憶卡等狀態的記憶卡圖示,也都畫上接點,各狀態樣式一致。</li>
-</ul>
-]]></description>
-            <enclosure url="https://felix5zheng.github.io/backup-ok/downloads/BackupOK-2.5.1.dmg" length="2195627" type="application/octet-stream" sparkle:edSignature="IPYpZrpQ36MVuon++8fYmP+ffE3KOl7hyGdZTOu6xWERhPtF2naAawaGR7cXDAxrlbDEWVTlhc9ovPXppJDFBQ=="/>
         </item>
     </channel>
 </rss>
