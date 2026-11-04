@@ -3,6 +3,24 @@
     <channel>
         <title>備份都ok</title>
         <item>
+            <title>2.5.5</title>
+            <pubDate>Wed, 04 Nov 2026 21:35:23 +0800</pubDate>
+            <link>https://felix5zheng.github.io/backup-ok</link>
+            <sparkle:version>30</sparkle:version>
+            <sparkle:shortVersionString>2.5.5</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>13.5</sparkle:minimumSystemVersion>
+            <description><![CDATA[<h2>備份都ok 2.5.5</h2>
+<ul>
+  <li>通知浮窗固定出現在選單列的記憶卡圖示正下方,不再跟著視窗換位置。</li>
+  <li>備份完成時只跳一個浮窗,不再同時出現兩個提示。</li>
+  <li>設定「一般」新增「通知測試」按鈕,按一下就能確認通知會不會出現。</li>
+  <li>選單列的記憶卡圖示每次啟動都會顯示。</li>
+  <li>修正設定裡「歷史紀錄」與「調整順序」清單在系統一律顯示捲軸時的版面衝突。</li>
+</ul>
+]]></description>
+            <enclosure url="https://felix5zheng.github.io/backup-ok/downloads/BackupOK-2.5.5.dmg" length="2331005" type="application/octet-stream" sparkle:edSignature="8zDAdGXHW961yG8CNjSj/zPcmqUdrTNj6HRCSQ/WFvs+O0v+KVNcMb3LVzOzR4nH6Mg4cWvz6V8tRDlr1TudCw=="/>
+        </item>
+        <item>
             <title>2.5.4</title>
             <pubDate>Tue, 03 Nov 2026 22:03:49 +0800</pubDate>
             <link>https://felix5zheng.github.io/backup-ok</link>
@@ -31,22 +49,6 @@
 <p>更新後 Dock 圖示若還是舊的,把 App 從 Dock 移除再加回來即可(系統會快取圖示)。</p>
 ]]></description>
             <enclosure url="https://felix5zheng.github.io/backup-ok/downloads/BackupOK-2.5.3.dmg" length="2288265" type="application/octet-stream" sparkle:edSignature="yeHrvDQfZvREeJZOe3Z7ILV1POFX4BQwsfAjdodS9pARo2QqydHT5zHV6BseCyz5XkC6Mr0ApDfmw3jjWCDYCA=="/>
-        </item>
-        <item>
-            <title>2.5.2</title>
-            <pubDate>Wed, 28 Oct 2026 21:55:21 +0800</pubDate>
-            <link>https://felix5zheng.github.io/backup-ok</link>
-            <sparkle:version>27</sparkle:version>
-            <sparkle:shortVersionString>2.5.2</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>13.5</sparkle:minimumSystemVersion>
-            <description><![CDATA[<h2>備份都ok 2.5.2</h2>
-<ul>
-  <li>新增「保留影片 XML 檔」開關(設定 › 一般):開啟後,影片旁的 XML 拍攝資訊(例如 Sony 的 C0001M01.XML)會一起備份,放在影片同一個資料夾。預設為關閉。</li>
-  <li>設定視窗依分頁自動調整高度。</li>
-  <li>改用新版系統 API 讀取影片方向與長度,相容性更好。</li>
-</ul>
-]]></description>
-            <enclosure url="https://felix5zheng.github.io/backup-ok/downloads/BackupOK-2.5.2.dmg" length="2203522" type="application/octet-stream" sparkle:edSignature="rZjPpD9TE/LJ6Ijcb2Te8s1/G4IlTaDAYTDpbwKnrw7prKeEgVhAxv40bPp/zvlvopO1NyrkucEXgaQZGu1SBQ=="/>
         </item>
     </channel>
 </rss>
