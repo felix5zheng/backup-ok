@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-sceIOt0gpxLDvytZNnuUxyoiETSsYgsc3dvZy9iKEdg=' 'sha256-/x7W7R75k8Roq0WaVRQX9blP4OufE5xbAdzklGxsgpw=' 'sha256-aMnZ1RYdvhGFqTiFnoD5pirOk9YGRs8yUzYZryZUTeE=' 'sha256-kAksVdzF3O7r8bbOtvC0fb2gBHdoJRmFcBwdLHRFHqQ='; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self' https://backupok-license.imokahhhh-backupok.workers.dev; manifest-src 'self'; media-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-sceIOt0gpxLDvytZNnuUxyoiETSsYgsc3dvZy9iKEdg=' 'sha256-/x7W7R75k8Roq0WaVRQX9blP4OufE5xbAdzklGxsgpw=' 'sha256-poEkXQoRAZ7RXLV6dBjOGgM8LedG0EQ5aUWaexH4x6s=' 'sha256-kAksVdzF3O7r8bbOtvC0fb2gBHdoJRmFcBwdLHRFHqQ='; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self' https://backupok-license.imokahhhh-backupok.workers.dev; manifest-src 'self'; media-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <script>if (window.top !== window.self) document.documentElement.style.display = 'none';</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -57,7 +57,8 @@
 }
 html[lang="zh-Hans"] { --font: var(--font-sc); --font-display: var(--font-sc); }
 html[lang="ja"] { --font: var(--font-ja); --font-display: var(--font-ja); }
-html[lang="en"], html[lang="es"], html[lang="pt"] { --font: var(--font-latin); }
+html[lang="en"], html[lang="es"], html[lang="pt"], html[lang="ms"] { --font: var(--font-latin); }
+html[lang="ko"] body { word-break: keep-all; overflow-wrap: break-word; }
 *, *::before, *::after { box-sizing: border-box; }
 html, body { overflow-x: clip; }
 html { -webkit-text-size-adjust: 100%; scroll-padding-top: 72px; scroll-behavior: smooth; background: var(--color-paper); }
@@ -81,24 +82,7 @@ a { color: inherit; }
 .nav a { white-space: nowrap; font-size: var(--text-xs); color: var(--color-ink-2); text-decoration: none; padding-block: var(--space-sm); border-radius: 4px; transition: color var(--dur) var(--ease); }
 .nav a:hover { color: var(--color-ink); text-decoration: underline; text-underline-offset: 0.3em; text-decoration-color: var(--color-hairline); }
 
-/* 語言選單 */
-.lang { position: relative; }
-.lang-btn { display: inline-flex; align-items: center; gap: var(--space-xs); font: inherit; font-size: var(--text-xs); color: var(--color-ink-2); background: transparent; white-space: nowrap;
-  border: 1px solid var(--color-hairline); border-radius: var(--radius-pill); min-height: 28px; padding: 0 var(--space-sm) 0 var(--space-xs); cursor: pointer; transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease); }
-.lang-btn:hover, .lang-btn[aria-expanded="true"] { color: var(--color-ink); border-color: var(--color-ink); }
-.lang-btn:active { background: var(--wash); }
-.lang-btn:disabled { color: var(--color-muted); border-color: var(--color-hairline); background: var(--wash); cursor: default; }
-.lang-ico { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.1; flex: none; }
-.lang-menu { position: absolute; right: 0; top: calc(100% + 8px); min-width: 168px; margin: 0; padding: var(--space-2xs); list-style: none; background: var(--color-card); border-radius: var(--radius-md); box-shadow: var(--shadow-lift); z-index: 40; }
-.lang-menu button { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: var(--space-md); font-size: var(--text-sm); line-height: 1.4; letter-spacing: 0;
-  color: var(--color-ink); background: transparent; border: 0; border-radius: 8px; padding: var(--space-xs) var(--space-sm); cursor: pointer; text-align: left; font-family: var(--font-latin); }
-.lang-menu button[lang="zh-Hant"] { font-family: var(--font-tc); }
-.lang-menu button[lang="zh-Hans"] { font-family: var(--font-sc); }
-.lang-menu button[lang="ja"] { font-family: var(--font-ja); }
-.lang-menu button:hover { background: var(--wash); }
-.lang-menu button:focus-visible { background: var(--wash); outline: 2px solid var(--color-focus); outline-offset: -2px; }
-.lang-menu button:active { background: var(--wash-2); }
-.lang-menu button[aria-checked="true"]::after { content: ""; width: 9px; height: 5px; margin-top: calc(var(--space-2xs) * -1); border-left: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(-45deg); }
+/* 語言選單:imokahhhh.com 共用樣式 ok-i18n.css(在本段樣式最後) */
 
 /* 膠囊按鈕：1px ink 外框，滑上去變 ink 底 */
 .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 40px; padding: 0 var(--space-lg); border-radius: var(--radius-pill); border: 1px solid var(--color-ink); color: var(--color-ink); background: transparent; font: inherit; font-size: var(--text-sm); font-weight: 500; text-decoration: none; cursor: pointer; white-space: nowrap;
@@ -191,8 +175,6 @@ abbr { text-decoration: none; }
   .nav { gap: var(--space-md); }
   .nav > a, .nav > .ttl { display: none; }
   .brand small { display: none; }
-  .lang-cur { font-size: 0; }
-  .lang-cur::after { content: attr(data-short); font-size: var(--text-xs); }
   .hero { padding-top: var(--space-2xl); }
   .hero h1 { font-size: var(--text-xl); }
   .hero .for { font-size: var(--text-md); }
@@ -204,6 +186,41 @@ abbr { text-decoration: none; }
   .js .reveal { opacity: 1 !important; transform: none !important; }
 }
 .nav .ttl { font-size: var(--text-xs); color: var(--color-ink); white-space: nowrap; }
+/* ok-i18n:start */
+/* ok-i18n：語言選單與各語言字體。顏色、圓角、陰影全部走頁面自己的 token。 */
+:root {
+  --font-lang-tc: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", sans-serif;
+  --font-lang-sc: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", sans-serif;
+  --font-lang-ja: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif;
+  --font-lang-ko: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  --font-lang-hi: -apple-system, BlinkMacSystemFont, "Kohinoor Devanagari", "Noto Sans Devanagari", sans-serif;
+}
+:root:lang(zh-Hans) { --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Helvetica Neue", "Noto Sans SC", "Microsoft YaHei", sans-serif; --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", "Helvetica Neue", "Noto Sans SC", "Microsoft YaHei", sans-serif; }
+:root:lang(ja) { --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif; --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif; }
+:root:lang(ko) { --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif; --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif; }
+:root:lang(hi) { --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Kohinoor Devanagari", "Noto Sans Devanagari", "Nirmala UI", sans-serif; --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Kohinoor Devanagari", "Noto Sans Devanagari", "Nirmala UI", sans-serif; }
+:root:lang(hi) body, :root:lang(ko) body, :root:lang(ja) body { letter-spacing: 0; }
+:root:lang(en), :root:lang(es), :root:lang(pt), :root:lang(ms), :root:lang(hi) { word-break: normal; overflow-wrap: break-word; }
+
+.lang { position: relative; flex: none; }
+.lang-btn { display: inline-flex; align-items: center; gap: var(--space-xs, 8px); height: 32px; padding: 0 var(--space-sm, 12px) 0 var(--space-xs, 8px); font: inherit; font-size: var(--text-xs, 12px); color: var(--color-ink-2); background: transparent; border: 1px solid var(--color-hairline); border-radius: var(--radius-pill, 9999px); cursor: pointer; white-space: nowrap; transition: color var(--dur, 240ms) var(--ease), border-color var(--dur, 240ms) var(--ease), background-color var(--dur, 240ms) var(--ease); }
+.lang-btn svg { width: 14px; height: 14px; flex: none; }
+.lang-btn:hover, .lang-btn[aria-expanded="true"] { color: var(--color-ink); border-color: var(--color-ink); }
+.lang-btn:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; transition: none; }
+.lang-btn:active { background: var(--color-band); }
+.lang-menu { position: absolute; right: 0; top: calc(100% + 8px); z-index: 30; min-width: 176px; max-height: min(70dvh, 420px); overflow-y: auto; margin: 0; padding: var(--space-xs, 8px); list-style: none; background: var(--color-card); border-radius: var(--radius-md, 14px); box-shadow: var(--shadow-lift); }
+.lang-menu[hidden] { display: none; }
+.lang-menu button { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: var(--space-md, 16px); padding: var(--space-xs, 8px) var(--space-sm, 12px); font: inherit; font-size: var(--text-sm, 14px); line-height: 1.35; letter-spacing: 0; color: var(--color-ink); background: transparent; border: 0; border-radius: 9px; cursor: pointer; text-align: left; }
+.lang-menu button[lang="zh-Hant"] { font-family: var(--font-lang-tc); }
+.lang-menu button[lang="zh-Hans"] { font-family: var(--font-lang-sc); }
+.lang-menu button[lang="ja"] { font-family: var(--font-lang-ja); }
+.lang-menu button[lang="ko"] { font-family: var(--font-lang-ko); }
+.lang-menu button[lang="hi"] { font-family: var(--font-lang-hi); }
+.lang-menu button:hover { background: var(--color-band); }
+.lang-menu button:focus-visible { outline: 2px solid var(--color-focus); outline-offset: -2px; }
+.lang-menu button[aria-checked="true"]::after { content: ""; width: 9px; height: 5px; transform-origin: center; border-left: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: translateY(-2px) rotate(-45deg); }
+@media (prefers-reduced-motion: reduce) { .lang-btn { transition: none; } }
+/* ok-i18n:end */
 </style>
 </head>
 <body>
@@ -211,8 +228,11 @@ abbr { text-decoration: none; }
 
 <header class="topbar">
   <div class="container topbar-in">
-    <a class="brand" href="../"><span data-i="brand">備份都ok</span><small>我都ok啊</small></a>
-    <nav class="nav" aria-label="網站"><span class="ttl" data-i="nav_manual">使用說明</span><a class="home" href="../" data-i="dl_btn">下載</a> <div class="lang" id="lang"><button type="button" class="lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false" aria-controls="langMenu"><svg class="lang-ico" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.3"/><path d="M1.7 8h12.6M8 1.7c1.9 1.8 2.8 3.9 2.8 6.3S9.9 12.5 8 14.3M8 1.7C6.1 3.5 5.2 5.6 5.2 8s.9 4.5 2.8 6.3"/></svg><span class="lang-cur" id="langCur">繁體中文</span><span class="sr" data-i="lang_label">語言</span></button><ul class="lang-menu" id="langMenu" role="menu" hidden></ul></div></nav>
+    <a class="brand" href="../"><span data-i="brand">備份都ok</span><small data-i="maker">我都ok啊</small></a>
+    <nav class="nav" aria-label="網站" data-ia="aria-label:nav_aria"><span class="ttl" data-i="nav_manual">使用說明</span><a class="home" href="../" data-i="dl_btn">下載</a> <div class="lang" id="lang">
+  <button type="button" class="lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false" aria-controls="langMenu" aria-label="Language"><svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="8" cy="8" r="6.3"/><path d="M1.7 8h12.6M8 1.7c1.8 1.7 2.7 3.8 2.7 6.3S9.8 12.6 8 14.3M8 1.7C6.2 3.4 5.3 5.5 5.3 8s.9 4.6 2.7 6.3"/></svg><span id="langCur">繁中</span></button>
+  <ul class="lang-menu" id="langMenu" role="menu" aria-label="Language" hidden></ul>
+</div></nav>
   </div>
   <div class="progress" id="progress"></div>
 </header>
@@ -1417,29 +1437,632 @@ abbr { text-decoration: none; }
   </main>
 </div>
 </template>
+<template data-lang="ko" data-region=".hero-inner">
+<div class="hero-inner">
+    <h1 id="title">Backup OK</h1>
+    <p class="for reveal">사용 설명서</p>
+    <p class="sub reveal">사진가와 영상 제작자를 위한 메모리 카드 백업 도구.<br>모든 파일을 다시 읽어 한 번 더 확인합니다.</p>
+    <div class="meta reveal">
+      <span>macOS 13.5 이상</span>
+      <span>처음이라면 1~4장을 순서대로 읽어 보세요. 약 10분 걸립니다.</span>
+    </div>
+  </div>
+</template>
+<template data-lang="ko" data-region=".layout">
+<div class="layout">
+  <nav class="rail-wrap reveal" aria-label="장">
+    <ol class="rail" id="rail">
+      <span class="rail-fill" id="railFill"></span>
+      <li><a href="#install">설치</a></li>
+      <li><a href="#open">처음 열기</a></li>
+      <li><a href="#perm">권한</a></li>
+      <li><a href="#key">키 활성화</a></li>
+      <li><a href="#first">첫 백업</a></li>
+      <li><a href="#features">기능과 설정</a></li>
+      <li><a href="#faq">자주 묻는 질문</a></li>
+      <li><a href="#feedback">문제 신고</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <!-- 01 -->
+    <section id="install" class="block">
+      <div class="block-h"><h2>설치</h2><span class="meta">1장</span></div>
+      <div class="block-b">
+      <p class="lede">Backup OK는 독립형 Mac 앱입니다. 응용 프로그램 폴더로 드래그하면 설치가 끝나며, 시스템에 다른 것은 설치하지 않습니다.</p>
+      <ol class="steps">
+        <li><span class="n">1</span><div><div class="h">다운로드한 디스크 이미지 열기</div><div class="d">공식 웹사이트에서 받은 파일은 BackupOK로 시작하고 확장자가 .dmg입니다. 더블 클릭해 여세요.</div></div></li>
+        <li><span class="n">2</span><div><div class="h">앱을 응용 프로그램 폴더로 드래그</div><div class="d">창 안의 Backup OK를 옆에 있는 응용 프로그램 바로가기로 드래그하세요. 디스크 이미지에서 바로 실행하지 마세요. 디스크 이미지를 추출하면 앱도 사라집니다.</div></div></li>
+        <li><span class="n">3</span><div><div class="h">디스크 이미지 추출</div><div class="d">Finder 사이드바에서 디스크 이미지 옆의 추출 버튼을 클릭하세요. 그다음 다운로드한 .dmg는 삭제해도 됩니다.</div></div></li>
+      </ol>
+      <h3>시스템 요구 사항</h3>
+      <div class="tbl"><table>
+        <tr><td>운영 체제</td><td>macOS 13.5 이상</td></tr>
+        <tr><td>인터넷</td><td>키 활성화와 업데이트 확인에 필요합니다. 그 이후에는 최대 14일 동안 오프라인으로 사용할 수 있습니다.</td></tr>
+        <tr><td>카드 리더기</td><td>내장 카드 슬롯, 외장 카드 리더기, 또는 <abbr>USB</abbr>로 직접 연결한 카메라</td></tr>
+      </table></div>
+      </div>
+    </section>
+
+    <!-- 02 -->
+    <section id="open" class="block">
+      <div class="block-h"><h2>처음 열기</h2><span class="meta">2장</span></div>
+      <div class="block-b">
+      <p class="lede">Backup OK는 Apple의 공증을 받았습니다. 처음 열 때 macOS가 인터넷에서 다운로드한 앱이 맞는지 한 번만 확인합니다.</p>
+      <h3>이런 창이 나타납니다</h3>
+      <div class="dialog">
+        <div class="cap">macOS 경고</div>
+        <div class="msg">‘Backup OK’은(는) 인터넷에서 다운로드한 앱입니다. 열겠습니까?</div>
+      </div>
+      <p class="muted">‘열기’를 클릭하세요. 이 메시지는 다시 나타나지 않습니다.</p>
+      <div class="note"><div class="h">앱을 ‘확인할 수 없다’거나 ‘악성 코드’를 언급하는 메시지가 나타난다면</div>2.2 이전의 베타 버전을 쓰고 있는 것입니다. 이전 버전을 휴지통으로 옮긴 뒤 공식 웹사이트에서 다시 다운로드해 설치하세요. 설정, 프리셋, 기록은 그대로 유지됩니다. 앱을 연 뒤 키만 한 번 더 입력하면 됩니다.</div>
+      </div>
+    </section>
+
+    <!-- 03 -->
+    <section id="perm" class="block">
+      <div class="block-h"><h2>권한</h2><span class="meta">3장</span></div>
+      <div class="block-b">
+      <p class="lede">처음 사용할 때 macOS가 여러 권한을 하나씩 요청합니다. 모두 ‘허용’을 선택하세요. 각각 꼭 필요한 용도가 있습니다.</p>
+      <div class="tbl"><table>
+        <tr><th>macOS의 요청</th><th>필요한 이유</th></tr>
+        <tr><td>알림 보내기</td><td>백업 완료, 파일 검증 실패, 카드 읽기 불안정을 알려 드리기 위해</td></tr>
+        <tr><td>이동식 볼륨의 파일에 접근</td><td>메모리 카드의 내용을 읽기 위해. 허용하지 않으면 카드의 파일이 보이지 않습니다.</td></tr>
+        <tr><td>데스크탑 또는 문서 폴더의 파일에 접근</td><td>백업을 쓰고, 백업마다 기록을 문서 폴더에 저장하기 위해</td></tr>
+        <tr><td>외장 드라이브의 파일에 접근</td><td>외장 드라이브에 백업할 때만 요청합니다</td></tr>
+      </table></div>
+      <h3>실수로 ‘허용 안 함’을 눌렀다면</h3>
+      <p class="muted">언제든 접근 권한을 켤 수 있습니다. 다시 설치할 필요는 없습니다.</p>
+      <ol class="steps">
+        <li><span class="n">1</span><div><div class="h">폴더와 이동식 볼륨</div><div class="d"><span class="path">시스템 설정<i>›</i>개인정보 보호 및 보안<i>›</i>파일 및 폴더<i>›</i>Backup OK</span>에서 해당 항목을 켜세요.</div></div></li>
+        <li><span class="n">2</span><div><div class="h">알림</div><div class="d"><span class="path">시스템 설정<i>›</i>알림<i>›</i>Backup OK</span>에서 ‘알림 허용’을 켜세요. 알림 스타일은 ‘배너’를 권장합니다.</div></div></li>
+        <li><span class="n">3</span><div><div class="h">앱 다시 열기</div><div class="d">권한 변경은 앱을 다음에 열 때 완전히 적용됩니다.</div></div></li>
+      </ol>
+      <div class="note"><div class="h">전체 디스크 접근 권한은 필요 없습니다</div>Backup OK는 전체 디스크 접근 권한을 요청하지 않습니다. 이 권한을 켜라는 안내를 보더라도 켜지 마세요.</div>
+      </div>
+    </section>
+
+    <!-- 04 -->
+    <section id="key" class="block">
+      <div class="block-h"><h2>키 활성화</h2><span class="meta">4장</span></div>
+      <div class="block-b">
+      <p class="lede">Backup OK에는 활성화 없이 쓰는 제한 버전이 없습니다. 키를 입력하면 모든 기능을 사용할 수 있습니다.</p>
+      <ol class="steps">
+        <li><span class="n">1</span><div><div class="h">앱을 열면 ‘Enter license key’(라이선스 키 입력) 창이 나타납니다</div><div class="d">키 형식은 <code>BKOK-XXXX-XXXX-XXXX-XXXX</code>입니다. 그대로 붙여 넣을 수 있으며 대소문자는 구분하지 않습니다.</div></div></li>
+        <li><span class="n">2</span><div><div class="h">‘Activate’(활성화) 클릭</div><div class="d">인터넷 연결이 필요합니다. 활성화에 성공하면 메인 창이 나타납니다. 키는 이 Mac의 키체인에 안전하게 저장되므로 다시 입력할 필요가 없습니다.</div></div></li>
+      </ol>
+      <h3>키 하나에 Mac 한 대</h3>
+      <p class="muted">같은 키를 다른 Mac에서 활성화하면 기존 Mac은 로그아웃되고, 어느 Mac이 언제 키를 활성화했는지 알림을 받습니다. 본인이 한 것이 아니라면 바로 알려 주세요. 이미 진행 중인 백업은 중단되지 않으며, 끝난 뒤에 앱이 잠깁니다.</p>
+      <h3>새 Mac으로 옮길 때</h3>
+      <p class="muted">이전 Mac에서 <span class="path">설정<i>›</i>일반<i>›</i>라이선스</span>로 가서 ‘이 Mac 로그아웃’을 클릭한 뒤, 새 Mac에서 같은 키를 입력하세요. 새 Mac에서 바로 키를 입력해도 되며, 이 경우 이전 Mac은 자동으로 로그아웃됩니다.</p>
+      <h3>오프라인일 때</h3>
+      <p class="muted">인터넷에 연결되어 있으면 라이선스가 자동으로 확인됩니다. 확인에 성공하면 14일 동안 오프라인으로 사용할 수 있어 야외 촬영이나 해외 출장 때 편리합니다. 오프라인 상태가 11일을 넘으면 설정의 라이선스 항목에서 가능할 때 연결하라고 알려 드립니다.</p>
+      </div>
+    </section>
+
+    <!-- 05 -->
+    <section id="first" class="block">
+      <div class="block-h"><h2>첫 백업</h2><span class="meta">5장</span></div>
+      <div class="block-b">
+      <p class="lede">카드를 꽂고, 설정을 확인한 뒤 ‘Start backup’(백업 시작)을 클릭하세요. 나머지는 Backup OK가 알아서 끝내고 파일 하나하나 검증합니다.</p>
+      <ol class="steps">
+        <li><span class="n">1</span><div><div class="h">메모리 카드 꽂기</div><div class="d">메인 창이 방금 꽂은 카드를 자동으로 선택하고, 카메라 기종을 인식하며, 카드에 실제로 있는 파일에 따라 <abbr>JPG</abbr>, <abbr>RAW</abbr>, 영상, 오디오를 켭니다. 외장 하드 드라이브와 SSD는 자동으로 숨겨집니다.</div></div></li>
+        <li><span class="n">2</span><div><div class="h">카메라 기종 확인</div><div class="d">‘Camera’(카메라) 칸은 자동으로 채워집니다. 원하는 이름을 쓰려면 직접 수정하세요. 수정하면 그 카드의 모든 사진이 입력한 이름으로 정리됩니다.</div></div></li>
+        <li><span class="n">3</span><div><div class="h">백업 범위 선택</div><div class="d">‘Whole card’(카드 전체), ‘Today’(오늘), ‘Last Nh’(최근 N시간) 중에서 고르세요. ‘Last Nh’를 오른쪽 클릭하면 4, 8, 12, 24, 48시간으로 바꿀 수 있습니다.</div></div></li>
+        <li><span class="n">4</span><div><div class="h">파일 유형과 저장 위치 확인</div><div class="d">켜져 있는 유형만 백업됩니다. 유형을 클릭해 켜고 끌 수 있습니다. ‘Save to’(저장 위치)는 기본값이 데스크탑이며, 옆의 ‘⋯’ 버튼을 누르면 Hierarchy(계층) 설정으로 바로 이동합니다.</div></div></li>
+        <li><span class="n">5</span><div><div class="h">‘Start backup’ 클릭</div><div class="d">Tasks(작업) 창에 진행률, 속도, 남은 시간이 표시됩니다. 카드에 두 가지 이상의 파일 유형이 있으면 아래에 사진, 영상, 오디오별 진행률이 따로 나타납니다. 각 파일은 쓰기가 끝난 뒤 다시 읽어 SHA-256으로 비교합니다. 모든 파일이 일치해야 백업이 완료됩니다.</div></div></li>
+      </ol>
+      <h3>백업이 끝나면</h3>
+      <p class="muted">메뉴 막대의 퍼센트가 1초 동안 100%로 머문 뒤, 메뉴 막대 아이콘 아래에 파일 수, 전체 용량, 걸린 시간을 보여 주는 작은 창이 나타납니다. 동시에 소리가 나고 알림이 전송되며, Tasks 창은 자동으로 숨겨집니다.</p>
+      <p class="muted">파일 하나라도 검증에 실패하면 Backup OK는 메모리 카드를 꺼내지 않고, 다시 백업해야 할 파일 수를 알려 드립니다.</p>
+      <div class="note"><div class="h">다시 백업해도 중복되지 않습니다</div>같은 카드를 다시 백업하면 이미 백업한 파일은 자동으로 건너뛰고 새 파일만 복사합니다. 백업이 도중에 끊겼다면, 다시 시작할 때 끝나지 않은 파일만 복사합니다.</div>
+      </div>
+    </section>
+
+    <!-- 06 -->
+    <section id="features" class="block">
+      <div class="block-h"><h2>기능과 설정</h2><span class="meta">6장</span></div>
+      <div class="block-b">
+      <p class="lede">메인 창 오른쪽 위의 톱니바퀴 아이콘을 클릭하면 설정이 열립니다. General(일반), Hierarchy(계층), History(기록) 세 개의 탭이 있습니다.</p>
+      <h3>일반</h3>
+      <div class="tbl"><table>
+        <tr><td>언어</td><td>繁體中文, English, 简体中文, 日本語, Español, Português</td></tr>
+        <tr><td>테마</td><td>시스템, 라이트, 다크</td></tr>
+        <tr><td>백업 후 꺼내기</td><td>모든 파일이 검증을 통과한 뒤에만 메모리 카드를 꺼냅니다.</td></tr>
+        <tr><td>완료 시 폴더 열기</td><td>백업이 끝나면 저장 위치를 Finder에서 엽니다.</td></tr>
+        <tr><td>완료 사운드</td><td>성공과 실패의 소리가 다릅니다. 켤 때 미리 들어 볼 수 있습니다.</td></tr>
+        <tr><td>카드를 꽂으면 파일 유형 자동 선택</td><td>카드에 실제로 있는 파일에 따라 유형을 켭니다. <abbr>JPG</abbr>와 <abbr>RAW</abbr>로 찍고 <abbr>RAW</abbr>만 백업한다면 이 옵션을 끄는 것을 권장합니다.</td></tr>
+        <tr><td>라이선스</td><td>현재 키와 라이선스 종류, 그리고 ‘이 Mac 로그아웃’</td></tr>
+      </table></div>
+      <h3>계층</h3>
+      <p class="muted">백업의 폴더 구조를 정합니다. 위쪽 영역에는 사용 중인 단계가 있으며, 왼쪽부터 오른쪽 순서로 폴더를 만듭니다. 아래쪽 영역에는 추가할 수 있는 단계가 있습니다.</p>
+      <div class="tbl"><table>
+        <tr><td>사용 가능한 단계</td><td>날짜, 파일 유형, 카메라, 사용자 이름</td></tr>
+        <tr><td>드래그</td><td>단계를 위아래 영역 사이로 옮깁니다. 한 단계를 다른 단계 위에 놓으면 하나로 합쳐집니다. 예: ‘날짜 + 카메라’는 2026_0925_A7M4가 됩니다.</td></tr>
+        <tr><td>합친 단계 오른쪽 클릭</td><td>‘분리’ 또는 ‘순서 바꾸기’를 선택합니다.</td></tr>
+        <tr><td>사용자 이름</td><td>처음에는 클릭해서 이름을 입력하세요. Return 키를 누르거나 다른 곳을 클릭하면 저장되고, Esc를 누르면 취소됩니다. 그 뒤에는 더블 클릭하거나 오른쪽 클릭해서 이름을 바꿀 수 있습니다. 긴 이름은 ‘…’로 줄여 표시되며, 클릭하면 전체 이름을 볼 수 있습니다.</td></tr>
+        <tr><td>여러 개의 사용자 이름</td><td>‘Hierarchy’ 옆의 ‘+ Custom name’을 클릭해 최대 5단계까지 추가할 수 있습니다. 예를 들어 ‘날짜_장소_모델’을 만들 수 있습니다. 추가한 단계를 지우려면 오른쪽 클릭 메뉴를 사용하세요.</td></tr>
+        <tr><td>경로 미리 보기</td><td>편집기 아래에 실제 폴더 경로가 표시되며, 편집하는 대로 바로 바뀝니다.</td></tr>
+        <tr><td>메인 폴더 만들기</td><td>켜면 모든 백업이 ‘Backup OK’ 폴더 안에 들어갑니다. 끄면 선택한 위치에 바로 들어갑니다.</td></tr>
+      </table></div>
+      <h3>프리셋</h3>
+      <p class="muted">작업마다 다른 폴더 구조를 쓴다면, 현재 계층을 프리셋으로 저장해 두고 다음부터는 팝업 메뉴에서 클릭 한 번으로 전환하세요. 프리셋을 선택한 상태에서 ‘저장’을 누르면 현재 계층으로 업데이트됩니다. 프리셋을 선택하지 않은 상태에서 ‘저장’을 누르면 새 프리셋의 이름을 묻습니다. ‘⋯’ 메뉴에서는 새 프리셋으로 저장, 협업자와 공유할 수 있도록 파일로 내보내기, 다른 사람의 프리셋 가져오기, 순서 변경, 삭제를 할 수 있습니다.</p>
+      <h3>두 번째 저장 위치</h3>
+      <p class="muted">Hierarchy 탭에서 ‘두 번째 저장 위치’를 켜면 메인 창에 ‘Backup 2’ 행이 나타납니다. 카드를 한 번 읽어 두 곳에 동시에 쓰고, 각 사본을 따로 검증하며, 걸리는 시간은 거의 같습니다. 두 번째 위치가 느린 외장 드라이브라면 전체 속도는 느린 쪽에 맞춰집니다.</p>
+      <h3>여러 카메라 자동 분류</h3>
+      <p class="muted">카드에 두 대의 카메라로 찍은 사진이 있으면 카메라 기종별 폴더로 자동 분류됩니다. 카메라 기종이 자동으로 인식되었고 계층에 ‘카메라’가 포함된 경우에만 작동합니다. 영상은 카메라별로 분류되지 않습니다.</p>
+      <h3>카드 읽기 안정성</h3>
+      <p class="muted">백업하는 동안 읽기 속도를 계속 측정합니다. 눈에 띄는 멈춤이 반복되면 즉시 알림을 보내고, 완료 메시지에 ‘읽기 불안정’이 표시됩니다. 이럴 때는 먼저 다른 카드 리더기나 포트를 써 보세요. 같은 카드에서 계속 발생한다면 카드 교체를 고려하세요.</p>
+      <h3>업데이트</h3>
+      <p class="muted">버전 2.2부터 새 버전이 나오면 앱이 자동으로 알려 줍니다. 메뉴 막대에서 <span class="path">Backup OK<i>›</i>Check for Updates…</span>를 선택해 직접 확인할 수도 있습니다. 백업 중에 설치를 클릭하면 모든 백업이 끝날 때까지 기다린 뒤 다시 시작하므로, 쓰고 있는 파일이 중단되는 일은 없습니다.</p>
+      <h3>기록</h3>
+      <p class="muted">설정에 최근 50회의 백업 기록이 남습니다. 백업마다 전체 파일 목록을 포함한 상세 기록도 <span class="path">문서<i>›</i>Backup OK</span>에 저장됩니다. 기록 행 오른쪽의 ⓘ를 클릭하면 열립니다. 클라이언트에게 결과물을 전달할 때 증빙으로 쓰거나 나중에 확인할 때 유용합니다.</p>
+      </div>
+    </section>
+
+    <!-- 07 -->
+    <section id="faq" class="block">
+      <div class="block-h"><h2>자주 묻는 질문</h2><span class="meta">7장</span></div>
+      <div class="block-b">
+      <p class="lede">대부분의 문제는 권한이나 카드 읽기 환경 때문입니다.</p>
+      <div class="faq">
+        <div class="qa"><button type="button" aria-expanded="false">업데이트 후 키를 다시 입력하라고 합니다<span class="pm"></span></button><div class="body"><div><p>버전 2.1 이하에서 2.2로 업데이트하면 키를 한 번 더 입력해야 합니다. 새 기기로 계산되지 않으며, 설정, 프리셋, 기록은 자동으로 유지됩니다.</p></div></div></div>
+        <div class="qa"><button type="button" aria-expanded="false">카드를 꽂았는데 카드 목록이 비어 있습니다<span class="pm"></span></button><div class="body"><div><p>먼저 ‘Card’(카드) 오른쪽의 새로 고침을 클릭하세요. 그래도 카드가 보이지 않으면 시스템 설정 › 개인정보 보호 및 보안 › 파일 및 폴더에서 ‘이동식 볼륨’이 켜져 있는지 확인하세요.</p></div></div></div>
+        <div class="qa"><button type="button" aria-expanded="false">카메라 내장 <abbr>SSD</abbr>나 오디오 레코더가 보이지 않습니다<span class="pm"></span></button><div class="body"><div><p>Backup OK는 외장 하드 드라이브처럼 보이는 디스크를 숨깁니다. 기기가 외장 드라이브로 잘못 인식된다면 모델명, 용량, 포맷을 보내 주세요. 인식 규칙을 조정하겠습니다.</p></div></div></div>
+        <div class="qa"><button type="button" aria-expanded="false">완료 알림이 오지 않았습니다<span class="pm"></span></button><div class="body"><div><p>메뉴 막대의 작은 창과 완료 사운드는 알림 권한과 관계없이 작동합니다. 시스템 알림이 나타나지 않으면 시스템 설정 › 알림 › Backup OK에서 알림이 허용되어 있는지 확인하고 알림 스타일을 배너로 설정하세요.</p></div></div></div>
+        <div class="qa"><button type="button" aria-expanded="false">‘This key is already active on another Mac’이라는 메시지가 나타납니다<span class="pm"></span></button><div class="body"><div><p>같은 키가 다른 Mac에서 활성화되었습니다. 본인이 한 것이라면 이 Mac에서 키를 다시 입력해 되돌릴 수 있습니다. 그렇지 않다면 저희에게 연락해 주세요.</p></div></div></div>
+        <div class="qa"><button type="button" aria-expanded="false">‘Cannot reach license server’라는 메시지가 나타납니다<span class="pm"></span></button><div class="body"><div><p>인터넷 연결을 확인한 뒤 다시 시도하세요. 이미 활성화된 Mac은 최대 14일 동안 오프라인에서도 정상적으로 작동하므로 현장 작업에는 영향이 없습니다.</p></div></div></div>
+        <div class="qa"><button type="button" aria-expanded="false">일부 파일이 검증에 실패했습니다<span class="pm"></span></button><div class="body"><div><p>메모리 카드는 꺼내지지 않습니다. 아직 포맷하지 마세요. 다른 카드 리더기로 바꿔 다시 백업하세요. 완료된 파일은 자동으로 건너뛰고, 실패한 파일만 다시 시도합니다.</p></div></div></div>
+        <div class="qa"><button type="button" aria-expanded="false">백업이 예상보다 느립니다<span class="pm"></span></button><div class="body"><div><p>속도는 실제로 복사한 파일만 계산하며, 이미 있어서 건너뛴 파일은 포함하지 않습니다. 눈에 띄게 느리다면 흔한 원인은 순서대로 카드 리더기의 사양, <abbr>USB</abbr> 허브, 저장 드라이브의 속도입니다.</p></div></div></div>
+        <div class="qa"><button type="button" aria-expanded="false"><abbr>MXF</abbr> 영상에 Finder 태그가 붙지 않습니다<span class="pm"></span></button><div class="body"><div><p><abbr>MXF</abbr> 파일에서는 영상 길이를 읽을 수 없어 태그 지정을 건너뜁니다. 백업과 검증에는 영향이 없습니다.</p></div></div></div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 08 -->
+    <section id="feedback" class="block">
+      <div class="block-h"><h2>문제 신고</h2><span class="meta">8장</span></div>
+      <div class="block-b">
+      <p class="lede"><a href="mailto:imokahhhh@gmail.com">imokahhhh@gmail.com</a>으로 메일을 보내 주세요. 아래 정보를 함께 보내 주시면 원인을 더 빨리 찾을 수 있습니다.</p>
+      <ol class="steps">
+        <li><span class="n">1</span><div><div class="h">스크린샷</div><div class="d">버전 번호가 표시되는 메인 창의 제목 막대를 포함해 주세요.</div></div></li>
+        <li><span class="n">2</span><div><div class="h">해당 백업의 상세 기록</div><div class="d">설정의 History 탭에서 ⓘ를 클릭해 열거나, 문서 폴더 안의 ‘Backup OK’ 폴더에서 해당 시간의 파일을 찾으세요.</div></div></li>
+        <li><span class="n">3</span><div><div class="h">사용 환경</div><div class="d">macOS 버전, 카메라와 메모리 카드 모델, 카드 리더기, 그리고 내장 드라이브와 외장 드라이브 중 어디에 백업했는지.</div></div></li>
+        <li><span class="n">4</span><div><div class="h">무슨 일이 있었고, 무엇을 기대했는지</div><div class="d">한두 문장이면 충분합니다. 문제를 재현하는 단계가 가장 도움이 됩니다.</div></div></li>
+      </ol>
+      <div class="note"><div class="h">키를 공개적으로 공유하지 마세요</div>키는 사용자 신원과 연결되어 있습니다. 스크린샷에 키 전체가 보이면 보내기 전에 가려 주세요.</div>
+      <p class="foot">앱을 활성화할 때 이 Mac의 하드웨어 식별자와 컴퓨터 이름이 라이선스 서버로 전송됩니다. 이 정보는 Mac 한 대 라이선스를 확인하는 데에만 사용됩니다. 자세한 내용은 <a href="../privacy/">개인정보 처리방침</a>을 참고하세요.</p>
+      </div>
+    </section>
+  </main>
+</div>
+</template>
+<template data-lang="hi" data-region=".hero-inner">
+<div class="hero-inner">
+    <h1 id="title">Backup OK</h1>
+    <p class="for reveal">उपयोग गाइड</p>
+    <p class="sub reveal">फ़ोटोग्राफ़रों और फ़िल्ममेकर्स के लिए मेमोरी कार्ड बैकअप टूल।<br>हर फ़ाइल को वापस पढ़कर दोबारा जाँचा जाता है।</p>
+    <div class="meta reveal">
+      <span>macOS 13.5 या बाद के संस्करण के लिए</span>
+      <span>ऐप नया है? पहले चार अध्याय क्रम से पढ़ें। इसमें लगभग 10 मिनट लगते हैं।</span>
+    </div>
+  </div>
+</template>
+<template data-lang="hi" data-region=".layout">
+<div class="layout">
+  <nav class="rail-wrap reveal" aria-label="अध्याय">
+    <ol class="rail" id="rail">
+      <span class="rail-fill" id="railFill"></span>
+      <li><a href="#install">इंस्टॉल करें</a></li>
+      <li><a href="#open">पहली बार खोलना</a></li>
+      <li><a href="#perm">अनुमतियाँ</a></li>
+      <li><a href="#key">की एक्टिवेट करें</a></li>
+      <li><a href="#first">आपका पहला बैकअप</a></li>
+      <li><a href="#features">फ़ीचर और सेटिंग्स</a></li>
+      <li><a href="#faq">आम सवाल</a></li>
+      <li><a href="#feedback">समस्या बताएँ</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <!-- 01 -->
+    <section id="install" class="block">
+      <div class="block-h"><h2>इंस्टॉल करें</h2><span class="meta">अध्याय 1</span></div>
+      <div class="block-b">
+      <p class="lede">Backup OK एक स्वतंत्र Mac ऐप है। इसे Applications फ़ोल्डर में ड्रैग करें, बस हो गया। यह आपके सिस्टम पर और कुछ इंस्टॉल नहीं करता।</p>
+      <ol class="steps">
+        <li><span class="n">1</span><div><div class="h">डाउनलोड की गई डिस्क इमेज खोलें</div><div class="d">आधिकारिक वेबसाइट से डाउनलोड की गई फ़ाइल का नाम BackupOK से शुरू होता है और .dmg पर ख़त्म होता है। इसे खोलने के लिए डबल-क्लिक करें।</div></div></li>
+        <li><span class="n">2</span><div><div class="h">ऐप को Applications फ़ोल्डर में ड्रैग करें</div><div class="d">विंडो में मौजूद Backup OK को बगल में दिए Applications शॉर्टकट पर ड्रैग करें। ऐप को सीधे डिस्क इमेज से न चलाएँ। डिस्क इमेज इजेक्ट करते ही वह ग़ायब हो जाता है।</div></div></li>
+        <li><span class="n">3</span><div><div class="h">डिस्क इमेज इजेक्ट करें</div><div class="d">Finder साइडबार में डिस्क इमेज के बगल वाले Eject बटन पर क्लिक करें। इसके बाद डाउनलोड की गई .dmg फ़ाइल डिलीट की जा सकती है।</div></div></li>
+      </ol>
+      <h3>सिस्टम आवश्यकताएँ</h3>
+      <div class="tbl"><table>
+        <tr><td>ऑपरेटिंग सिस्टम</td><td>macOS 13.5 या बाद का</td></tr>
+        <tr><td>इंटरनेट</td><td>की एक्टिवेट करने और अपडेट जाँचने के लिए ज़रूरी। उसके बाद आप ऐप को 14 दिन तक ऑफ़लाइन इस्तेमाल कर सकते हैं।</td></tr>
+        <tr><td>कार्ड रीडर</td><td>बिल्ट-इन कार्ड स्लॉट, एक्सटर्नल कार्ड रीडर, या <abbr>USB</abbr> से सीधे जुड़ा कैमरा</td></tr>
+      </table></div>
+      </div>
+    </section>
+
+    <!-- 02 -->
+    <section id="open" class="block">
+      <div class="block-h"><h2>पहली बार खोलना</h2><span class="meta">अध्याय 2</span></div>
+      <div class="block-b">
+      <p class="lede">Backup OK, Apple द्वारा नोटराइज़्ड है। पहली बार खोलने पर macOS सिर्फ़ एक बार पुष्टि माँगता है कि यह इंटरनेट से डाउनलोड किया गया ऐप है।</p>
+      <h3>आपको यह दिखेगा</h3>
+      <div class="dialog">
+        <div class="cap">macOS अलर्ट</div>
+        <div class="msg">“Backup OK” is an app downloaded from the Internet. Are you sure you want to open it?</div>
+      </div>
+      <p class="muted">“Open” पर क्लिक करें। यह संदेश दोबारा नहीं दिखेगा।</p>
+      <div class="note"><div class="h">अगर संदेश में लिखा हो कि ऐप “can’t be verified” या “malware” का ज़िक्र हो</div>आपके पास 2.2 से पहले का बीटा संस्करण है। पुराना संस्करण Trash में डालें, फिर आधिकारिक वेबसाइट से ऐप दोबारा डाउनलोड और इंस्टॉल करें। आपकी सेटिंग्स, प्रीसेट और हिस्ट्री सुरक्षित रहती हैं। ऐप खोलने के बाद बस एक बार फिर अपनी की डालें।</div>
+      </div>
+    </section>
+
+    <!-- 03 -->
+    <section id="perm" class="block">
+      <div class="block-h"><h2>अनुमतियाँ</h2><span class="meta">अध्याय 3</span></div>
+      <div class="block-b">
+      <p class="lede">पहली बार इस्तेमाल करने पर macOS एक-एक करके कई अनुमतियाँ माँगता है। सभी के लिए “Allow” चुनें। हर अनुमति किसी ख़ास काम के लिए ज़रूरी है।</p>
+      <div class="tbl"><table>
+        <tr><th>macOS क्या पूछता है</th><th>क्यों ज़रूरी है</th></tr>
+        <tr><td>नोटिफ़िकेशन भेजना</td><td>बैकअप पूरा होने, किसी फ़ाइल की जाँच फ़ेल होने या कार्ड रीड अस्थिर होने पर आपको बताने के लिए</td></tr>
+        <tr><td>रिमूवेबल वॉल्यूम की फ़ाइलें एक्सेस करना</td><td>आपके मेमोरी कार्ड का कंटेंट पढ़ने के लिए। अनुमति न देने पर कार्ड की फ़ाइलें नहीं दिखेंगी।</td></tr>
+        <tr><td>Desktop या Documents फ़ोल्डर की फ़ाइलें एक्सेस करना</td><td>बैकअप लिखने के लिए, और हर बैकअप का लॉग Documents में सेव करने के लिए</td></tr>
+        <tr><td>एक्सटर्नल ड्राइव की फ़ाइलें एक्सेस करना</td><td>सिर्फ़ तब पूछा जाता है जब आप एक्सटर्नल ड्राइव पर बैकअप लेते हैं</td></tr>
+      </table></div>
+      <h3>अगर ग़लती से “Don’t Allow” पर क्लिक हो गया</h3>
+      <p class="muted">आप किसी भी समय एक्सेस चालू कर सकते हैं। दोबारा इंस्टॉल करने की ज़रूरत नहीं है।</p>
+      <ol class="steps">
+        <li><span class="n">1</span><div><div class="h">फ़ोल्डर और रिमूवेबल वॉल्यूम</div><div class="d"><span class="path">System Settings<i>›</i>Privacy &amp; Security<i>›</i>Files and Folders<i>›</i>Backup OK</span> में जाकर संबंधित आइटम चालू करें।</div></div></li>
+        <li><span class="n">2</span><div><div class="h">नोटिफ़िकेशन</div><div class="d"><span class="path">System Settings<i>›</i>Notifications<i>›</i>Backup OK</span> में जाकर “Allow notifications” चालू करें। अलर्ट स्टाइल के लिए हम “Banners” सुझाते हैं।</div></div></li>
+        <li><span class="n">3</span><div><div class="h">ऐप दोबारा खोलें</div><div class="d">अनुमतियों में बदलाव अगली बार ऐप खोलने पर पूरी तरह लागू होते हैं।</div></div></li>
+      </ol>
+      <div class="note"><div class="h">Full Disk Access की ज़रूरत नहीं है</div>Backup OK कभी Full Disk Access नहीं माँगता। अगर कोई ट्यूटोरियल इसे चालू करने को कहे, तो न करें।</div>
+      </div>
+    </section>
+
+    <!-- 04 -->
+    <section id="key" class="block">
+      <div class="block-h"><h2>की एक्टिवेट करें</h2><span class="meta">अध्याय 4</span></div>
+      <div class="block-b">
+      <p class="lede">Backup OK का कोई सीमित संस्करण नहीं है जो बिना एक्टिवेशन चले। की डालते ही सभी फ़ीचर उपलब्ध हो जाते हैं।</p>
+      <ol class="steps">
+        <li><span class="n">1</span><div><div class="h">ऐप खोलें, “Enter license key” विंडो दिखेगी</div><div class="d">की का फ़ॉर्मैट <code>BKOK-XXXX-XXXX-XXXX-XXXX</code> होता है। आप की सीधे पेस्ट कर सकते हैं, और छोटे-बड़े अक्षरों से फ़र्क़ नहीं पड़ता।</div></div></li>
+        <li><span class="n">2</span><div><div class="h">“Activate” पर क्लिक करें</div><div class="d">इंटरनेट कनेक्शन ज़रूरी है। एक्टिवेशन सफल होने पर मुख्य विंडो दिखती है। आपकी की इस Mac के कीचेन में सुरक्षित रहती है, इसलिए दोबारा डालने की ज़रूरत नहीं।</div></div></li>
+      </ol>
+      <h3>एक की, एक Mac</h3>
+      <p class="muted">जब वही की किसी दूसरे Mac पर एक्टिवेट होती है, तो पहला Mac साइन आउट हो जाता है और उसे नोटिफ़िकेशन मिलता है कि किस Mac ने कब की एक्टिवेट की। अगर यह आपने नहीं किया, तो हमें तुरंत बताएँ। पहले से चल रहा बैकअप बीच में नहीं रुकता। ऐप उसके पूरा होने के बाद ही लॉक होता है।</p>
+      <h3>नए Mac पर जाना</h3>
+      <p class="muted">पुराने Mac पर <span class="path">Settings<i>›</i>General<i>›</i>License</span> में जाकर “Sign out this Mac” पर क्लिक करें, फिर नए Mac पर वही की डालें। आप सीधे नए Mac पर भी की डाल सकते हैं, पुराना Mac अपने-आप साइन आउट हो जाएगा।</p>
+      <h3>जब आप ऑफ़लाइन हों</h3>
+      <p class="muted">इंटरनेट से जुड़े होने पर आपका लाइसेंस अपने-आप जाँचा जाता है। सफल जाँच के बाद आप ऐप को 14 दिन तक ऑफ़लाइन इस्तेमाल कर सकते हैं, जो आउटडोर शूट या विदेश यात्रा में काम आता है। 11 दिन से ज़्यादा ऑफ़लाइन रहने पर Settings का License सेक्शन याद दिलाता है कि मौक़ा मिलते ही कनेक्ट करें।</p>
+      </div>
+    </section>
+
+    <!-- 05 -->
+    <section id="first" class="block">
+      <div class="block-h"><h2>आपका पहला बैकअप</h2><span class="meta">अध्याय 5</span></div>
+      <div class="block-b">
+      <p class="lede">कार्ड लगाएँ, सेटिंग्स देखें और “Start backup” पर क्लिक करें। बाकी काम Backup OK करता है और हर फ़ाइल की जाँच करता है।</p>
+      <ol class="steps">
+        <li><span class="n">1</span><div><div class="h">मेमोरी कार्ड लगाएँ</div><div class="d">मुख्य विंडो अभी लगाया गया कार्ड अपने-आप चुनती है, कैमरा मॉडल पहचानती है और कार्ड पर असल में मौजूद फ़ाइलों के हिसाब से <abbr>JPG</abbr>, <abbr>RAW</abbr>, Video और Audio चालू करती है। एक्सटर्नल हार्ड ड्राइव और SSD अपने-आप छिप जाते हैं।</div></div></li>
+        <li><span class="n">2</span><div><div class="h">कैमरा मॉडल जाँचें</div><div class="d">“Camera” फ़ील्ड अपने-आप भर जाती है। अपना नाम रखना हो, तो बस उसे बदल दें। बदलने के बाद उस कार्ड की सभी फ़ोटो आपके डाले गए नाम के तहत रखी जाती हैं।</div></div></li>
+        <li><span class="n">3</span><div><div class="h">बैकअप का दायरा चुनें</div><div class="d">“Whole card”, “Today” या “Last Nh” चुनें। “Last Nh” पर राइट-क्लिक करके इसे 4, 8, 12, 24 या 48 घंटे कर सकते हैं।</div></div></li>
+        <li><span class="n">4</span><div><div class="h">फ़ाइल टाइप और जगह जाँचें</div><div class="d">सिर्फ़ चालू टाइप का ही बैकअप होता है। किसी टाइप को चालू या बंद करने के लिए उस पर क्लिक करें। “Save to” डिफ़ॉल्ट रूप से Desktop पर सेट है, और उसके बगल का “⋯” बटन आपको सीधे Hierarchy सेटिंग्स में ले जाता है।</div></div></li>
+        <li><span class="n">5</span><div><div class="h">“Start backup” पर क्लिक करें</div><div class="d">Tasks विंडो में प्रगति, स्पीड और बचा हुआ समय दिखता है। कार्ड में दो या ज़्यादा टाइप की फ़ाइलें हों, तो नीचे Photos, Video और Audio की अलग-अलग प्रगति दिखती है। हर फ़ाइल लिखे जाने के बाद वापस पढ़ी जाती है और SHA-256 से मिलाई जाती है। सभी फ़ाइलें मेल खाने पर ही बैकअप पूरा होता है।</div></div></li>
+      </ol>
+      <h3>बैकअप पूरा होने पर</h3>
+      <p class="muted">मेन्यू बार का प्रतिशत एक सेकंड तक 100% पर रहता है। फिर मेन्यू बार आइकन के नीचे एक छोटी विंडो खुलती है, जिसमें फ़ाइलों की संख्या, कुल साइज़ और लगा समय दिखता है। साथ ही एक आवाज़ बजती है और नोटिफ़िकेशन भेजा जाता है। Tasks विंडो अपने-आप छिप जाती है।</p>
+      <p class="muted">अगर एक भी फ़ाइल जाँच में फ़ेल हो, तो Backup OK मेमोरी कार्ड इजेक्ट नहीं करता, और बताता है कि कितनी फ़ाइलों का दोबारा बैकअप लेना है।</p>
+      <div class="note"><div class="h">दोबारा बैकअप लेने से डुप्लिकेट नहीं बनते</div>उसी कार्ड का दोबारा बैकअप लेने पर पहले से बैकअप की गई फ़ाइलें अपने-आप छोड़ दी जाती हैं, और सिर्फ़ नई फ़ाइलें कॉपी होती हैं। अगर बैकअप बीच में रुक जाए, तो दोबारा शुरू करने पर सिर्फ़ अधूरी फ़ाइलें कॉपी होती हैं।</div>
+      </div>
+    </section>
+
+    <!-- 06 -->
+    <section id="features" class="block">
+      <div class="block-h"><h2>फ़ीचर और सेटिंग्स</h2><span class="meta">अध्याय 6</span></div>
+      <div class="block-b">
+      <p class="lede">Settings खोलने के लिए मुख्य विंडो के ऊपर दाएँ कोने में गियर आइकन पर क्लिक करें। इसमें तीन टैब हैं: General, Hierarchy और History।</p>
+      <h3>General</h3>
+      <div class="tbl"><table>
+        <tr><td>भाषा</td><td>繁體中文, English, 简体中文, 日本語, Español, Português</td></tr>
+        <tr><td>थीम</td><td>System, Light, Dark</td></tr>
+        <tr><td>बैकअप के बाद इजेक्ट</td><td>हर फ़ाइल के जाँच में पास होने के बाद ही मेमोरी कार्ड इजेक्ट होता है।</td></tr>
+        <tr><td>पूरा होने पर फ़ोल्डर खोलें</td><td>बैकअप पूरा होने पर Finder में बैकअप की जगह खोलता है।</td></tr>
+        <tr><td>पूरा होने की आवाज़</td><td>सफलता और विफलता की आवाज़ें अलग हैं। इसे चालू करने पर एक झलक सुनाई देती है।</td></tr>
+        <tr><td>कार्ड लगाने पर फ़ाइल टाइप अपने-आप चुनें</td><td>कार्ड पर असल में मौजूद फ़ाइलों के हिसाब से टाइप चालू करता है। अगर आप <abbr>JPG</abbr> और <abbr>RAW</abbr> शूट करते हैं पर बैकअप सिर्फ़ <abbr>RAW</abbr> का लेते हैं, तो इसे बंद रखने की सलाह है।</td></tr>
+        <tr><td>लाइसेंस</td><td>आपकी मौजूदा की और लाइसेंस का प्रकार, साथ में “Sign out this Mac”</td></tr>
+      </table></div>
+      <h3>Hierarchy</h3>
+      <p class="muted">यह आपके बैकअप का फ़ोल्डर स्ट्रक्चर तय करता है। ऊपरी हिस्से में इस्तेमाल हो रहे लेवल होते हैं, जो बाएँ से दाएँ क्रम में फ़ोल्डर बनाते हैं। निचले हिस्से में वे लेवल होते हैं जिन्हें आप जोड़ सकते हैं।</p>
+      <div class="tbl"><table>
+        <tr><td>उपलब्ध लेवल</td><td>तारीख़, फ़ाइल टाइप, कैमरा, कस्टम नाम</td></tr>
+        <tr><td>ड्रैग</td><td>लेवल को ऊपरी और निचले हिस्से के बीच ले जाएँ। एक लेवल को दूसरे पर छोड़ें, तो दोनों मिलकर एक लेवल बन जाते हैं। जैसे, “तारीख़ + कैमरा” बन जाता है 2026_0925_A7M4।</td></tr>
+        <tr><td>मिले हुए लेवल पर राइट-क्लिक</td><td>“Separate” या “Swap order” चुनें।</td></tr>
+        <tr><td>कस्टम नाम</td><td>पहली बार उस पर क्लिक करके नाम टाइप करें। सेव करने के लिए Return दबाएँ या कहीं और क्लिक करें, रद्द करने के लिए Esc दबाएँ। उसके बाद नाम बदलने के लिए डबल-क्लिक या राइट-क्लिक करें। लंबे नाम “…” से छोटे दिखते हैं। पूरा नाम देखने के लिए उस पर क्लिक करें।</td></tr>
+        <tr><td>कई कस्टम नाम</td><td>“Hierarchy” के बगल में “+ Custom name” पर क्लिक करके और जोड़ें, अधिकतम 5 लेवल तक। जैसे, आप “तारीख़_जगह_मॉडल” बना सकते हैं। जोड़ा गया लेवल हटाने के लिए उसके राइट-क्लिक मेन्यू का इस्तेमाल करें।</td></tr>
+        <tr><td>पाथ प्रीव्यू</td><td>एडिटर के नीचे असली फ़ोल्डर पाथ दिखता है और एडिट करते ही अपडेट होता है।</td></tr>
+        <tr><td>मुख्य फ़ोल्डर बनाएँ</td><td>चालू होने पर सभी बैकअप एक “Backup OK” फ़ोल्डर के अंदर जाते हैं। बंद होने पर वे सीधे आपकी चुनी हुई जगह में जाते हैं।</td></tr>
+      </table></div>
+      <h3>प्रीसेट</h3>
+      <p class="muted">अगर आप अलग-अलग प्रोजेक्ट के लिए अलग फ़ोल्डर स्ट्रक्चर रखते हैं, तो मौजूदा hierarchy को प्रीसेट के रूप में सेव करें, फिर अगली बार पॉप-अप मेन्यू से एक क्लिक में उस पर जाएँ। कोई प्रीसेट चुना हो, तो “Save” पर क्लिक करने से वह मौजूदा hierarchy से अपडेट हो जाता है। कोई प्रीसेट न चुना हो, तो “Save” पर क्लिक करने पर नए प्रीसेट का नाम पूछा जाता है। “⋯” मेन्यू से आप नए प्रीसेट के रूप में सेव कर सकते हैं, साथियों के साथ शेयर करने के लिए प्रीसेट को फ़ाइल में एक्सपोर्ट कर सकते हैं, किसी और का प्रीसेट इम्पोर्ट कर सकते हैं, प्रीसेट का क्रम बदल सकते हैं और उन्हें डिलीट कर सकते हैं।</p>
+      <h3>दूसरी जगह</h3>
+      <p class="muted">Hierarchy टैब में “Second destination” चालू करें, तो मुख्य विंडो में “Backup 2” पंक्ति दिखती है। कार्ड एक बार पढ़ा जाता है और एक साथ दोनों जगह लिखा जाता है। हर कॉपी की अलग जाँच होती है, और समय लगभग उतना ही लगता है। अगर दूसरी जगह धीमी एक्सटर्नल ड्राइव है, तो कुल स्पीड धीमी ड्राइव जितनी ही रहती है।</p>
+      <h3>कई कैमरों के लिए अपने-आप छँटाई</h3>
+      <p class="muted">अगर कार्ड में दो कैमरों की फ़ोटो हैं, तो वे हर कैमरा मॉडल के अलग फ़ोल्डर में अपने-आप छँट जाती हैं। यह तभी काम करता है जब कैमरा मॉडल अपने-आप पहचाना गया हो और आपकी hierarchy में “कैमरा” शामिल हो। वीडियो कैमरे के हिसाब से नहीं छाँटे जाते।</p>
+      <h3>कार्ड रीड स्थिरता</h3>
+      <p class="muted">बैकअप के दौरान रीड स्पीड लगातार मापी जाती है। अगर बार-बार साफ़ तौर पर रुकावट आए, तो आपको तुरंत नोटिफ़िकेशन मिलता है, और पूरा होने के संदेश पर “Unstable reads” लिखा आता है। ऐसा हो, तो पहले कोई दूसरा कार्ड रीडर या पोर्ट आज़माएँ। अगर उसी कार्ड के साथ यह बार-बार हो, तो कार्ड बदलने पर विचार करें।</p>
+      <h3>अपडेट</h3>
+      <p class="muted">संस्करण 2.2 से, नया संस्करण उपलब्ध होने पर ऐप आपको अपने-आप बताता है। आप मेन्यू बार में <span class="path">Backup OK<i>›</i>Check for Updates…</span> चुनकर ख़ुद भी जाँच सकते हैं। अगर बैकअप चलते समय आप इंस्टॉल पर क्लिक करें, तो ऐप सभी बैकअप पूरे होने तक रुकता है और फिर रीस्टार्ट होता है, इसलिए लिखी जा रही फ़ाइलें कभी बीच में नहीं रुकतीं।</p>
+      <h3>History</h3>
+      <p class="muted">Settings आपके पिछले 50 बैकअप का रिकॉर्ड रखता है। हर बैकअप का पूरी फ़ाइल सूची समेत विस्तृत लॉग भी <span class="path">Documents<i>›</i>Backup OK</span> में सेव होता है। उसे खोलने के लिए हिस्ट्री की पंक्ति के दाईं ओर ⓘ पर क्लिक करें। क्लाइंट को काम सौंपते समय सबूत के रूप में या बाद में जाँचने के लिए यह काम आता है।</p>
+      </div>
+    </section>
+
+    <!-- 07 -->
+    <section id="faq" class="block">
+      <div class="block-h"><h2>आम सवाल</h2><span class="meta">अध्याय 7</span></div>
+      <div class="block-b">
+      <p class="lede">ज़्यादातर समस्याएँ अनुमतियों या कार्ड पढ़ने के सेटअप से जुड़ी होती हैं।</p>
+      <div class="faq">
+        <div class="qa"><button type="button" aria-expanded="false">अपडेट के बाद ऐप फिर से की माँग रहा है<span class="pm"></span></button><div class="body"><div><p>संस्करण 2.1 या उससे पहले से 2.2 पर अपडेट करने पर आपको एक बार फिर की डालनी होती है। आपका Mac नया डिवाइस नहीं गिना जाएगा। आपकी सेटिंग्स, प्रीसेट और हिस्ट्री अपने-आप सुरक्षित रहती हैं।</p></div></div></div>
+        <div class="qa"><button type="button" aria-expanded="false">कार्ड लगाया, पर कार्ड सूची ख़ाली है<span class="pm"></span></button><div class="body"><div><p>पहले “Card” के दाईं ओर Refresh पर क्लिक करें। फिर भी कार्ड न दिखे, तो System Settings › Privacy &amp; Security › Files and Folders में जाकर देखें कि “Removable Volumes” चालू है।</p></div></div></div>
+        <div class="qa"><button type="button" aria-expanded="false">कैमरे का बिल्ट-इन <abbr>SSD</abbr> या ऑडियो रिकॉर्डर नहीं दिख रहा<span class="pm"></span></button><div class="body"><div><p>Backup OK उन डिस्क को छिपाता है जो एक्सटर्नल हार्ड ड्राइव जैसी दिखती हैं। अगर आपके डिवाइस को ग़लती से ऐसा मान लिया गया है, तो हमें उसका मॉडल, क्षमता और फ़ॉर्मैट भेजें, हम पहचान के नियम ठीक कर देंगे।</p></div></div></div>
+        <div class="qa"><button type="button" aria-expanded="false">पूरा होने का नोटिफ़िकेशन नहीं मिला<span class="pm"></span></button><div class="body"><div><p>मेन्यू बार की छोटी विंडो और पूरा होने की आवाज़ नोटिफ़िकेशन अनुमति पर निर्भर नहीं करतीं। अगर सिस्टम नोटिफ़िकेशन नहीं दिखता, तो System Settings › Notifications › Backup OK में जाकर देखें कि नोटिफ़िकेशन की अनुमति है, और अलर्ट स्टाइल Banners पर सेट करें।</p></div></div></div>
+        <div class="qa"><button type="button" aria-expanded="false">मुझे “This key is already active on another Mac” दिख रहा है<span class="pm"></span></button><div class="body"><div><p>वही की किसी दूसरे Mac पर एक्टिवेट की गई है। अगर वह आप थे, तो वापस आने के लिए इस Mac पर की फिर से डालें। अगर नहीं, तो हमसे संपर्क करें।</p></div></div></div>
+        <div class="qa"><button type="button" aria-expanded="false">मुझे “Cannot reach license server” दिख रहा है<span class="pm"></span></button><div class="body"><div><p>अपना इंटरनेट कनेक्शन जाँचें और फिर कोशिश करें। पहले से एक्टिवेट Mac ऑफ़लाइन भी 14 दिन तक सामान्य रूप से चलता है, इसलिए लोकेशन पर आपके काम पर असर नहीं पड़ेगा।</p></div></div></div>
+        <div class="qa"><button type="button" aria-expanded="false">कुछ फ़ाइलें जाँच में फ़ेल हो गईं<span class="pm"></span></button><div class="body"><div><p>मेमोरी कार्ड इजेक्ट नहीं होगा। अभी उसे फ़ॉर्मैट न करें। कोई दूसरा कार्ड रीडर लगाकर दोबारा बैकअप लें। पूरी हो चुकी फ़ाइलें अपने-आप छोड़ दी जाती हैं, और सिर्फ़ फ़ेल हुई फ़ाइलें दोबारा आज़माई जाती हैं।</p></div></div></div>
+        <div class="qa"><button type="button" aria-expanded="false">बैकअप उम्मीद से धीमा है<span class="pm"></span></button><div class="body"><div><p>स्पीड में सिर्फ़ वही फ़ाइलें गिनी जाती हैं जो असल में कॉपी हुईं। पहले से मौजूद होने के कारण छोड़ी गई फ़ाइलें शामिल नहीं होतीं। अगर यह साफ़ तौर पर धीमा है, तो सबसे आम कारण, क्रम से, हैं: कार्ड रीडर की क्षमता, <abbr>USB</abbr> हब, और जिस ड्राइव पर बैकअप हो रहा है उसकी स्पीड।</p></div></div></div>
+        <div class="qa"><button type="button" aria-expanded="false"><abbr>MXF</abbr> वीडियो पर Finder टैग नहीं लगते<span class="pm"></span></button><div class="body"><div><p><abbr>MXF</abbr> फ़ाइलों से वीडियो की अवधि नहीं पढ़ी जा सकती, इसलिए टैगिंग छोड़ दी जाती है। इससे बैकअप या जाँच पर कोई असर नहीं पड़ता।</p></div></div></div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 08 -->
+    <section id="feedback" class="block">
+      <div class="block-h"><h2>समस्या बताएँ</h2><span class="meta">अध्याय 8</span></div>
+      <div class="block-b">
+      <p class="lede"><a href="mailto:imokahhhh@gmail.com">imokahhhh@gmail.com</a> पर ईमेल करें और नीचे दी गई जानकारी साथ भेजें, ताकि हम कारण जल्दी ढूँढ सकें।</p>
+      <ol class="steps">
+        <li><span class="n">1</span><div><div class="h">एक स्क्रीनशॉट</div><div class="d">इसमें मुख्य विंडो का टाइटल बार शामिल करें, जिसमें संस्करण नंबर दिखता है।</div></div></li>
+        <li><span class="n">2</span><div><div class="h">उस बैकअप का विस्तृत लॉग</div><div class="d">इसे Settings के History टैब में ⓘ पर क्लिक करके खोलें, या Documents के “Backup OK” फ़ोल्डर में उसी समय वाली फ़ाइल ढूँढें।</div></div></li>
+        <li><span class="n">3</span><div><div class="h">आपका सेटअप</div><div class="d">आपका macOS संस्करण, कैमरा और मेमोरी कार्ड के मॉडल, कार्ड रीडर, और बैकअप इंटरनल ड्राइव पर लिया या एक्सटर्नल ड्राइव पर।</div></div></li>
+        <li><span class="n">4</span><div><div class="h">क्या हुआ, और आपको क्या उम्मीद थी</div><div class="d">एक-दो वाक्य काफ़ी हैं। समस्या दोहराने के स्टेप सबसे ज़्यादा मदद करते हैं।</div></div></li>
+      </ol>
+      <div class="note"><div class="h">कृपया अपनी की सार्वजनिक रूप से शेयर न करें</div>आपकी की एक यूज़र के रूप में आपकी पहचान से जुड़ी है। अगर स्क्रीनशॉट में पूरी की दिख रही हो, तो भेजने से पहले उसे छिपा दें।</div>
+      <p class="foot">ऐप एक्टिवेट करते समय यह Mac का हार्डवेयर आइडेंटिफ़ायर और कंप्यूटर का नाम लाइसेंस सर्वर को भेजता है। इनका इस्तेमाल सिर्फ़ एक-Mac लाइसेंस की जाँच के लिए होता है। विस्तार से जानने के लिए हमारी <a href="../privacy/">गोपनीयता नीति</a> देखें।</p>
+      </div>
+    </section>
+  </main>
+</div>
+</template>
+<template data-lang="ms" data-region=".hero-inner">
+<div class="hero-inner">
+    <h1 id="title">Backup OK</h1>
+    <p class="for reveal">Panduan pengguna</p>
+    <p class="sub reveal">Sandaran kad memori untuk jurugambar dan pembikin filem.<br>Setiap fail dibaca semula dan disahkan.</p>
+    <div class="meta reveal">
+      <span>Untuk macOS 13.5 atau lebih baharu</span>
+      <span>Baru menggunakan aplikasi ini? Baca empat bab pertama mengikut urutan. Ia mengambil masa kira-kira 10 minit.</span>
+    </div>
+  </div>
+</template>
+<template data-lang="ms" data-region=".layout">
+<div class="layout">
+  <nav class="rail-wrap reveal" aria-label="Bab">
+    <ol class="rail" id="rail">
+      <span class="rail-fill" id="railFill"></span>
+      <li><a href="#install">Pasang</a></li>
+      <li><a href="#open">Pelancaran pertama</a></li>
+      <li><a href="#perm">Kebenaran</a></li>
+      <li><a href="#key">Aktifkan kunci</a></li>
+      <li><a href="#first">Sandaran pertama</a></li>
+      <li><a href="#features">Ciri dan tetapan</a></li>
+      <li><a href="#faq">Soalan lazim</a></li>
+      <li><a href="#feedback">Laporkan masalah</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <!-- 01 -->
+    <section id="install" class="block">
+      <div class="block-h"><h2>Pasang</h2><span class="meta">Bab 1</span></div>
+      <div class="block-b">
+      <p class="lede">Backup OK ialah aplikasi Mac yang berdiri sendiri. Seret ia ke folder Applications dan selesai. Ia tidak memasang apa-apa lagi pada sistem anda.</p>
+      <ol class="steps">
+        <li><span class="n">1</span><div><div class="h">Buka imej cakera yang dimuat turun</div><div class="d">Fail yang anda muat turun dari laman web rasmi bermula dengan BackupOK dan berakhir dengan .dmg. Klik dua kali untuk membukanya.</div></div></li>
+        <li><span class="n">2</span><div><div class="h">Seret aplikasi ke folder Applications</div><div class="d">Seret Backup OK dari tetingkap ke pintasan Applications di sebelahnya. Jangan jalankan aplikasi terus dari imej cakera. Ia akan hilang sebaik sahaja anda mengeluarkan imej cakera.</div></div></li>
+        <li><span class="n">3</span><div><div class="h">Keluarkan imej cakera</div><div class="d">Dalam bar sisi Finder, klik butang Eject di sebelah imej cakera. Selepas itu, anda boleh memadam fail .dmg yang dimuat turun.</div></div></li>
+      </ol>
+      <h3>Keperluan sistem</h3>
+      <div class="tbl"><table>
+        <tr><td>Sistem pengendalian</td><td>macOS 13.5 atau lebih baharu</td></tr>
+        <tr><td>Internet</td><td>Diperlukan untuk mengaktifkan kunci dan menyemak kemas kini. Selepas itu, anda boleh menggunakan aplikasi di luar talian sehingga 14 hari.</td></tr>
+        <tr><td>Pembaca kad</td><td>Slot kad terbina dalam, pembaca kad luaran atau kamera yang disambung terus melalui <abbr>USB</abbr></td></tr>
+      </table></div>
+      </div>
+    </section>
+
+    <!-- 02 -->
+    <section id="open" class="block">
+      <div class="block-h"><h2>Pelancaran pertama</h2><span class="meta">Bab 2</span></div>
+      <div class="block-b">
+      <p class="lede">Backup OK telah dinotarikan oleh Apple. Kali pertama anda membukanya, macOS meminta anda mengesahkan sekali sahaja bahawa ia ialah aplikasi yang dimuat turun dari internet.</p>
+      <h3>Apa yang anda akan lihat</h3>
+      <div class="dialog">
+        <div class="cap">Amaran macOS</div>
+        <div class="msg">“Backup OK” is an app downloaded from the Internet. Are you sure you want to open it?</div>
+      </div>
+      <p class="muted">Klik “Open.” Anda tidak akan melihat mesej ini lagi.</p>
+      <div class="note"><div class="h">Jika anda melihat mesej bahawa aplikasi “can’t be verified” atau yang menyebut “malware”</div>Anda menggunakan versi beta sebelum 2.2. Alihkan versi lama ke Trash, kemudian muat turun dan pasang semula aplikasi dari laman web rasmi. Tetapan, pratetap dan sejarah anda dikekalkan. Hanya masukkan kunci anda sekali lagi selepas membuka aplikasi.</div>
+      </div>
+    </section>
+
+    <!-- 03 -->
+    <section id="perm" class="block">
+      <div class="block-h"><h2>Kebenaran</h2><span class="meta">Bab 3</span></div>
+      <div class="block-b">
+      <p class="lede">Kali pertama anda menggunakan aplikasi, macOS meminta beberapa kebenaran, satu demi satu. Pilih “Allow” untuk kesemuanya. Setiap satu diperlukan untuk tujuan tertentu.</p>
+      <div class="tbl"><table>
+        <tr><th>Permintaan macOS</th><th>Mengapa ia diperlukan</th></tr>
+        <tr><td>Menghantar pemberitahuan</td><td>Untuk memaklumkan anda apabila sandaran selesai, fail gagal disahkan atau bacaan kad tidak stabil</td></tr>
+        <tr><td>Mengakses fail pada volum boleh tanggal</td><td>Untuk membaca kandungan kad memori anda. Jika tidak dibenarkan, anda tidak akan melihat fail pada kad.</td></tr>
+        <tr><td>Mengakses fail dalam folder Desktop atau Documents</td><td>Untuk menulis sandaran anda, dan menyimpan log setiap sandaran dalam Documents</td></tr>
+        <tr><td>Mengakses fail pada pemacu luaran</td><td>Diminta hanya apabila anda menyandar ke pemacu luaran</td></tr>
+      </table></div>
+      <h3>Jika anda tersilap klik “Don’t Allow”</h3>
+      <p class="muted">Anda boleh menghidupkan akses pada bila-bila masa. Tidak perlu memasang semula.</p>
+      <ol class="steps">
+        <li><span class="n">1</span><div><div class="h">Folder dan volum boleh tanggal</div><div class="d">Pergi ke <span class="path">System Settings<i>›</i>Privacy &amp; Security<i>›</i>Files and Folders<i>›</i>Backup OK</span> dan hidupkan item yang berkaitan.</div></div></li>
+        <li><span class="n">2</span><div><div class="h">Pemberitahuan</div><div class="d">Pergi ke <span class="path">System Settings<i>›</i>Notifications<i>›</i>Backup OK</span> dan hidupkan “Allow notifications.” Untuk gaya amaran, kami cadangkan “Banners.”</div></div></li>
+        <li><span class="n">3</span><div><div class="h">Buka semula aplikasi</div><div class="d">Perubahan kebenaran berkuat kuasa sepenuhnya pada kali seterusnya anda membuka aplikasi.</div></div></li>
+      </ol>
+      <div class="note"><div class="h">Full Disk Access tidak diperlukan</div>Backup OK tidak pernah meminta Full Disk Access. Jika ada tutorial yang menyuruh anda menghidupkannya, jangan.</div>
+      </div>
+    </section>
+
+    <!-- 04 -->
+    <section id="key" class="block">
+      <div class="block-h"><h2>Aktifkan kunci</h2><span class="meta">Bab 4</span></div>
+      <div class="block-b">
+      <p class="lede">Backup OK tiada versi terhad yang berfungsi tanpa pengaktifan. Semua ciri tersedia sebaik sahaja anda memasukkan kunci.</p>
+      <ol class="steps">
+        <li><span class="n">1</span><div><div class="h">Buka aplikasi untuk melihat tetingkap “Enter license key”</div><div class="d">Kunci menggunakan format <code>BKOK-XXXX-XXXX-XXXX-XXXX</code>. Anda boleh menampal kunci terus, dan huruf besar atau kecil tidak penting.</div></div></li>
+        <li><span class="n">2</span><div><div class="h">Klik “Activate”</div><div class="d">Sambungan internet diperlukan. Setelah pengaktifan berjaya, tetingkap utama dipaparkan. Kunci anda disimpan dengan selamat dalam rantai kunci Mac ini, jadi anda tidak perlu memasukkannya lagi.</div></div></li>
+      </ol>
+      <h3>Satu kunci, satu Mac</h3>
+      <p class="muted">Apabila kunci yang sama diaktifkan pada Mac lain, Mac pertama didaftar keluar dan menerima pemberitahuan tentang Mac mana yang mengaktifkan kunci dan bila. Jika itu bukan anda, beritahu kami segera. Sandaran yang sedang berjalan tidak akan terganggu. Aplikasi hanya dikunci selepas ia selesai.</p>
+      <h3>Berpindah ke Mac baharu</h3>
+      <p class="muted">Pada Mac lama anda, pergi ke <span class="path">Settings<i>›</i>General<i>›</i>License</span> dan klik “Sign out this Mac,” kemudian masukkan kunci yang sama pada Mac baharu. Anda juga boleh terus memasukkan kunci pada Mac baharu, dan Mac lama akan didaftar keluar secara automatik.</p>
+      <h3>Apabila anda di luar talian</h3>
+      <p class="muted">Lesen anda disemak secara automatik setiap kali anda bersambung ke internet. Selepas semakan berjaya, anda boleh menggunakan aplikasi di luar talian selama 14 hari, sesuai untuk penggambaran di lokasi atau perjalanan ke luar negara. Setelah anda berada di luar talian lebih daripada 11 hari, bahagian License dalam Settings akan mengingatkan anda untuk bersambung apabila berpeluang.</p>
+      </div>
+    </section>
+
+    <!-- 05 -->
+    <section id="first" class="block">
+      <div class="block-h"><h2>Sandaran pertama</h2><span class="meta">Bab 5</span></div>
+      <div class="block-b">
+      <p class="lede">Masukkan kad, semak tetapan dan klik “Start backup.” Backup OK uruskan selebihnya dan sahkan setiap fail.</p>
+      <ol class="steps">
+        <li><span class="n">1</span><div><div class="h">Masukkan kad memori</div><div class="d">Tetingkap utama memilih kad yang baru dimasukkan secara automatik, mengenal pasti model kamera dan menghidupkan <abbr>JPG</abbr>, <abbr>RAW</abbr>, Video dan Audio berdasarkan fail yang benar-benar ada pada kad. Cakera keras luaran dan SSD disembunyikan secara automatik.</div></div></li>
+        <li><span class="n">2</span><div><div class="h">Semak model kamera</div><div class="d">Medan “Camera” diisi secara automatik. Untuk menggunakan nama sendiri, sunting sahaja. Selepas itu, semua foto dari kad tersebut difailkan di bawah nama yang anda masukkan.</div></div></li>
+        <li><span class="n">3</span><div><div class="h">Pilih skop sandaran</div><div class="d">Pilih “Whole card,” “Today” atau “Last Nh.” Klik kanan “Last Nh” untuk menukarnya kepada 4, 8, 12, 24 atau 48 jam.</div></div></li>
+        <li><span class="n">4</span><div><div class="h">Semak jenis fail dan destinasi</div><div class="d">Hanya jenis yang dihidupkan akan disandarkan. Klik sesuatu jenis untuk menghidupkan atau mematikannya. “Save to” ditetapkan ke Desktop secara lalai, dan butang “⋯” di sebelahnya membawa anda terus ke tetapan Hierarchy.</div></div></li>
+        <li><span class="n">5</span><div><div class="h">Klik “Start backup”</div><div class="d">Tetingkap Tasks menunjukkan kemajuan, kelajuan dan masa yang tinggal. Jika kad mengandungi dua atau lebih jenis fail, kemajuan berasingan untuk Photos, Video dan Audio dipaparkan di bawah. Setiap fail dibaca semula selepas ditulis dan dibandingkan menggunakan SHA-256. Sandaran hanya selesai apabila setiap fail sepadan.</div></div></li>
+      </ol>
+      <h3>Apabila sandaran selesai</h3>
+      <p class="muted">Peratusan dalam bar menu kekal pada 100% selama sesaat. Kemudian tetingkap kecil muncul di bawah ikon bar menu, menunjukkan bilangan fail, jumlah saiz dan tempoh. Pada masa yang sama, bunyi dimainkan dan pemberitahuan dihantar. Tetingkap Tasks disembunyikan secara automatik.</p>
+      <p class="muted">Jika satu fail pun gagal disahkan, Backup OK tidak akan mengeluarkan kad memori, dan ia memberitahu anda berapa banyak fail yang perlu disandarkan semula.</p>
+      <div class="note"><div class="h">Menyandar semula tidak akan menghasilkan pendua</div>Apabila anda menyandar kad yang sama sekali lagi, fail yang sudah disandarkan dilangkau secara automatik dan hanya fail baharu disalin. Jika sandaran terganggu separuh jalan, memulakannya semula hanya menyalin fail yang belum selesai.</div>
+      </div>
+    </section>
+
+    <!-- 06 -->
+    <section id="features" class="block">
+      <div class="block-h"><h2>Ciri dan tetapan</h2><span class="meta">Bab 6</span></div>
+      <div class="block-b">
+      <p class="lede">Klik ikon gear di penjuru kanan atas tetingkap utama untuk membuka Settings. Terdapat tiga tab: General, Hierarchy dan History.</p>
+      <h3>General</h3>
+      <div class="tbl"><table>
+        <tr><td>Bahasa</td><td>繁體中文, English, 简体中文, 日本語, Español, Português</td></tr>
+        <tr><td>Tema</td><td>System, Light, Dark</td></tr>
+        <tr><td>Keluarkan selepas sandaran</td><td>Kad memori hanya dikeluarkan selepas setiap fail lulus pengesahan.</td></tr>
+        <tr><td>Buka folder apabila selesai</td><td>Membuka destinasi dalam Finder apabila sandaran selesai.</td></tr>
+        <tr><td>Bunyi selesai</td><td>Kejayaan dan kegagalan mempunyai bunyi berbeza. Pratonton dimainkan apabila anda menghidupkannya.</td></tr>
+        <tr><td>Pilih jenis fail secara automatik apabila kad dimasukkan</td><td>Menghidupkan jenis berdasarkan fail yang benar-benar ada pada kad. Jika anda merakam <abbr>JPG</abbr> dan <abbr>RAW</abbr> tetapi hanya menyandar <abbr>RAW</abbr>, kami cadangkan matikan pilihan ini.</td></tr>
+        <tr><td>Lesen</td><td>Kunci semasa dan jenis lesen anda, serta “Sign out this Mac”</td></tr>
+      </table></div>
+      <h3>Hierarchy</h3>
+      <p class="muted">Ini menetapkan struktur folder sandaran anda. Kawasan atas mengandungi aras yang digunakan, yang mencipta folder mengikut urutan dari kiri ke kanan. Kawasan bawah mengandungi aras yang boleh anda tambah.</p>
+      <div class="tbl"><table>
+        <tr><td>Aras tersedia</td><td>Tarikh, Jenis fail, Kamera, Nama tersuai</td></tr>
+        <tr><td>Seret</td><td>Alihkan aras antara kawasan atas dan bawah. Lepaskan satu aras ke atas aras lain untuk menggabungkannya menjadi satu aras. Contohnya, “Tarikh + Kamera” menjadi 2026_0925_A7M4.</td></tr>
+        <tr><td>Klik kanan aras gabungan</td><td>Pilih “Separate” atau “Swap order.”</td></tr>
+        <tr><td>Nama tersuai</td><td>Kali pertama, klik dan taip nama. Tekan Return atau klik di tempat lain untuk menyimpan, atau tekan Esc untuk membatalkan. Selepas itu, klik dua kali atau klik kanan untuk menamakannya semula. Nama panjang dipendekkan dengan “…”. Klik untuk melihat nama penuh.</td></tr>
+        <tr><td>Beberapa nama tersuai</td><td>Klik “+ Custom name” di sebelah “Hierarchy” untuk menambah lagi, sehingga 5 aras. Contohnya, anda boleh membina “Tarikh_Lokasi_Model.” Untuk membuang aras yang ditambah, gunakan menu klik kanannya.</td></tr>
+        <tr><td>Pratonton laluan</td><td>Laluan folder sebenar dipaparkan di bawah editor dan dikemas kini semasa anda menyunting.</td></tr>
+        <tr><td>Cipta folder utama</td><td>Apabila dihidupkan, semua sandaran masuk ke dalam folder “Backup OK”. Apabila dimatikan, ia masuk terus ke lokasi yang anda pilih.</td></tr>
+      </table></div>
+      <h3>Pratetap</h3>
+      <p class="muted">Jika anda menggunakan struktur folder berbeza untuk kerja berbeza, simpan hierarki semasa sebagai pratetap, kemudian tukar kepadanya dari menu timbul dengan satu klik pada masa akan datang. Apabila pratetap dipilih, mengklik “Save” mengemas kininya dengan hierarki semasa. Apabila tiada pratetap dipilih, mengklik “Save” meminta anda menamakan pratetap baharu. Dari menu “⋯”, anda boleh menyimpan sebagai pratetap baharu, mengeksport pratetap ke fail untuk dikongsi dengan rakan kerja, mengimport pratetap orang lain, menyusun semula pratetap dan memadamnya.</p>
+      <h3>Destinasi kedua</h3>
+      <p class="muted">Hidupkan “Second destination” dalam tab Hierarchy, dan baris “Backup 2” muncul dalam tetingkap utama. Kad dibaca sekali dan ditulis ke kedua-dua lokasi serentak. Setiap salinan disahkan secara berasingan, dan masa yang diambil hampir sama. Jika lokasi kedua ialah pemacu luaran yang lebih perlahan, kelajuan keseluruhan dihadkan oleh pemacu yang lebih perlahan itu.</p>
+      <h3>Isihan automatik untuk beberapa kamera</h3>
+      <p class="muted">Jika kad mengandungi foto dari dua kamera, ia diisih secara automatik ke folder berasingan bagi setiap model kamera. Ini hanya berfungsi apabila model kamera dikesan secara automatik dan hierarki anda termasuk “Kamera.” Video tidak diisih mengikut kamera.</p>
+      <h3>Kestabilan bacaan kad</h3>
+      <p class="muted">Kelajuan baca diukur sepanjang sandaran. Jika berlaku tersekat yang ketara berulang kali, anda menerima pemberitahuan serta-merta, dan mesej selesai ditanda “Unstable reads.” Jika ini berlaku, cuba dahulu pembaca kad atau port lain. Jika ia terus berlaku dengan kad yang sama, pertimbangkan untuk menggantikan kad.</p>
+      <h3>Kemas kini</h3>
+      <p class="muted">Bermula dengan versi 2.2, aplikasi memaklumkan anda secara automatik apabila versi baharu tersedia. Anda juga boleh menyemak secara manual dari bar menu dengan memilih <span class="path">Backup OK<i>›</i>Check for Updates…</span>. Jika anda klik untuk memasang semasa sandaran sedang berjalan, aplikasi menunggu sehingga semua sandaran selesai sebelum dimulakan semula, jadi fail yang sedang ditulis tidak pernah terganggu.</p>
+      <h3>History</h3>
+      <p class="muted">Settings menyimpan rekod 50 sandaran terakhir anda. Setiap sandaran juga menyimpan log terperinci, termasuk senarai fail penuh, dalam <span class="path">Documents<i>›</i>Backup OK</span>. Klik ⓘ di sebelah kanan baris sejarah untuk membukanya. Ia berguna sebagai bukti semasa menyerahkan kerja kepada pelanggan, atau untuk semakan kemudian.</p>
+      </div>
+    </section>
+
+    <!-- 07 -->
+    <section id="faq" class="block">
+      <div class="block-h"><h2>Soalan lazim</h2><span class="meta">Bab 7</span></div>
+      <div class="block-b">
+      <p class="lede">Kebanyakan masalah berpunca daripada kebenaran atau susunan pembacaan kad.</p>
+      <div class="faq">
+        <div class="qa"><button type="button" aria-expanded="false">Aplikasi meminta kunci saya lagi selepas kemas kini<span class="pm"></span></button><div class="body"><div><p>Apabila anda mengemas kini dari versi 2.1 atau lebih awal ke 2.2, anda perlu memasukkan kunci sekali lagi. Mac anda tidak akan dikira sebagai peranti baharu. Tetapan, pratetap dan sejarah anda dikekalkan secara automatik.</p></div></div></div>
+        <div class="qa"><button type="button" aria-expanded="false">Saya sudah memasukkan kad, tetapi senarai kad kosong<span class="pm"></span></button><div class="body"><div><p>Mula-mula, klik Refresh di sebelah kanan “Card.” Jika kad masih tidak muncul, pergi ke System Settings › Privacy &amp; Security › Files and Folders dan pastikan “Removable Volumes” dihidupkan.</p></div></div></div>
+        <div class="qa"><button type="button" aria-expanded="false"><abbr>SSD</abbr> terbina dalam kamera atau perakam audio tidak muncul<span class="pm"></span></button><div class="body"><div><p>Backup OK menyembunyikan cakera yang kelihatan seperti cakera keras luaran. Jika peranti anda tersilap dikenal pasti sebagai salah satunya, hantarkan model, kapasiti dan formatnya kepada kami, dan kami akan melaraskan peraturan pengesanan.</p></div></div></div>
+        <div class="qa"><button type="button" aria-expanded="false">Saya tidak menerima pemberitahuan selesai<span class="pm"></span></button><div class="body"><div><p>Tetingkap kecil bar menu dan bunyi selesai tidak bergantung pada kebenaran pemberitahuan. Jika pemberitahuan sistem tidak muncul, pergi ke System Settings › Notifications › Backup OK, pastikan pemberitahuan dibenarkan dan tetapkan gaya amaran kepada Banners.</p></div></div></div>
+        <div class="qa"><button type="button" aria-expanded="false">Saya melihat “This key is already active on another Mac”<span class="pm"></span></button><div class="body"><div><p>Kunci yang sama telah diaktifkan pada Mac lain. Jika itu anda, masukkan kunci sekali lagi pada Mac ini untuk bertukar kembali. Jika bukan, hubungi kami.</p></div></div></div>
+        <div class="qa"><button type="button" aria-expanded="false">Saya melihat “Cannot reach license server”<span class="pm"></span></button><div class="body"><div><p>Semak sambungan internet anda dan cuba lagi. Mac yang sudah diaktifkan berfungsi seperti biasa di luar talian sehingga 14 hari, jadi ia tidak akan menjejaskan kerja anda di lokasi.</p></div></div></div>
+        <div class="qa"><button type="button" aria-expanded="false">Sesetengah fail gagal disahkan<span class="pm"></span></button><div class="body"><div><p>Kad memori tidak akan dikeluarkan. Jangan format lagi. Tukar ke pembaca kad lain dan sandarkan semula. Fail yang sudah selesai dilangkau secara automatik, dan hanya fail yang gagal dicuba semula.</p></div></div></div>
+        <div class="qa"><button type="button" aria-expanded="false">Sandaran lebih perlahan daripada jangkaan<span class="pm"></span></button><div class="body"><div><p>Kelajuan hanya mengira fail yang benar-benar disalin. Fail yang dilangkau kerana sudah wujud tidak termasuk. Jika ia ketara perlahan, punca paling biasa, mengikut urutan, ialah spesifikasi pembaca kad, hab <abbr>USB</abbr> dan kelajuan pemacu destinasi.</p></div></div></div>
+        <div class="qa"><button type="button" aria-expanded="false">Video <abbr>MXF</abbr> tidak mendapat tag Finder<span class="pm"></span></button><div class="body"><div><p>Tempoh video tidak dapat dibaca daripada fail <abbr>MXF</abbr>, jadi penandaan dilangkau. Ini tidak menjejaskan sandaran atau pengesahan.</p></div></div></div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 08 -->
+    <section id="feedback" class="block">
+      <div class="block-h"><h2>Laporkan masalah</h2><span class="meta">Bab 8</span></div>
+      <div class="block-b">
+      <p class="lede">E-mel <a href="mailto:imokahhhh@gmail.com">imokahhhh@gmail.com</a> dan sertakan maklumat di bawah untuk membantu kami mencari puncanya dengan lebih cepat.</p>
+      <ol class="steps">
+        <li><span class="n">1</span><div><div class="h">Tangkapan skrin</div><div class="d">Sertakan bar tajuk tetingkap utama, yang menunjukkan nombor versi.</div></div></li>
+        <li><span class="n">2</span><div><div class="h">Log terperinci untuk sandaran tersebut</div><div class="d">Bukanya dengan mengklik ⓘ dalam tab History di Settings, atau cari fail dengan masa yang sepadan dalam folder “Backup OK” di Documents.</div></div></li>
+        <li><span class="n">3</span><div><div class="h">Persediaan anda</div><div class="d">Versi macOS anda, model kamera dan kad memori anda, pembaca kad anda, dan sama ada anda menyandar ke pemacu dalaman atau luaran.</div></div></li>
+        <li><span class="n">4</span><div><div class="h">Apa yang berlaku, dan apa yang anda jangkakan</div><div class="d">Satu atau dua ayat sudah memadai. Langkah untuk menghasilkan semula masalah paling membantu.</div></div></li>
+      </ol>
+      <div class="note"><div class="h">Jangan kongsi kunci anda secara terbuka</div>Kunci anda terikat dengan identiti anda sebagai pengguna. Jika kunci penuh kelihatan dalam tangkapan skrin, tutupnya sebelum menghantar.</div>
+      <p class="foot">Apabila anda mengaktifkan aplikasi, ia menghantar pengecam perkakasan dan nama komputer Mac ini ke pelayan lesen. Maklumat ini hanya digunakan untuk mengesahkan lesen satu Mac. Untuk butiran, lihat <a href="../privacy/">dasar privasi</a> kami.</p>
+      </div>
+    </section>
+  </main>
+</div>
+</template>
 <script>
-// 多國語言(與首頁相同的六種語言與偵測順序:網址 ?lang= → 上次選的 → 系統語言 → 英文)
+// 多國語言(imokahhhh.com 共用的九種語言,偵測順序同 ok-i18n.js:網址 ?lang= → 上次選的 ok-lang(舊的 bk-lang 也認)→ 瀏覽器語言 → English)
 // 內文的各語言版本放在 <template data-lang data-region>,載入時換上;切換語言會重新載入頁面
 (function () {
-  var D = {"brand": ["備份都ok", "备份都ok", "Backup OK", "Backup OK", "Backup OK", "Backup OK"], "nav_manual": ["使用說明", "使用说明", "User guide", "使い方ガイド", "Guía de uso", "Guia de uso"], "nav_privacy": ["隱私權政策", "隐私政策", "Privacy", "プライバシーポリシー", "Privacidad", "Privacidade"], "dl_btn": ["下載", "下载", "Download", "ダウンロード", "Descargar", "Baixar"], "copyright": ["© 2026 備份都ok", "© 2026 备份都ok", "© 2026 Backup OK", "© 2026 Backup OK", "© 2026 Backup OK", "© 2026 Backup OK"], "lang_label": ["語言", "语言", "Language", "言語", "Idioma", "Idioma"], "title_manual": ["備份都ok 使用說明", "备份都ok 使用说明", "Backup OK User Guide", "Backup OK 使い方ガイド", "Guía de uso de Backup OK", "Guia de uso do Backup OK"], "title_privacy": ["備份都ok 隱私權政策", "备份都ok 隐私政策", "Backup OK Privacy Policy", "Backup OK プライバシーポリシー", "Política de privacidad de Backup OK", "Política de Privacidade do Backup OK"]}, PAGE = 'manual';
-  var LANGS = ['zh-Hant', 'zh-Hans', 'en', 'ja', 'es', 'pt'];
-  var NAMES = { 'zh-Hant': '繁體中文', 'zh-Hans': '简体中文', en: 'English', ja: '日本語', es: 'Español', pt: 'Português' };
-  var SHORT = { 'zh-Hant': '繁中', 'zh-Hans': '简中', en: 'EN', ja: '日本語', es: 'ES', pt: 'PT' };
+  var D = {"brand": ["備份都ok", "备份都ok", "Backup OK", "Backup OK", "Backup OK", "Backup OK", "Backup OK", "Backup OK", "Backup OK"], "nav_manual": ["使用說明", "使用说明", "User guide", "使い方ガイド", "사용 설명서", "Guía de uso", "Guia de uso", "उपयोग गाइड", "Panduan pengguna"], "nav_privacy": ["隱私權政策", "隐私政策", "Privacy", "プライバシーポリシー", "개인정보 처리방침", "Privacidad", "Privacidade", "गोपनीयता", "Privasi"], "dl_btn": ["下載", "下载", "Download", "ダウンロード", "다운로드", "Descargar", "Baixar", "डाउनलोड", "Muat turun"], "copyright": ["© 2026 備份都ok", "© 2026 备份都ok", "© 2026 Backup OK", "© 2026 Backup OK", "© 2026 Backup OK", "© 2026 Backup OK", "© 2026 Backup OK", "© 2026 Backup OK", "© 2026 Backup OK"], "lang_label": ["語言", "语言", "Language", "言語", "언어", "Idioma", "Idioma", "भाषा", "Bahasa"], "title_manual": ["備份都ok 使用說明", "备份都ok 使用说明", "Backup OK User Guide", "Backup OK 使い方ガイド", "Backup OK 사용 설명서", "Guía de uso de Backup OK", "Guia de uso do Backup OK", "Backup OK उपयोग गाइड", "Panduan Pengguna Backup OK"], "title_privacy": ["備份都ok 隱私權政策", "备份都ok 隐私政策", "Backup OK Privacy Policy", "Backup OK プライバシーポリシー", "Backup OK 개인정보 처리방침", "Política de privacidad de Backup OK", "Política de Privacidade do Backup OK", "Backup OK गोपनीयता नीति", "Dasar Privasi Backup OK"], "nav_aria": ["網站", "网站", "Site", "サイト", "사이트", "Sitio", "Site", "साइट", "Laman"], "maker": ["我都ok啊", "我都ok啊", "imokahhhh", "imokahhhh", "imokahhhh", "imokahhhh", "imokahhhh", "imokahhhh", "imokahhhh"], "desc_manual": ["備份都ok 使用說明：安裝、第一次打開、權限、啟用金鑰、第一次備份、功能與設定、常見問題與回報問題。", "备份都ok 使用说明：安装、首次打开、权限、启用密钥、首次备份、功能与设置、常见问题与反馈问题。", "Backup OK user guide: install, first launch, permissions, activating your key, your first backup, features and settings, FAQ and reporting a problem.", "Backup OK 使い方ガイド：インストール、初めて開く、アクセス権、キーのアクティベート、初めてのバックアップ、機能と設定、よくある質問、問題の報告。", "Backup OK 사용 설명서: 설치, 처음 열기, 권한, 키 활성화, 첫 백업, 기능과 설정, 자주 묻는 질문, 문제 신고.", "Guía de uso de Backup OK: instalación, abrir por primera vez, permisos, activación de la clave, primera copia, funciones y ajustes, preguntas frecuentes e informar de un problema.", "Guia de uso do Backup OK: instalação, primeira abertura, permissões, ativar a chave, primeiro backup, recursos e ajustes, perguntas frequentes e relatar um problema.", "Backup OK उपयोग गाइड: इंस्टॉल करना, पहली बार खोलना, अनुमतियाँ, की एक्टिवेट करना, पहला बैकअप, फ़ीचर और सेटिंग्स, आम सवाल और समस्या बताना।", "Panduan pengguna Backup OK: pasang, pelancaran pertama, kebenaran, aktifkan kunci, sandaran pertama, ciri dan tetapan, soalan lazim dan laporkan masalah."], "desc_privacy": ["備份都ok 的隱私權政策：照片只留在你的 Mac，只有領取金鑰、啟用授權與檢查更新時，才和伺服器交換最少的資料。", "备份都ok 的隐私政策：照片只留在你的 Mac 上，只有领取密钥、启用授权与检查更新时，才和服务器交换最少的数据。", "Backup OK privacy policy: your photos stay on your Mac. Only when you get a key, activate your license or check for updates does the app exchange minimal data with our servers.", "Backup OK プライバシーポリシー：写真はあなたの Mac の中だけに。キーの取得、ライセンスのアクティベート、アップデートの確認時にのみ、最小限のデータをサーバーとやり取りします。", "Backup OK 개인정보 처리방침: 사진은 내 Mac에만 남습니다. 키를 받을 때, 라이선스를 활성화할 때, 업데이트를 확인할 때에만 최소한의 데이터를 서버와 주고받습니다.", "Política de privacidad de Backup OK: tus fotos se quedan en tu Mac. Solo al obtener una clave, activar la licencia o buscar actualizaciones, la app intercambia datos mínimos con nuestros servidores.", "Política de Privacidade do Backup OK: suas fotos ficam só no seu Mac. Só ao obter uma chave, ativar a licença ou verificar atualizações o app troca dados mínimos com nossos servidores.", "Backup OK गोपनीयता नीति: आपकी फ़ोटो आपके Mac पर ही रहती हैं। सिर्फ़ की पाते समय, लाइसेंस एक्टिवेट करते समय या अपडेट जाँचते समय ऐप हमारे सर्वर के साथ न्यूनतम डेटा साझा करता है।", "Dasar privasi Backup OK: foto anda kekal di Mac anda. Hanya apabila anda mendapatkan kunci, mengaktifkan lesen atau menyemak kemas kini, aplikasi bertukar data minimum dengan pelayan kami."]}, PAGE = 'manual';
+  var LANGS = ['zh-Hant', 'zh-Hans', 'en', 'ja', 'ko', 'es', 'pt', 'hi', 'ms'];
+  var NAMES = { 'zh-Hant': '繁體中文', 'zh-Hans': '简体中文', en: 'English', ja: '日本語', ko: '한국어', es: 'Español', pt: 'Português', hi: 'हिन्दी', ms: 'Bahasa Melayu' };
+  var SHORT = { 'zh-Hant': '繁中', 'zh-Hans': '简中', en: 'EN', ja: '日本語', ko: '한국어', es: 'ES', pt: 'PT', hi: 'हिं', ms: 'MS' };
   function norm(t) {
     t = String(t || '').toLowerCase();
     if (t.indexOf('zh') === 0) return /hant|-tw|-hk|-mo/.test(t) ? 'zh-Hant' : 'zh-Hans';
-    return { en: 'en', ja: 'ja', es: 'es', pt: 'pt' }[t.split('-')[0]] || null;
+    var b = t.split('-')[0];
+    if (b === 'id') return 'ms';
+    return LANGS.indexOf(b) >= 0 ? b : null;
   }
   function detect() {
     var q = /[?&]lang=([\w-]+)/.exec(location.search);
     if (q) { var n = LANGS.indexOf(q[1]) >= 0 ? q[1] : norm(q[1]); if (n) return n; }
-    try { var s = localStorage.getItem('bk-lang'); if (LANGS.indexOf(s) >= 0) return s; } catch (e) {}
+    try { var s = localStorage.getItem('ok-lang') || localStorage.getItem('bk-lang'); if (LANGS.indexOf(s) >= 0) return s; } catch (e) {}
     var list = (navigator.languages && navigator.languages.length) ? navigator.languages : [navigator.language];
     for (var i = 0; i < list.length; i++) { var l = norm(list[i]); if (l) return l; }
     return 'en';
   }
   var lang = detect(), idx = LANGS.indexOf(lang);
-  function t(k) { return D[k] ? D[k][idx] : ''; }
+  function t(k) { var v = D[k]; if (!v) return ''; return v[idx] || v[2] || v[0]; }
+  window.OK = { t: t, lang: function () { return lang; }, LANGS: LANGS };
   document.documentElement.lang = lang;
   if (lang !== 'zh-Hant') {
     document.querySelectorAll('template[data-lang="' + lang + '"]').forEach(function (tp) {
@@ -1449,15 +2072,20 @@ abbr { text-decoration: none; }
   }
   document.querySelectorAll('[data-i]').forEach(function (el) { var v = t(el.getAttribute('data-i')); if (v) el.textContent = v; });
   document.title = t(PAGE === 'manual' ? 'title_manual' : 'title_privacy');
-  var cur = document.getElementById('langCur'); cur.textContent = NAMES[lang]; cur.setAttribute('data-short', SHORT[lang]);
+  document.querySelectorAll('[data-ia]').forEach(function (el) {
+    el.getAttribute('data-ia').split(';').forEach(function (pair) { var p = pair.split(':'); if (p.length === 2 && D[p[1].trim()]) el.setAttribute(p[0].trim(), t(p[1].trim())); });
+  });
+  var md = document.querySelector('meta[name="description"]'); if (md) md.setAttribute('content', t(PAGE === 'manual' ? 'desc_manual' : 'desc_privacy'));
+  var cur = document.getElementById('langCur'); cur.textContent = SHORT[lang];
   var btn = document.getElementById('langBtn'), menu = document.getElementById('langMenu');
+  btn.setAttribute('aria-label', 'Language: ' + NAMES[lang]);
   LANGS.forEach(function (l) {
     var li = document.createElement('li'); li.setAttribute('role', 'none');
     var b = document.createElement('button');
     b.type = 'button'; b.setAttribute('role', 'menuitemradio'); b.setAttribute('lang', l); b.textContent = NAMES[l];
     b.setAttribute('aria-checked', String(l === lang));
     b.addEventListener('click', function () {
-      try { localStorage.setItem('bk-lang', l); } catch (e) {}
+      try { localStorage.setItem('ok-lang', l); } catch (e) {}
       if (l === lang) { close(); return; }
       var u = location.href.replace(/([?&])lang=[\w-]+&?/, '$1').replace(/[?&]$/, '');
       location.href = u;

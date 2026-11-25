@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-sceIOt0gpxLDvytZNnuUxyoiETSsYgsc3dvZy9iKEdg='; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self' https://backupok-license.imokahhhh-backupok.workers.dev; manifest-src 'self'; media-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-sceIOt0gpxLDvytZNnuUxyoiETSsYgsc3dvZy9iKEdg=' 'sha256-Y1fQXheqpiXxMNG3WHRIhIJzIWS36d/Bq3HnqAZkkNw=' 'sha256-D3caKY73TRkcxqV2fgw47Yta+Zq5LjPKTcOZ6GLD+VQ='; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self' https://backupok-license.imokahhhh-backupok.workers.dev; manifest-src 'self'; media-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <script>if (window.top !== window.self) document.documentElement.style.display = 'none';</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -56,7 +56,8 @@
 }
 html[lang="zh-Hans"] { --font: var(--font-sc); --font-display: var(--font-sc); }
 html[lang="ja"] { --font: var(--font-ja); --font-display: var(--font-ja); }
-html[lang="en"], html[lang="es"], html[lang="pt"] { --font: var(--font-latin); }
+html[lang="en"], html[lang="es"], html[lang="pt"], html[lang="ms"] { --font: var(--font-latin); }
+html[lang="ko"] body { word-break: keep-all; overflow-wrap: break-word; }
 *, *::before, *::after { box-sizing: border-box; }
 html, body { overflow-x: clip; }
 html { -webkit-text-size-adjust: 100%; scroll-padding-top: 72px; scroll-behavior: smooth; background: var(--color-paper); }
@@ -80,24 +81,7 @@ a { color: inherit; }
 .nav a { white-space: nowrap; font-size: var(--text-xs); color: var(--color-ink-2); text-decoration: none; padding-block: var(--space-sm); border-radius: 4px; transition: color var(--dur) var(--ease); }
 .nav a:hover { color: var(--color-ink); text-decoration: underline; text-underline-offset: 0.3em; text-decoration-color: var(--color-hairline); }
 
-/* 語言選單 */
-.lang { position: relative; }
-.lang-btn { display: inline-flex; align-items: center; gap: var(--space-xs); font: inherit; font-size: var(--text-xs); color: var(--color-ink-2); background: transparent; white-space: nowrap;
-  border: 1px solid var(--color-hairline); border-radius: var(--radius-pill); min-height: 28px; padding: 0 var(--space-sm) 0 var(--space-xs); cursor: pointer; transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease); }
-.lang-btn:hover, .lang-btn[aria-expanded="true"] { color: var(--color-ink); border-color: var(--color-ink); }
-.lang-btn:active { background: var(--wash); }
-.lang-btn:disabled { color: var(--color-muted); border-color: var(--color-hairline); background: var(--wash); cursor: default; }
-.lang-ico { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.1; flex: none; }
-.lang-menu { position: absolute; right: 0; top: calc(100% + 8px); min-width: 168px; margin: 0; padding: var(--space-2xs); list-style: none; background: var(--color-card); border-radius: var(--radius-md); box-shadow: var(--shadow-lift); z-index: 40; }
-.lang-menu button { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: var(--space-md); font-size: var(--text-sm); line-height: 1.4; letter-spacing: 0;
-  color: var(--color-ink); background: transparent; border: 0; border-radius: 8px; padding: var(--space-xs) var(--space-sm); cursor: pointer; text-align: left; font-family: var(--font-latin); }
-.lang-menu button[lang="zh-Hant"] { font-family: var(--font-tc); }
-.lang-menu button[lang="zh-Hans"] { font-family: var(--font-sc); }
-.lang-menu button[lang="ja"] { font-family: var(--font-ja); }
-.lang-menu button:hover { background: var(--wash); }
-.lang-menu button:focus-visible { background: var(--wash); outline: 2px solid var(--color-focus); outline-offset: -2px; }
-.lang-menu button:active { background: var(--wash-2); }
-.lang-menu button[aria-checked="true"]::after { content: ""; width: 9px; height: 5px; margin-top: calc(var(--space-2xs) * -1); border-left: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(-45deg); }
+/* 語言選單:imokahhhh.com 共用樣式 ok-i18n.css(在本段樣式最後) */
 
 /* 膠囊按鈕：1px ink 外框，滑上去變 ink 底 */
 .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 40px; padding: 0 var(--space-lg); border-radius: var(--radius-pill); border: 1px solid var(--color-ink); color: var(--color-ink); background: transparent; font: inherit; font-size: var(--text-sm); font-weight: 500; text-decoration: none; cursor: pointer; white-space: nowrap;
@@ -139,8 +123,6 @@ body > main { flex: 1 0 auto; }
   .nav { gap: var(--space-md); }
   .nav > a { display: none; }
   .brand small { display: none; }
-  .lang-cur { font-size: 0; }
-  .lang-cur::after { content: attr(data-short); font-size: var(--text-xs); }
   .doc { padding-block: var(--space-2xl) var(--space-lg); }
   .doc h1 { font-size: var(--text-xl); }
   .doc .lede { font-size: var(--text-md); }
@@ -148,29 +130,151 @@ body > main { flex: 1 0 auto; }
 }
 @media (max-width: 60rem) { :root { --gutter: 22px; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; } }
+/* ok-i18n:start */
+/* ok-i18n：語言選單與各語言字體。顏色、圓角、陰影全部走頁面自己的 token。 */
+:root {
+  --font-lang-tc: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", sans-serif;
+  --font-lang-sc: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", sans-serif;
+  --font-lang-ja: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif;
+  --font-lang-ko: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  --font-lang-hi: -apple-system, BlinkMacSystemFont, "Kohinoor Devanagari", "Noto Sans Devanagari", sans-serif;
+}
+:root:lang(zh-Hans) { --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Helvetica Neue", "Noto Sans SC", "Microsoft YaHei", sans-serif; --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", "Helvetica Neue", "Noto Sans SC", "Microsoft YaHei", sans-serif; }
+:root:lang(ja) { --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif; --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif; }
+:root:lang(ko) { --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif; --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif; }
+:root:lang(hi) { --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Kohinoor Devanagari", "Noto Sans Devanagari", "Nirmala UI", sans-serif; --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Kohinoor Devanagari", "Noto Sans Devanagari", "Nirmala UI", sans-serif; }
+:root:lang(hi) body, :root:lang(ko) body, :root:lang(ja) body { letter-spacing: 0; }
+:root:lang(en), :root:lang(es), :root:lang(pt), :root:lang(ms), :root:lang(hi) { word-break: normal; overflow-wrap: break-word; }
+
+.lang { position: relative; flex: none; }
+.lang-btn { display: inline-flex; align-items: center; gap: var(--space-xs, 8px); height: 32px; padding: 0 var(--space-sm, 12px) 0 var(--space-xs, 8px); font: inherit; font-size: var(--text-xs, 12px); color: var(--color-ink-2); background: transparent; border: 1px solid var(--color-hairline); border-radius: var(--radius-pill, 9999px); cursor: pointer; white-space: nowrap; transition: color var(--dur, 240ms) var(--ease), border-color var(--dur, 240ms) var(--ease), background-color var(--dur, 240ms) var(--ease); }
+.lang-btn svg { width: 14px; height: 14px; flex: none; }
+.lang-btn:hover, .lang-btn[aria-expanded="true"] { color: var(--color-ink); border-color: var(--color-ink); }
+.lang-btn:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; transition: none; }
+.lang-btn:active { background: var(--color-band); }
+.lang-menu { position: absolute; right: 0; top: calc(100% + 8px); z-index: 30; min-width: 176px; max-height: min(70dvh, 420px); overflow-y: auto; margin: 0; padding: var(--space-xs, 8px); list-style: none; background: var(--color-card); border-radius: var(--radius-md, 14px); box-shadow: var(--shadow-lift); }
+.lang-menu[hidden] { display: none; }
+.lang-menu button { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: var(--space-md, 16px); padding: var(--space-xs, 8px) var(--space-sm, 12px); font: inherit; font-size: var(--text-sm, 14px); line-height: 1.35; letter-spacing: 0; color: var(--color-ink); background: transparent; border: 0; border-radius: 9px; cursor: pointer; text-align: left; }
+.lang-menu button[lang="zh-Hant"] { font-family: var(--font-lang-tc); }
+.lang-menu button[lang="zh-Hans"] { font-family: var(--font-lang-sc); }
+.lang-menu button[lang="ja"] { font-family: var(--font-lang-ja); }
+.lang-menu button[lang="ko"] { font-family: var(--font-lang-ko); }
+.lang-menu button[lang="hi"] { font-family: var(--font-lang-hi); }
+.lang-menu button:hover { background: var(--color-band); }
+.lang-menu button:focus-visible { outline: 2px solid var(--color-focus); outline-offset: -2px; }
+.lang-menu button[aria-checked="true"]::after { content: ""; width: 9px; height: 5px; transform-origin: center; border-left: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: translateY(-2px) rotate(-45deg); }
+@media (prefers-reduced-motion: reduce) { .lang-btn { transition: none; } }
+/* ok-i18n:end */
 </style>
 </head>
 <body>
 <header class="topbar">
   <div class="container topbar-in">
-    <a class="brand" href="/backup-ok/"><span data-i="brand">備份都ok</span><small>我都ok啊</small></a>
-    <nav class="nav" aria-label="網站"><a href="/backup-ok/manual/">使用說明</a><a href="/backup-ok/privacy/">隱私權政策</a></nav>
+    <a class="brand" href="/backup-ok/"><span data-i="brand">備份都ok</span><small data-i="maker">我都ok啊</small></a>
+    <nav class="nav" aria-label="網站" data-ia="aria-label:nav_aria"><a href="/backup-ok/manual/" data-i="nav_manual">使用說明</a><a href="/backup-ok/privacy/" data-i="nav_privacy">隱私權政策</a><div class="lang" id="lang">
+  <button type="button" class="lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false" aria-controls="langMenu" aria-label="Language"><svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="8" cy="8" r="6.3"/><path d="M1.7 8h12.6M8 1.7c1.8 1.7 2.7 3.8 2.7 6.3S9.8 12.6 8 14.3M8 1.7C6.2 3.4 5.3 5.5 5.3 8s.9 4.6 2.7 6.3"/></svg><span id="langCur">繁中</span></button>
+  <ul class="lang-menu" id="langMenu" role="menu" aria-label="Language" hidden></ul>
+</div></nav>
   </div>
 </header>
 <main class="container">
   <article class="doc">
-    <h1>這裡沒有東西</h1>
-    <p class="lede">你要找的頁面不存在，可能已經搬走了。</p>
-    <p class="meta"><span>找不到頁面</span><span>404</span></p>
-    <div class="act"><a class="btn" href="/backup-ok/">回到首頁</a></div>
+    <h1 data-i="nf_title">這裡沒有東西</h1>
+    <p class="lede" data-i="nf_lede">你要找的頁面不存在，可能已經搬走了。</p>
+    <p class="meta"><span data-i="nf_h">找不到頁面</span><span>404</span></p>
+    <div class="act"><a class="btn" href="/backup-ok/" data-i="nf_home">回到首頁</a></div>
   </article>
 
 </main>
 <footer class="foot"><div class="container">
-    <a href="/backup-ok/">下載</a>
-    <a href="/backup-ok/manual/">使用說明</a>
-    <a href="/backup-ok/privacy/">隱私權政策</a>
-    <span>© 2026 備份都ok</span>
+    <a href="/backup-ok/" data-i="dl_btn">下載</a>
+    <a href="/backup-ok/manual/" data-i="nav_manual">使用說明</a>
+    <a href="/backup-ok/privacy/" data-i="nav_privacy">隱私權政策</a>
+    <span data-i="copyright">© 2026 備份都ok</span>
 </div></footer>
+<script>window.OK_I18N = {"_title":["找不到頁面 · 備份都ok","找不到页面 · 备份都ok","Page not found · Backup OK","ページが見つかりません · Backup OK","페이지를 찾을 수 없음 · Backup OK","Página no encontrada · Backup OK","Página não encontrada · Backup OK","पेज नहीं मिला · Backup OK","Halaman tidak ditemui · Backup OK"],"brand":["備份都ok","备份都ok","Backup OK","Backup OK","Backup OK","Backup OK","Backup OK","Backup OK","Backup OK"],"nav_manual":["使用說明","使用说明","User guide","使い方ガイド","사용 설명서","Guía de uso","Guia de uso","उपयोग गाइड","Panduan pengguna"],"nav_privacy":["隱私權政策","隐私政策","Privacy","プライバシーポリシー","개인정보 처리방침","Privacidad","Privacidade","गोपनीयता","Privasi"],"nf_h":["找不到頁面","找不到页面","Page not found","ページが見つかりません","페이지를 찾을 수 없음","Página no encontrada","Página não encontrada","पेज नहीं मिला","Halaman tidak ditemui"],"nf_title":["這裡沒有東西","这里什么都没有","Nothing here","ここには何もありません","여기에는 아무것도 없어요","Aquí no hay nada","Não há nada aqui","यहाँ कुछ नहीं है","Tiada apa-apa di sini"],"nf_lede":["你要找的頁面不存在，可能已經搬走了。","你要找的页面不存在，可能已经移走了。","The page you’re looking for doesn’t exist. It may have moved.","お探しのページは存在しません。移動した可能性があります。","찾으시는 페이지가 없습니다. 다른 곳으로 옮겨졌을 수 있습니다.","La página que buscas no existe. Puede que se haya movido.","A página que você procura não existe. Talvez tenha mudado de lugar.","आप जो पेज ढूँढ रहे हैं, वह मौजूद नहीं है। हो सकता है वह कहीं और चला गया हो।","Halaman yang anda cari tidak wujud. Mungkin ia telah dipindahkan."],"nf_home":["回到首頁","返回首页","Back to home","ホームに戻る","홈으로 돌아가기","Volver al inicio","Voltar ao início","होम पर वापस जाएँ","Kembali ke laman utama"],"dl_btn":["下載","下载","Download","ダウンロード","다운로드","Descargar","Baixar","डाउनलोड","Muat turun"],"copyright":["© 2026 備份都ok","© 2026 备份都ok","© 2026 Backup OK","© 2026 Backup OK","© 2026 Backup OK","© 2026 Backup OK","© 2026 Backup OK","© 2026 Backup OK","© 2026 Backup OK"],"_desc":["備份都ok：找不到這個頁面，可以回到首頁、使用說明或隱私權政策。","备份都ok：找不到这个页面，可以返回首页、使用说明或隐私政策。","Backup OK: this page can’t be found. Go back to the home page, the user guide or the privacy policy.","Backup OK：このページは見つかりません。ホーム、使い方ガイド、プライバシーポリシーに戻れます。","Backup OK: 이 페이지를 찾을 수 없습니다. 홈, 사용 설명서 또는 개인정보 처리방침으로 돌아가세요.","Backup OK: no se encuentra esta página. Vuelve al inicio, a la guía de uso o a la política de privacidad.","Backup OK: esta página não foi encontrada. Volte ao início, ao guia de uso ou à política de privacidade.","Backup OK: यह पेज नहीं मिला। होम पेज, उपयोग गाइड या गोपनीयता नीति पर वापस जाएँ।","Backup OK: halaman ini tidak ditemui. Kembali ke laman utama, panduan pengguna atau dasar privasi."],"nav_aria":["網站","网站","Site","サイト","사이트","Sitio","Site","साइट","Laman"],"maker":["我都ok啊","我都ok啊","imokahhhh","imokahhhh","imokahhhh","imokahhhh","imokahhhh","imokahhhh","imokahhhh"]};</script>
+<script>// ok-i18n: imokahhhh.com 共用多國語言。順序 = 網址 ?lang= → 使用者上次選的（全站共用 ok-lang）→ 瀏覽器語言 → English
+// 用法：頁面先放一段 inline script 設定 window.OK_I18N = { key: [9 個語言] }（順序同 LANGS），再放這支程式。
+// 標記：data-i="key"（換 textContent；key 以 ! 結尾換 innerHTML）、data-ia="aria-label:key;title:key2"（換屬性）。
+// 特殊 key：_title（document.title）、_desc（meta description）。
+(function () {
+  var D = window.OK_I18N || {};
+  var LANGS = ['zh-Hant', 'zh-Hans', 'en', 'ja', 'ko', 'es', 'pt', 'hi', 'ms'];
+  var NAMES = { 'zh-Hant': '繁體中文', 'zh-Hans': '简体中文', en: 'English', ja: '日本語', ko: '한국어', es: 'Español', pt: 'Português', hi: 'हिन्दी', ms: 'Bahasa Melayu' };
+  var SHORT = { 'zh-Hant': '繁中', 'zh-Hans': '简中', en: 'EN', ja: '日本語', ko: '한국어', es: 'ES', pt: 'PT', hi: 'हिं', ms: 'MS' };
+  var cur = 'zh-Hant';
+  function norm(t) {
+    t = String(t || '').toLowerCase();
+    if (t.indexOf('zh') === 0) return /hant|-tw|-hk|-mo/.test(t) ? 'zh-Hant' : 'zh-Hans';
+    var b = t.split('-')[0];
+    if (b === 'id') return 'ms';
+    return LANGS.indexOf(b) >= 0 ? b : null;
+  }
+  function detect() {
+    var q = /[?&]lang=([\w-]+)/.exec(location.search);
+    if (q) { var n = LANGS.indexOf(q[1]) >= 0 ? q[1] : norm(q[1]); if (n) return n; }
+    try {
+      var saved = localStorage.getItem('ok-lang') || localStorage.getItem('bk-lang');
+      if (LANGS.indexOf(saved) >= 0) return saved;
+    } catch (e) {}
+    var list = (navigator.languages && navigator.languages.length) ? navigator.languages : [navigator.language];
+    for (var i = 0; i < list.length; i++) { var l = norm(list[i]); if (l) return l; }
+    return 'en';
+  }
+  function t(key, lang) {
+    var v = D[key]; if (!v) return '';
+    var s = v[LANGS.indexOf(lang || cur)];
+    return s == null || s === '' ? (v[2] || v[0]) : s;   // 缺翻譯時退回英文，再退回繁中
+  }
+  function fmt(s, vars) { return String(s).replace(/\{(\w+)\}/g, function (m, k) { return vars && k in vars ? vars[k] : m; }); }
+  function apply(lang) {
+    cur = lang;
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i]').forEach(function (el) {
+      var k = el.getAttribute('data-i'), v = t(k);
+      if (!v) return;
+      if (k.slice(-1) === '!') el.innerHTML = v; else el.textContent = v;
+    });
+    document.querySelectorAll('[data-ia]').forEach(function (el) {
+      el.getAttribute('data-ia').split(';').forEach(function (pair) {
+        var p = pair.split(':'); if (p.length === 2 && D[p[1]]) el.setAttribute(p[0].trim(), t(p[1].trim()));
+      });
+    });
+    if (D._title) document.title = t('_title');
+    var md = document.querySelector('meta[name="description"]'); if (md && D._desc) md.setAttribute('content', t('_desc'));
+    var c = document.getElementById('langCur'); if (c) { c.textContent = SHORT[lang]; }
+    var b = document.getElementById('langBtn'); if (b) b.setAttribute('aria-label', 'Language: ' + NAMES[lang]);
+    document.querySelectorAll('#langMenu [role="menuitemradio"]').forEach(function (x) { x.setAttribute('aria-checked', String(x.getAttribute('lang') === lang)); });
+    document.dispatchEvent(new CustomEvent('ok:lang', { detail: lang }));
+  }
+  window.OK = { t: t, fmt: fmt, lang: function () { return cur; }, apply: apply, LANGS: LANGS };
+
+  // 語言選單：地球圖示 + 簡稱，點開是各語言的原文名稱
+  var btn = document.getElementById('langBtn'), menu = document.getElementById('langMenu'), wrap = document.getElementById('lang');
+  if (btn && menu && wrap) {
+    LANGS.forEach(function (l) {
+      var li = document.createElement('li'); li.setAttribute('role', 'none');
+      var x = document.createElement('button');
+      x.type = 'button'; x.setAttribute('role', 'menuitemradio'); x.setAttribute('lang', l); x.textContent = NAMES[l];
+      x.addEventListener('click', function () {
+        try { localStorage.setItem('ok-lang', l); } catch (e) {}
+        close(); apply(l); btn.focus();
+      });
+      li.appendChild(x); menu.appendChild(li);
+    });
+    var open = function () { menu.hidden = false; btn.setAttribute('aria-expanded', 'true'); var c = menu.querySelector('[aria-checked="true"]') || menu.querySelector('button'); c.focus(); };
+    var close = function () { menu.hidden = true; btn.setAttribute('aria-expanded', 'false'); };
+    btn.addEventListener('click', function () { if (menu.hidden) open(); else close(); });
+    document.addEventListener('click', function (e) { if (!menu.hidden && !wrap.contains(e.target)) close(); });
+    menu.addEventListener('keydown', function (e) {
+      var items = Array.prototype.slice.call(menu.querySelectorAll('button')), i = items.indexOf(document.activeElement);
+      if (e.key === 'Escape') { close(); btn.focus(); }
+      else if (e.key === 'ArrowDown') { e.preventDefault(); items[(i + 1) % items.length].focus(); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); items[(i - 1 + items.length) % items.length].focus(); }
+    });
+  }
+  apply(detect());
+})();
+</script>
 </body>
 </html>
