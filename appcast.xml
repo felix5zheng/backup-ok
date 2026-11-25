@@ -5,7 +5,7 @@
         <item>
             <title>2.5.5</title>
             <pubDate>Wed, 04 Nov 2026 21:35:23 +0800</pubDate>
-            <link>https://felix5zheng.github.io/backup-ok</link>
+            <link>https://imokahhhh.com/backup-ok</link>
             <sparkle:version>30</sparkle:version>
             <sparkle:shortVersionString>2.5.5</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>13.5</sparkle:minimumSystemVersion>
@@ -18,12 +18,12 @@
   <li>修正設定裡「歷史紀錄」與「調整順序」清單在系統一律顯示捲軸時的版面衝突。</li>
 </ul>
 ]]></description>
-            <enclosure url="https://felix5zheng.github.io/backup-ok/downloads/BackupOK-2.5.5.dmg" length="2331005" type="application/octet-stream" sparkle:edSignature="8zDAdGXHW961yG8CNjSj/zPcmqUdrTNj6HRCSQ/WFvs+O0v+KVNcMb3LVzOzR4nH6Mg4cWvz6V8tRDlr1TudCw=="/>
+            <enclosure url="https://imokahhhh.com/backup-ok/downloads/BackupOK-2.5.5.dmg" length="2331005" type="application/octet-stream" sparkle:edSignature="8zDAdGXHW961yG8CNjSj/zPcmqUdrTNj6HRCSQ/WFvs+O0v+KVNcMb3LVzOzR4nH6Mg4cWvz6V8tRDlr1TudCw=="/>
         </item>
         <item>
             <title>2.5.4</title>
             <pubDate>Tue, 03 Nov 2026 22:03:49 +0800</pubDate>
-            <link>https://felix5zheng.github.io/backup-ok</link>
+            <link>https://imokahhhh.com/backup-ok</link>
             <sparkle:version>29</sparkle:version>
             <sparkle:shortVersionString>2.5.4</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>13.5</sparkle:minimumSystemVersion>
@@ -33,12 +33,12 @@
   <li>有新版本的浮窗點一下,就會回到 App 並打開更新視窗。</li>
 </ul>
 ]]></description>
-            <enclosure url="https://felix5zheng.github.io/backup-ok/downloads/BackupOK-2.5.4.dmg" length="2332085" type="application/octet-stream" sparkle:edSignature="EZTa/K3pa+pplSrR7eqKuBnj5VZy3IIcfVmigl4DXh8+D9QaOFfcjgriSEhpQ3P+wdRUhAIY8j7UafuOcXAcBA=="/>
+            <enclosure url="https://imokahhhh.com/backup-ok/downloads/BackupOK-2.5.4.dmg" length="2332085" type="application/octet-stream" sparkle:edSignature="EZTa/K3pa+pplSrR7eqKuBnj5VZy3IIcfVmigl4DXh8+D9QaOFfcjgriSEhpQ3P+wdRUhAIY8j7UafuOcXAcBA=="/>
         </item>
         <item>
             <title>2.5.3</title>
             <pubDate>Mon, 02 Nov 2026 15:57:05 +0800</pubDate>
-            <link>https://felix5zheng.github.io/backup-ok</link>
+            <link>https://imokahhhh.com/backup-ok</link>
             <sparkle:version>28</sparkle:version>
             <sparkle:shortVersionString>2.5.3</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>13.5</sparkle:minimumSystemVersion>
@@ -48,7 +48,7 @@
 </ul>
 <p>更新後 Dock 圖示若還是舊的,把 App 從 Dock 移除再加回來即可(系統會快取圖示)。</p>
 ]]></description>
-            <enclosure url="https://felix5zheng.github.io/backup-ok/downloads/BackupOK-2.5.3.dmg" length="2288265" type="application/octet-stream" sparkle:edSignature="yeHrvDQfZvREeJZOe3Z7ILV1POFX4BQwsfAjdodS9pARo2QqydHT5zHV6BseCyz5XkC6Mr0ApDfmw3jjWCDYCA=="/>
+            <enclosure url="https://imokahhhh.com/backup-ok/downloads/BackupOK-2.5.3.dmg" length="2288265" type="application/octet-stream" sparkle:edSignature="yeHrvDQfZvREeJZOe3Z7ILV1POFX4BQwsfAjdodS9pARo2QqydHT5zHV6BseCyz5XkC6Mr0ApDfmw3jjWCDYCA=="/>
         </item>
     </channel>
 </rss>

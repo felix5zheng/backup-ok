@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-sceIOt0gpxLDvytZNnuUxyoiETSsYgsc3dvZy9iKEdg=' 'sha256-/x7W7R75k8Roq0WaVRQX9blP4OufE5xbAdzklGxsgpw=' 'sha256-inNrl2z0i2Tlh5imiiJIf0tImDxIJLvbmEkmCpOky1k=' 'sha256-Zf2uxy6dvGVExQkQHxrlIu6aaSRg+XnBO4Bq3XpeHxU='; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self' https://backupok-license.imokahhhh-backupok.workers.dev; manifest-src 'self'; media-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-sceIOt0gpxLDvytZNnuUxyoiETSsYgsc3dvZy9iKEdg=' 'sha256-/x7W7R75k8Roq0WaVRQX9blP4OufE5xbAdzklGxsgpw=' 'sha256-qYYc1SbWEtHuTorMQbOv7fYFCHPWI45OpJ3YHgho2rw=' 'sha256-xBY0rwrMwHgKKi5disnngceDOD+4kAXSHfq93BzZrxk='; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self' https://backupok-license.imokahhhh-backupok.workers.dev; manifest-src 'self'; media-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <script>if (window.top !== window.self) document.documentElement.style.display = 'none';</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -12,178 +12,256 @@
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <meta name="description" content="給影像工作者的記憶卡備份工具。每一個檔案，都讀回來再確認一次。">
 <style>
+/* Hallmark · shape: Index-First product page · genre: editorial · theme: custom (imokahhhh style) · redesign: full · job: try (download a Mac app) · idea: "a card backup you can trust, shown working" · vibe: "warm paper, quiet type, the app doing its job"
+ * paper: oklch(97.2% 0.006 82) · accent: oklch(19% 0.024 52) · display: system (SF Pro Display, PingFang) · body: system (SF Pro Text, PingFang) · hero: head and download on columns 1 to 5, the backup flow on 6 to 12 · nav: a frosted bar, the app name, two quiet links and the language menu · footer: a band with the policy links · imagery: the product, drawn as the app's own windows · signature: the backup flow played out in the app's own windows, card in, files read back, card out
+ * axes: light/system-sans/warm · posture: restrained · contrast: pass · fold: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H5 E4 S5 R4 V4 · weakest: P, a utility argues little; the six working scenes carry the page instead of claims */
+/* Hallmark · waive 1 · the display face is the system face · the owner asked for Apple system type on every imokahhhh page, same as imokahhhh.com and the send-ok page */
+/* Hallmark · waive 29 · .topbar uses --nav-glass with saturate and blur · the frosted bar is the imokahhhh chrome shared with the home page, the gallery and send-ok */
+/* Hallmark · waive 3 · .feats holds six product scenes, not icon tiles · the six backup scenes are the same size on purpose so they compare */
+/* Hallmark · waive 24b · the feature scenes are miniatures of the backup app's own windows · their 9px and 11px insets copy the app at scale; page chrome uses the 4px scale */
+/* Hallmark · waive 39b · buttons stand 40px · the imokahhhh button is a 40px ink capsule by the owner's spec, the same on the send-ok page */
+/* Hallmark · waive 78 · section heads render 40px under the 72px app name · imokahhhh sets section heads at 40px on every page, send-ok included */
+/* Hallmark · waive 59 · sections sit 28px apart in one column · the backup page follows the send-ok page's rhythm so the imokahhhh apps read alike */
+/* Hallmark · waive 77 · the test-key form and the install steps sit side by side as two half-width panels · send-ok pairs its release notes and permissions the same way, so the apps read alike */
+/* Hallmark · dropped favicon-64.png, the 20px icon beside the name in the bar, · send-ok's bar carries the app name alone */
+/* Hallmark · dismissed 41 · --sc-d-bg is the app's own dark window colour inside the feature scenes, never a label colour on the page */
 :root {
-  --paper: #F4F4F1; --block: #FBFBF9; --ink: #1D1D1B; --ink-2: #5A5A52; --mute: #8E8E86;
-  --line: rgba(29,29,27,.15); --line-strong: rgba(29,29,27,.32); --ai: #44617B;
-  --font: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
-  --mono: ui-monospace, "SF Mono", Menlo, monospace;
-  --ease-out: cubic-bezier(.22, 1, .36, 1);
-  --ease-spring: cubic-bezier(.34, 1.4, .64, 1);
+  color-scheme: light;
+  --color-paper: oklch(97.2% 0.006 82);
+  --color-band: oklch(93.6% 0.011 76);
+  --color-card: oklch(99% 0.004 82);
+  --color-tile: oklch(90.5% 0.013 74);
+  --color-ink: oklch(19% 0.024 52);
+  --color-ink-2: oklch(31% 0.018 54);
+  --color-muted: oklch(46% 0.014 60);
+  --color-hairline: oklch(83% 0.011 70);
+  --color-focus: var(--color-ink);
+  --color-err: oklch(45% 0.13 33);
+  --nav-glass: oklch(97.2% 0.006 82 / 0.8);
+  --wash: oklch(19% 0.024 52 / 0.04);
+  --wash-2: oklch(19% 0.024 52 / 0.07);
+  --selection: oklch(19% 0.024 52 / 0.12);
+  --ring: 0 0 0 1px oklch(19% 0.024 52 / 0.05);
+  --shadow-lift: 0 0 0 1px oklch(19% 0.024 52 / 0.06), 0 14px 30px -18px oklch(19% 0.024 52 / 0.35);
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang TC", "Helvetica Neue", "Noto Sans TC", Arial, sans-serif;
+  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang TC", "Helvetica Neue", "Noto Sans TC", Arial, sans-serif;
+  --font-latin: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  --font-tc: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang TC", "Noto Sans TC", sans-serif;
+  --font-sc: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Noto Sans SC", sans-serif;
+  --font-ja: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Hiragino Sans", "Noto Sans JP", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace; --mono: var(--font-mono);
+  --text-xs: 12px; --text-sm: 14px; --text-md: 17px; --text-lg: 21px; --text-xl: 28px; --text-2xl: 40px; --text-display: clamp(44px, 7vw, 72px);
+  --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 20px; --space-xl: 28px; --space-2xl: 52px; --space-3xl: 90px;
+  --radius-xl: 28px; --radius-lg: 20px; --radius-md: 14px; --radius-pill: 9999px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1); --dur: 240ms; --dur-long: 480ms;
+  --container: 1200px; --gutter: 40px; --bar-h: 52px;
+  /* the names the scenes below already use */
+  --paper: var(--color-paper); --block: var(--color-card); --ink: var(--color-ink); --ink-2: var(--color-ink-2); --mute: var(--color-muted);
+  --line: var(--color-hairline); --line-strong: var(--color-hairline); --ai: var(--color-ink);
+  --ease-out: var(--ease); --ease-spring: var(--ease);
+  /* the backup app's own interface colours, for the scenes (dark) */
+  --sc-d-bg: #1C1A19; --sc-d-grid: rgba(236,227,210,.055); --sc-d-glow: rgba(162,83,71,.34);
+  --sc-d-win1: #2F2C2A; --sc-d-win2: #262321; --sc-d-edge: rgba(236,227,210,.1); --sc-d-shadow: rgba(0,0,0,.42);
+  --sc-d-noti1: #3A3633; --sc-d-noti2: #2E2A28;
+  --sc-d-tx: #F5F0E8; --sc-d-tx2: rgba(245,240,232,.62); --sc-d-tx3: rgba(245,240,232,.36);
+  --sc-d-track: rgba(236,227,210,.13); --sc-d-solid: rgba(236,227,210,.2); --sc-d-zone: rgba(236,227,210,.06);
+  --sc-d-ctl: #2E2A28; --sc-d-ctlB: rgba(236,227,210,.16); --sc-d-selB: rgba(236,227,210,.62); --sc-d-selF: #3A3532;
+  --sc-d-pri: #A25347; --sc-d-priT: #D08072; --sc-d-priTint: rgba(162,83,71,.24);
+  --sc-d-ver: var(--sc-d-contacts); --sc-d-verT: #CCAF72; --sc-d-verTint: rgba(194,157,88,.16); --sc-d-verLine: rgba(194,157,88,.34);
+  --sc-d-ok: #85B5AC; --sc-d-okTint: rgba(133,181,172,.15); --sc-d-okLine: rgba(133,181,172,.34); --sc-d-okFill: rgba(133,181,172,.62);
+  --sc-d-sdBody: #F5F0E8; --sc-d-contacts: var(--sc-d-contacts);
+  --sc-d-toastSh: rgba(0,0,0,.32); --sc-d-input: #141211; --sc-d-card2: rgba(236,227,210,.05); --sc-d-onPri: #FFF8F0;
+  /* (light) */
+  --sc-l-bg: #F3EFE8; --sc-l-grid: rgba(46,42,40,.075); --sc-l-glow: rgba(162,83,71,.15);
+  --sc-l-win: #FFFEFB; --sc-l-edge: rgba(46,42,40,.09); --sc-l-paper-edge: #ECE5DA; --sc-l-shadow: rgba(46,42,40,.08);
+  --sc-l-tx: #2E2A28; --sc-l-tx2: rgba(46,42,40,.62); --sc-l-tx3: rgba(46,42,40,.4);
+  --sc-l-track: rgba(46,42,40,.09); --sc-l-solid: rgba(46,42,40,.13); --sc-l-zone: rgba(46,42,40,.05);
+  --sc-l-ctlB: rgba(46,42,40,.15); --sc-l-selB: rgba(46,42,40,.55); --sc-l-selF: #F6F2EB;
+  --sc-l-priT: #8C4639; --sc-l-priTint: rgba(162,83,71,.1);
+  --sc-l-ver: #B28F49; --sc-l-verT: #7C5F23; --sc-l-verTint: rgba(178,143,73,.14); --sc-l-verLine: rgba(178,143,73,.38);
+  --sc-l-ok: #39655F; --sc-l-okTint: rgba(57,101,95,.1); --sc-l-okLine: rgba(57,101,95,.3); --sc-l-okFill: rgba(57,101,95,.5);
+  --sc-l-sdLine: rgba(46,42,40,.5); --sc-l-input: #FFFFFF; --sc-l-onPri: #FFFDF8;
+  --sc-contacts-on: rgba(255,255,255,.5); --sc-drop: rgba(0,0,0,.35); --sc-lift: var(--sc-lift);
+  --sc-cursor-fill: #FFFFFF; --sc-cursor-line: #111111;
 }
-* { box-sizing: border-box; }
-/* 字體跟 App 一樣用系統字:中文蘋方、日文冬青黑體、西文 San Francisco */
-html[lang="zh-Hans"] { --font: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; }
-html[lang="ja"] { --font: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif; }
-html[lang="en"], html[lang="es"], html[lang="pt"] { --font: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Roboto, Arial, sans-serif; }
-html:is([lang="en"], [lang="es"], [lang="pt"]) :is(body, .top, .for, .sub, .pill, .ghost, .block-h h2, .block-h .meta, .hero-dl .k, .hero-dl .muted, .kv dt, .feat .h, .core-h, .steps b, .field label, .field input, .msg, footer) { letter-spacing: 0; }
-html { scroll-behavior: smooth; background: var(--paper); }
-body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--font); font-weight: 400;
-  font-size: 15px; line-height: 1.75; letter-spacing: .02em; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
-  padding-bottom: env(safe-area-inset-bottom, 0px); }
-h1, h2, h3, b, strong { font-weight: 600; }
+html[lang="zh-Hans"] { --font: var(--font-sc); --font-display: var(--font-sc); }
+html[lang="ja"] { --font: var(--font-ja); --font-display: var(--font-ja); }
+html[lang="en"], html[lang="es"], html[lang="pt"] { --font: var(--font-latin); }
+*, *::before, *::after { box-sizing: border-box; }
+html, body { overflow-x: clip; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 72px; scroll-behavior: smooth; background: var(--color-paper); }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink-2); font-family: var(--font); font-size: var(--text-md); line-height: 1.47; letter-spacing: -0.016em; -webkit-font-smoothing: antialiased; touch-action: manipulation; }
+h1, h2, h3 { margin: 0; font-family: var(--font-display); color: var(--color-ink); font-weight: 600; overflow-wrap: break-word; min-width: 0; text-wrap: balance; }
+p { margin: 0; text-wrap: pretty; }
+b, strong { font-weight: 600; color: var(--color-ink); }
 a { color: inherit; }
-::selection { background: rgba(68,97,123,.18); }
-:focus-visible { outline: 1px solid var(--ink); outline-offset: 3px; border-radius: 2px; }
-
-/* 頂欄 */
-.top { position: sticky; top: 0; z-index: 20; height: 50px; display: flex; justify-content: space-between; align-items: center;
-  padding: 0 20px; padding-top: env(safe-area-inset-top, 0px); border-bottom: 1px solid var(--line-strong);
-  background: rgba(244,244,241,.82); -webkit-backdrop-filter: saturate(160%) blur(18px); backdrop-filter: saturate(160%) blur(18px);
-  font-size: 14px; letter-spacing: .05em; }
-.brand { display: inline-flex; align-items: center; gap: 9px; text-decoration: none; color: inherit; }
-.brand img { width: 20px; height: 20px; display: block; }
-.top nav { display: flex; align-items: center; gap: 20px; }
-/* 語言切換 */
-.lang { position: relative; }
-.lang-btn { display: inline-flex; align-items: center; gap: 6px; font: inherit; font-size: 13px; color: var(--ink-2); background: transparent;
-  border: 1px solid var(--line-strong); border-radius: 999px; padding: 3px 11px 3px 8px; cursor: pointer; transition: color .3s, border-color .3s; }
-.lang-btn:hover, .lang-btn[aria-expanded="true"] { color: var(--ink); border-color: rgba(29,29,27,.55); }
-.lang-ico { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.1; flex: none; }
-.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-.lang-menu { position: absolute; right: 0; top: calc(100% + 8px); min-width: 168px; margin: 0; padding: 5px; list-style: none; background: var(--block);
-  border: 1px solid var(--line-strong); border-radius: 10px; box-shadow: 0 14px 34px rgba(29,29,27,.14); z-index: 30; }
-.lang-menu button { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 14px; font-size: 14px; line-height: 1.4; letter-spacing: 0;
-  color: var(--ink); background: transparent; border: 0; border-radius: 6px; padding: 7px 10px; cursor: pointer; text-align: left; font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif; }
-.lang-menu button[lang="zh-Hant"] { font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", sans-serif; }
-.lang-menu button[lang="zh-Hans"] { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", sans-serif; }
-.lang-menu button[lang="ja"] { font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif; }
-.lang-menu button:hover, .lang-menu button:focus-visible { background: rgba(29,29,27,.06); outline: none; }
-.lang-menu button[aria-checked="true"]::after { content: ""; width: 9px; height: 5px; margin-top: -3px; border-left: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(-45deg); }
-.top nav a { text-decoration: none; color: var(--ink-2); transition: color .3s; }
-.top nav a:hover { color: var(--ink); }
-.top .brand, .top nav a, .lang-btn { white-space: nowrap; }
-.top .brand, .top .lang { flex: none; }
-@media (max-width: 440px) { .top { padding-left: 16px; padding-right: 16px; } .top nav a[href="privacy/"] { display: none; } }
+[hidden] { display: none !important; }
+::selection { background: var(--selection); }
+:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
+.container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 html[lang="ja"] .hero .sub, html[lang^="zh"] .hero .sub { word-break: keep-all; }
 
-.wrap { max-width: 1120px; margin: 0 auto; padding: 16px 20px 0; display: flex; flex-direction: column; gap: 14px; }
+/* 導覽列 */
+.topbar { position: sticky; top: 0; z-index: 30; background: var(--nav-glass); -webkit-backdrop-filter: saturate(160%) blur(20px); backdrop-filter: saturate(160%) blur(20px); box-shadow: 0 1px 0 var(--color-hairline); padding-top: env(safe-area-inset-top, 0px); }
+.topbar-in { display: flex; align-items: center; justify-content: space-between; gap: var(--space-lg); min-height: var(--bar-h); }
+.brand { display: flex; align-items: baseline; gap: var(--space-sm); text-decoration: none; color: var(--color-ink); font-family: var(--font-display); font-size: 19px; font-weight: 600; letter-spacing: 0.012em; white-space: nowrap; border-radius: 6px; }
+.brand small { font-size: var(--text-xs); font-weight: 400; letter-spacing: 0; color: var(--color-muted); }
+.nav { display: flex; align-items: center; gap: var(--space-lg); }
+.nav a { white-space: nowrap; font-size: var(--text-xs); color: var(--color-ink-2); text-decoration: none; padding-block: var(--space-sm); border-radius: 4px; transition: color var(--dur) var(--ease); }
+.nav a:hover { color: var(--color-ink); text-decoration: underline; text-underline-offset: 0.3em; text-decoration-color: var(--color-hairline); }
 
-/* 區塊 */
-.block { background: var(--block); border: 1px solid var(--line-strong); border-radius: 12px; overflow: hidden; }
-.block-h { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 9px 18px;
-  border-bottom: 1px solid var(--line-strong); background: rgba(29,29,27,.025); }
-.block-h h2 { margin: 0; font-size: 15px; letter-spacing: .06em; }
-.block-h .meta { font-size: 12px; color: var(--mute); letter-spacing: .04em; }
-.block-b { padding: 16px 18px 18px; }
-.pair { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 14px; align-items: stretch; }
+/* 語言選單 */
+.lang { position: relative; }
+.lang-btn { display: inline-flex; align-items: center; gap: var(--space-xs); font: inherit; font-size: var(--text-xs); color: var(--color-ink-2); background: transparent; white-space: nowrap;
+  border: 1px solid var(--color-hairline); border-radius: var(--radius-pill); min-height: 28px; padding: 0 var(--space-sm) 0 var(--space-xs); cursor: pointer; transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease); }
+.lang-btn:hover, .lang-btn[aria-expanded="true"] { color: var(--color-ink); border-color: var(--color-ink); }
+.lang-btn:active { background: var(--wash); }
+.lang-btn:disabled { color: var(--color-muted); border-color: var(--color-hairline); background: var(--wash); cursor: default; }
+.lang-ico { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.1; flex: none; }
+.lang-menu { position: absolute; right: 0; top: calc(100% + 8px); min-width: 168px; margin: 0; padding: var(--space-2xs); list-style: none; background: var(--color-card); border-radius: var(--radius-md); box-shadow: var(--shadow-lift); z-index: 40; }
+.lang-menu button { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: var(--space-md); font-size: var(--text-sm); line-height: 1.4; letter-spacing: 0;
+  color: var(--color-ink); background: transparent; border: 0; border-radius: 8px; padding: var(--space-xs) var(--space-sm); cursor: pointer; text-align: left; font-family: var(--font-latin); }
+.lang-menu button[lang="zh-Hant"] { font-family: var(--font-tc); }
+.lang-menu button[lang="zh-Hans"] { font-family: var(--font-sc); }
+.lang-menu button[lang="ja"] { font-family: var(--font-ja); }
+.lang-menu button:hover { background: var(--wash); }
+.lang-menu button:focus-visible { background: var(--wash); outline: 2px solid var(--color-focus); outline-offset: -2px; }
+.lang-menu button:active { background: var(--wash-2); }
+.lang-menu button[aria-checked="true"]::after { content: ""; width: 9px; height: 5px; margin-top: calc(var(--space-2xs) * -1); border-left: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(-45deg); }
 
-/* 開場 */
-.hero { display: grid; grid-template-columns: minmax(0, 1fr) 300px; }
-.hero-main { padding: 34px 34px 32px; }
-.app-icon { display: block; width: 64px; height: 64px; margin: 0 0 22px; opacity: 0; filter: blur(6px); transform: translateY(8px); animation: iconIn .9s var(--ease-out) .1s forwards; }
-@keyframes iconIn { to { opacity: 1; filter: none; transform: none; } }
-.hero .for { font-size: 13px; color: var(--ink-2); letter-spacing: .08em; margin: 0 0 12px; }
-.hero h1 { font-size: clamp(52px, 8vw, 92px); line-height: 1.04; letter-spacing: -.02em; margin: 0 0 18px; }
-.hero .sub { font-size: clamp(16px, 1.8vw, 19px); color: var(--ink-2); letter-spacing: .05em; line-height: 1.75; margin: 0; }
-.ch { display: inline-block; }
-.hero-dl { border-left: 1px solid var(--line-strong); padding: 22px 22px 22px; display: flex; flex-direction: column; background: rgba(29,29,27,.018); }
-.hero-dl .k { font-size: 12px; color: var(--mute); letter-spacing: .1em; }
-.hero-dl .ver { font-size: 44px; font-weight: 300; line-height: 1.1; letter-spacing: -.01em; margin: 2px 0 12px; font-variant-numeric: tabular-nums; }
-.kv { display: grid; grid-template-columns: minmax(70px, max-content) minmax(0, 1fr); margin: 0 0 16px; font-size: 13px; border-top: 1px solid var(--line); }
-.kv dt, .kv dd { margin: 0; padding: 6px 0; border-bottom: 1px solid var(--line); }
-.kv dt { color: var(--mute); letter-spacing: .06em; padding-right: 12px; }
-.kv dd { color: var(--ink); }
-.hero-dl .muted { font-size: 12px; color: var(--mute); margin-top: 8px; letter-spacing: .04em; }
-
-/* 按鈕 */
-.pill { font-family: var(--font); font-weight: 500; font-size: 15px; letter-spacing: .06em; text-align: center; text-decoration: none; display: inline-block;
-  color: var(--paper); background: var(--ink); border: 0; border-radius: 999px; padding: 10px 28px; cursor: pointer;
-  transition: transform .35s var(--ease-spring), background .3s, opacity .3s; }
-.pill:hover { background: #2C2C29; }
-.pill:active { transform: scale(.96); }
-.pill[aria-disabled="true"] { background: transparent; color: var(--mute); border: 1px solid var(--line-strong); pointer-events: none; }
-.pill.line { background: transparent; color: var(--ink); border: 2px solid var(--ink); padding: 8px 26px; }
-.pill.line:hover { background: rgba(29,29,27,.06); }
-.pill.line[aria-disabled="true"] { color: var(--mute); border: 2px solid var(--line-strong); background: transparent; }
-.ghost { font-family: var(--font); font-weight: 400; font-size: 13px; letter-spacing: .04em; color: var(--ink);
-  background: transparent; border: 1px solid var(--line-strong); border-radius: 999px; padding: 5px 16px; min-width: 84px; cursor: pointer;
-  transition: transform .3s var(--ease-spring), border-color .25s, background .25s; }
-.ghost:hover { border-color: rgba(29,29,27,.55); background: rgba(29,29,27,.05); }
-.ghost:active { transform: scale(.96); }
+/* 膠囊按鈕：1px ink 外框，滑上去變 ink 底 */
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 40px; padding: 0 var(--space-lg); border-radius: var(--radius-pill); border: 1px solid var(--color-ink); color: var(--color-ink); background: transparent; font: inherit; font-size: var(--text-sm); font-weight: 500; text-decoration: none; cursor: pointer; white-space: nowrap;
+  transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease); }
+.btn:hover { background: var(--color-ink); color: var(--color-paper); }
+.btn:active { opacity: 0.85; }
+.btn[aria-disabled="true"] { border-color: var(--color-hairline); color: var(--color-muted); pointer-events: none; }
+.btn:disabled { border-color: var(--color-hairline); color: var(--color-muted); background: transparent; cursor: default; }
 .swap-t { display: inline-block; transition: opacity .28s, filter .28s, transform .28s; }
-.swap-t.out { opacity: 0; filter: blur(6px); transform: translateY(5px); }
+.js .swap-t.out { opacity: 0; filter: blur(6px); transform: translateY(5px); }
 
-/* 領取 */
-.lede { color: var(--ink-2); font-size: 14.5px; margin: 0 0 14px; }
-.claim { display: flex; gap: 14px; align-items: flex-end; flex-wrap: wrap; }
-.field { flex: 1 1 240px; min-width: 0; }
-.field label { display: block; font-size: 12px; color: var(--mute); letter-spacing: .1em; margin-bottom: 2px; }
-.field input { width: 100%; border: 0; border-bottom: 1px solid var(--line-strong); background: transparent;
-  font-family: var(--font); font-weight: 400; font-size: 17px; letter-spacing: .02em; color: var(--ink);
-  padding: 6px 0 8px; border-radius: 0; outline: none; transition: border-color .3s; }
-.field input:focus { border-bottom-color: var(--ink); }
-.field input::placeholder { color: var(--mute); }
+/* 頁尾 */
+.foot { margin-top: var(--space-2xl); background: var(--color-band); border-top: 1px solid var(--color-hairline); }
+.foot .container { display: flex; flex-wrap: wrap; gap: var(--space-sm) var(--space-xl); padding-block: var(--space-lg) calc(var(--space-xl) + env(safe-area-inset-bottom, 0px)); font-size: var(--text-xs); color: var(--color-muted); }
+.foot a { color: var(--color-ink-2); text-decoration: none; border-radius: 3px; }
+.foot a:hover { color: var(--color-ink); text-decoration: underline; }
+
+section { padding-block: var(--space-xl); }
+.sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-md); margin-bottom: var(--space-lg); }
+.sec-head h2 { font-size: var(--text-2xl); line-height: 1.05; letter-spacing: -0.015em; }
+.sec-head span { font-size: var(--text-sm); color: var(--color-muted); }
+
+/* 開場：左邊名稱與下載，右邊備份流程示範 */
+.hero { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--space-2xl); align-items: center; padding-block: var(--space-3xl) var(--space-2xl); }
+.hero .app-icon { display: block; width: 64px; height: 64px; border-radius: var(--radius-md); }
+.js .hero .app-icon { opacity: 0; filter: blur(6px); transform: translateY(8px); animation: iconIn .9s var(--ease) .1s forwards; }
+@keyframes iconIn { to { opacity: 1; filter: none; transform: none; } }
+.hero h1 { margin-top: var(--space-lg); font-size: var(--text-display); line-height: 1.04; letter-spacing: -0.022em; }
+.hero .lede { margin-top: var(--space-md); font-size: var(--text-lg); line-height: 1.38; color: var(--color-ink-2); max-width: 28ch; }
+.hero .sub { margin-top: var(--space-sm); font-size: var(--text-md); line-height: 1.55; color: var(--color-muted); }
+.hero .act { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-md); margin-top: var(--space-xl); }
+.hero .req { display: flex; flex-wrap: wrap; gap: 0 var(--space-sm); font-size: var(--text-sm); color: var(--color-muted); }
+.hero .sc-core { height: 360px; border-radius: var(--radius-xl); }
+.ch { display: inline-block; }
+
+/* 插卡，按下開始：三步跟著上面的示範亮起來 */
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-lg); counter-reset: st; }
+.steps li { counter-increment: st; display: flex; flex-direction: column; gap: var(--space-2xs); padding: var(--space-lg); border-radius: var(--radius-lg); background: var(--color-card); box-shadow: var(--ring); min-width: 0; color: var(--color-ink-2); transition: box-shadow var(--dur-long) var(--ease); }
+.steps li::before { content: counter(st); font-family: var(--font-display); font-size: var(--text-xl); font-weight: 600; line-height: 1; color: var(--color-muted); transition: color var(--dur-long) var(--ease); }
+.steps b { margin-top: var(--space-xs); font-size: var(--text-lg); line-height: 1.2; }
+.steps span { font-size: var(--text-sm); line-height: 1.5; }
+body:has(.sc-core.s1) .st1::before, body:has(.sc-core.s6) .st2::before, body:has(.sc-core.s8) .st3::before { color: var(--color-ink); }
+body:has(.sc-core.s6) .st1::before, body:has(.sc-core.s8) .st2::before { color: var(--color-muted); }
+body:has(.sc-core.s1) .st1, body:has(.sc-core.s6) .st2, body:has(.sc-core.s8) .st3 { box-shadow: var(--shadow-lift); }
+body:has(.sc-core.s6) .st1, body:has(.sc-core.s8) .st2 { box-shadow: var(--ring); }
+
+/* 六個功能，各配一段 App 自己的畫面 */
+.feats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-lg); }
+.feat { display: flex; flex-direction: column; gap: var(--space-sm); padding: var(--space-lg); border-radius: var(--radius-lg); background: var(--color-card); box-shadow: var(--ring); min-width: 0; }
+.feat .h { margin-top: var(--space-xs); font-family: var(--font-display); font-size: var(--text-lg); font-weight: 600; line-height: 1.2; color: var(--color-ink); }
+.feat .d { font-size: var(--text-sm); line-height: 1.5; }
+.feat-ind { display: none; }
+
+/* 領取測試金鑰與開始使用 */
+.pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-lg); align-items: start; }
+.panel { padding: var(--space-xl); border-radius: var(--radius-xl); background: var(--color-band); min-width: 0; }
+.panel .ph2 { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-sm); margin-bottom: var(--space-md); }
+.panel h2 { font-size: var(--text-xl); line-height: 1.15; }
+.panel .ph2 span { font-size: var(--text-sm); color: var(--color-muted); white-space: nowrap; }
+.plede { margin-bottom: var(--space-md); }
+.claim { display: flex; gap: var(--space-md); align-items: flex-end; flex-wrap: wrap; }
+.field { flex: 1 1 220px; min-width: 0; }
+.field label { display: block; font-size: var(--text-xs); color: var(--color-muted); margin-bottom: var(--space-2xs); }
+.field input { width: 100%; min-height: 40px; border: 0; border-bottom: 1px solid var(--color-muted); background: transparent; font-family: var(--font); font-size: var(--text-md); color: var(--color-ink); padding: var(--space-xs) 0; border-radius: 0; outline: none; transition: border-color var(--dur) var(--ease); }
+.field input::placeholder { color: var(--color-muted); }
+.field input:hover { border-bottom-color: var(--color-ink-2); }
+.field input:focus-visible { border-bottom-color: var(--color-ink); outline: 2px solid var(--color-focus); outline-offset: 3px; }
+.field input:disabled { color: var(--color-muted); }
+.field input[aria-invalid="true"] { border-bottom-color: var(--color-err); }
 .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-.msg { min-height: 22px; margin-top: 10px; font-size: 13.5px; color: var(--ink-2); letter-spacing: .03em; }
-.msg.err { color: #8A3B2E; }
-.result { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .6s var(--ease-out); }
+.msg { min-height: 22px; margin-top: var(--space-sm); font-size: var(--text-sm); color: var(--color-ink-2); }
+.msg.err { color: var(--color-err); }
+.result { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .6s var(--ease); }
 .result.on { grid-template-rows: 1fr; }
 .result > div { overflow: hidden; }
-.result .inner { padding-top: 10px; opacity: 0; filter: blur(6px); transform: translateY(6px);
-  transition: opacity .6s .1s var(--ease-out), filter .6s .1s var(--ease-out), transform .6s .1s var(--ease-out); }
+.result .inner { padding-top: var(--space-sm); }
+.js .result .inner { opacity: 0; filter: blur(6px); transform: translateY(6px); transition: opacity .6s .1s var(--ease), filter .6s .1s var(--ease), transform .6s .1s var(--ease); }
 .result.on .inner { opacity: 1; filter: blur(0); transform: none; }
-.keyrow { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; border: 1px dashed var(--line-strong); border-radius: 8px; padding: 10px 14px; }
-.keyrow code { flex: 1 1 auto; font-family: var(--mono); font-size: clamp(15px, 2vw, 18px); letter-spacing: .05em; color: var(--ink); word-break: break-all; }
-.note { border-left: 2px solid var(--ai); padding: 1px 0 1px 12px; margin: 14px 0 0; color: var(--ink-2); font-size: 13px; line-height: 1.7; }
-
-/* 開始使用 */
+.keyrow { display: flex; align-items: center; gap: var(--space-md); flex-wrap: wrap; padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md); background: var(--color-card); box-shadow: var(--ring); }
+.keyrow code { flex: 1 1 auto; font-family: var(--font-mono); font-size: clamp(15px, 2vw, 18px); color: var(--color-ink); word-break: break-all; }
+.note { margin-top: var(--space-md); padding: var(--space-md) var(--space-lg); border-radius: var(--radius-md); background: var(--color-card); box-shadow: var(--ring); font-size: var(--text-sm); line-height: 1.55; }
 .next { list-style: none; margin: 0; padding: 0; counter-reset: s; }
-.next li { counter-increment: s; display: grid; grid-template-columns: 30px minmax(0, 1fr); padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 14px; color: var(--ink-2); }
-.next li:first-child { padding-top: 0; }
-.next li:last-child { border-bottom: 0; padding-bottom: 0; }
-.next li::before { content: counter(s); color: var(--ink); font-size: 17px; line-height: 1.5; }
-.next b { color: var(--ink); }
+.next li { counter-increment: s; display: grid; grid-template-columns: 32px minmax(0, 1fr); padding-block: var(--space-sm); border-top: 1px solid var(--color-hairline); font-size: var(--text-sm); line-height: 1.55; }
+.next li:first-child { border-top: 0; padding-top: 0; }
+.next li::before { content: counter(s); color: var(--color-ink); font-weight: 600; font-size: var(--text-md); line-height: 1.3; }
+.next a { color: var(--color-ink); text-decoration: underline; text-decoration-color: var(--color-hairline); text-underline-offset: 0.25em; border-radius: 3px; }
+.next a:hover { text-decoration-color: var(--color-ink); }
 
-/* 特色 */
-.feats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.feat { padding: 14px 14px 16px; border-bottom: 1px solid var(--line); min-width: 0; }
-.feat:not(:nth-child(3n+1)) { border-left: 1px solid var(--line); }
-.feat:nth-last-child(-n+3) { border-bottom: 0; }
-.feat .h { font-size: 15.5px; font-weight: 600; letter-spacing: .02em; margin: 13px 4px 4px; }
-.feat .d { color: var(--ink-2); font-size: 13.5px; line-height: 1.7; margin: 0 4px; }
-.feat-ind { display: none; }
+/* 結尾的下載 */
+.again { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-lg) var(--space-xl); padding: var(--space-xl); border-radius: var(--radius-xl); background: var(--color-card); box-shadow: var(--ring); }
+.again .who { display: flex; align-items: center; gap: var(--space-md); min-width: 0; }
+.again img { width: 48px; height: 48px; border-radius: 11px; flex: none; }
+.again h2 { font-size: var(--text-lg); line-height: 1.2; }
+.again .who p { font-size: var(--text-sm); color: var(--color-muted); }
+.kv { display: grid; grid-template-columns: repeat(4, max-content); gap: var(--space-2xs) var(--space-xl); margin: 0; font-size: var(--text-sm); }
+.kv div { min-width: 0; }
+.kv dt { color: var(--color-muted); font-size: var(--text-xs); }
+.kv dd { margin: 0; color: var(--color-ink); min-height: 1.47em; font-variant-numeric: tabular-nums; }
+.again .act { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-2xs); }
+.again .act small { font-size: var(--text-xs); color: var(--color-muted); }
 
 /* 特色小動畫:用 App 自己的深色介面畫成迷你示意(配色取自 App 色系表) */
 .scene {
-  --bg: #1C1A19; --grid: rgba(236,227,210,.055); --glow: rgba(162,83,71,.34);
-  --win: linear-gradient(165deg, #2F2C2A, #262321); --edge: rgba(236,227,210,.1); --shadow: 0 12px 26px rgba(0,0,0,.42);
-  --noti: linear-gradient(165deg, #3A3633, #2E2A28);
-  --tx: #F5F0E8; --tx2: rgba(245,240,232,.62); --tx3: rgba(245,240,232,.36);
-  --track: rgba(236,227,210,.13); --solid: rgba(236,227,210,.2); --zone: rgba(236,227,210,.06);
-  --ctl: #2E2A28; --ctlB: rgba(236,227,210,.16); --selB: rgba(236,227,210,.62); --selF: #3A3532;
-  --pri: #A25347; --priT: #D08072; --priTint: rgba(162,83,71,.24);
-  --ver: #C29D58; --verT: #CCAF72; --verTint: rgba(194,157,88,.16); --verLine: rgba(194,157,88,.34);
-  --ok: #85B5AC; --okTint: rgba(133,181,172,.15); --okLine: rgba(133,181,172,.34); --okFill: rgba(133,181,172,.62);
-  --sdBody: #F5F0E8; --sdLine: transparent; --contacts: #C29D58;
-  --toastSh: 0 6px 14px rgba(0,0,0,.32); --input: #141211; --card2: rgba(236,227,210,.05); --onPri: #FFF8F0;
-  position: relative; height: 170px; border-radius: 8px; background: var(--bg); overflow: hidden; isolation: isolate;
+  --bg: var(--sc-d-bg); --grid: var(--sc-d-grid); --glow: var(--sc-d-glow);
+  --win: linear-gradient(165deg, var(--sc-d-win1), var(--sc-d-win2)); --edge: var(--sc-d-edge); --shadow: 0 12px 26px var(--sc-d-shadow);
+  --noti: linear-gradient(165deg, var(--sc-d-noti1), var(--sc-d-noti2));
+  --tx: var(--sc-d-tx); --tx2: var(--sc-d-tx2); --tx3: var(--sc-d-tx3);
+  --track: var(--sc-d-track); --solid: var(--sc-d-solid); --zone: var(--sc-d-zone);
+  --ctl: var(--sc-d-ctl); --ctlB: var(--sc-d-ctlB); --selB: var(--sc-d-selB); --selF: var(--sc-d-selF);
+  --pri: var(--sc-d-pri); --priT: var(--sc-d-priT); --priTint: var(--sc-d-priTint);
+  --ver: var(--sc-d-ver); --verT: var(--sc-d-verT); --verTint: var(--sc-d-verTint); --verLine: var(--sc-d-verLine);
+  --ok: var(--sc-d-ok); --okTint: var(--sc-d-okTint); --okLine: var(--sc-d-okLine); --okFill: var(--sc-d-okFill);
+  --sdBody: var(--sc-d-sdBody); --sdLine: transparent; --contacts: var(--sc-d-contacts);
+  --toastSh: 0 6px 14px var(--sc-d-toastSh); --input: var(--sc-d-input); --card2: var(--sc-d-card2); --onPri: var(--sc-d-onPri);
+  position: relative; height: 170px; border-radius: var(--radius-md); background: var(--bg); overflow: hidden; isolation: isolate;
   font-family: var(--font);
   font-weight: 400; font-size: 11px; line-height: 1.3; letter-spacing: .01em; color: var(--tx);
 }
 @media (prefers-color-scheme: light) {
 .scene {
-  --bg: #F3EFE8; --grid: rgba(46,42,40,.075); --glow: rgba(162,83,71,.15);
-  --win: #FFFEFB; --edge: rgba(46,42,40,.09); --shadow: 0 1px 0 #ECE5DA, 0 8px 20px rgba(46,42,40,.08);
-  --noti: #FFFEFB;
-  --tx: #2E2A28; --tx2: rgba(46,42,40,.62); --tx3: rgba(46,42,40,.4);
-  --track: rgba(46,42,40,.09); --solid: rgba(46,42,40,.13); --zone: rgba(46,42,40,.05);
-  --ctl: #FFFEFB; --ctlB: rgba(46,42,40,.15); --selB: rgba(46,42,40,.55); --selF: #F6F2EB;
-  --priT: #8C4639; --priTint: rgba(162,83,71,.1);
-  --ver: #B28F49; --verT: #7C5F23; --verTint: rgba(178,143,73,.14); --verLine: rgba(178,143,73,.38);
-  --ok: #39655F; --okTint: rgba(57,101,95,.1); --okLine: rgba(57,101,95,.3); --okFill: rgba(57,101,95,.5);
-  --sdBody: #FFFEFB; --sdLine: rgba(46,42,40,.5); --contacts: #B28F49;
-  --toastSh: 0 4px 10px rgba(46,42,40,.08); --input: #FFFFFF; --card2: #FFFEFB; --onPri: #FFFDF8;
-  box-shadow: inset 0 0 0 1px rgba(46,42,40,.08);
+  --bg: var(--sc-l-bg); --grid: var(--sc-l-grid); --glow: var(--sc-l-glow);
+  --win: var(--sc-l-win); --edge: var(--sc-l-edge); --shadow: 0 1px 0 var(--sc-l-paper-edge), 0 8px 20px var(--sc-l-shadow);
+  --noti: var(--sc-l-win);
+  --tx: var(--sc-l-tx); --tx2: var(--sc-l-tx2); --tx3: var(--sc-l-tx3);
+  --track: var(--sc-l-track); --solid: var(--sc-l-solid); --zone: var(--sc-l-zone);
+  --ctl: var(--sc-l-win); --ctlB: var(--sc-l-ctlB); --selB: var(--sc-l-selB); --selF: var(--sc-l-selF);
+  --priT: var(--sc-l-priT); --priTint: var(--sc-l-priTint);
+  --ver: var(--sc-l-ver); --verT: var(--sc-l-verT); --verTint: var(--sc-l-verTint); --verLine: var(--sc-l-verLine);
+  --ok: var(--sc-l-ok); --okTint: var(--sc-l-okTint); --okLine: var(--sc-l-okLine); --okFill: var(--sc-l-okFill);
+  --sdBody: var(--sc-l-win); --sdLine: var(--sc-l-sdLine); --contacts: var(--sc-l-ver);
+  --toastSh: 0 4px 10px var(--sc-l-shadow); --input: var(--sc-l-input); --card2: var(--sc-l-win); --onPri: var(--sc-l-onPri);
+  box-shadow: inset 0 0 0 1px var(--sc-l-shadow);
 }
 }
 .scene::before { content: ""; position: absolute; z-index: -1; width: 190px; height: 190px; left: calc(50% - 95px); top: -10px; border-radius: 50%;
@@ -201,57 +279,48 @@ html[lang="ja"] .hero .sub, html[lang^="zh"] .hero .sub { word-break: keep-all; 
 
 /* 共用零件 */
 .ico { display: block; flex: none; }
-.rise { opacity: 0; transform: translateY(8px); transition: opacity .55s var(--ease-out), transform .7s var(--ease-out); transition-delay: var(--dl, 0s); }
+code.vol { font: inherit; letter-spacing: inherit; color: inherit; }
+.chs abbr { text-decoration: none; }
+.js .rise { opacity: 0; transform: translateY(8px); transition: opacity .55s var(--ease-out), transform .7s var(--ease-out); transition-delay: var(--dl, 0s); }
 .scene.s1 .rise { opacity: 1; transform: none; }
 .mwin { box-sizing: border-box; border-radius: 9px; padding: 10px 11px 11px; background: var(--win); border: 1px solid var(--edge); box-shadow: var(--shadow); }
-.wdots { display: flex; gap: 4px; margin-bottom: 9px; }
+.wdots { display: flex; gap: var(--space-2xs); margin-bottom: 9px; }
 .wdots i { width: 5px; height: 5px; border-radius: 50%; background: var(--tx3); }
 .task { display: flex; align-items: center; gap: 9px; }
 .tile { width: 26px; height: 26px; border-radius: 7px; flex: none; display: grid; place-items: center; color: var(--pri); background: var(--priTint); transition: color .35s ease, background .35s ease; }
-.tile .ico { width: 11px; height: 13px; --sdLine: transparent; --contacts: rgba(255,255,255,.5); }
+.tile .ico { width: 11px; height: 13px; --sdLine: transparent; --contacts: var(--sc-contacts-on); }
 .task .nm2 { min-width: 0; }
 .task .t { display: flex; align-items: center; gap: 6px; height: 17px; }
 .task b { font-weight: 600; font-size: 12px; letter-spacing: .02em; white-space: nowrap; }
 .task .sub { display: block; font-size: 9.5px; color: var(--tx2); margin-top: 1px; white-space: nowrap; }
 .tags { display: grid; height: 17px; flex: none; }
-.tag { grid-area: 1 / 1; justify-self: start; height: 17px; line-height: 17px; padding: 0 6px; border-radius: 5px; font-size: 9.5px; font-weight: 600; white-space: nowrap;
+.js .tag { grid-area: 1 / 1; justify-self: start; height: 17px; line-height: 17px; padding: 0 6px; border-radius: 5px; font-size: 9.5px; font-weight: 600; white-space: nowrap;
   opacity: 0; transform: translateY(3px); transition: opacity .3s ease, transform .35s var(--ease-out); }
 .tag.pri { color: var(--priT); background: var(--priTint); }
 .tag.ver, .tag.warn { color: var(--verT); background: var(--verTint); }
 .tag.ok { color: var(--ok); background: var(--okTint); }
 .bar { position: relative; height: 4px; border-radius: 2px; background: var(--track); overflow: hidden; }
-.bar i { position: absolute; left: 0; top: 0; bottom: 0; width: 0; border-radius: 2px; }
+.bar i { position: absolute; left: 0; top: 0; bottom: 0; width: 100%; border-radius: 2px; transform: scaleX(0); transform-origin: 0 50%; }
 .bar .fp { background: var(--pri); }
 .bar .fv { background: var(--ver); }
-.bar .fo { background: var(--ok); width: 100%; opacity: 0; transition: opacity .3s ease; }
-.toast { left: 50%; height: 22px; padding: 0 10px 0 8px; display: flex; align-items: center; gap: 5px; border-radius: 999px; font-size: 10.5px; font-weight: 500; white-space: nowrap;
+.bar .fo { background: var(--ok); transform: none; opacity: 0; transition: opacity .3s ease; }
+.toast { left: 50%; height: 22px; padding: 0 10px 0 var(--space-xs); display: flex; align-items: center; gap: 5px; border-radius: 999px; font-size: 10.5px; font-weight: 500; white-space: nowrap;
   opacity: 0; transform: translate(-50%, 6px) scale(.96); transition: opacity .35s ease, transform .5s var(--ease-spring); }
 .toast .ico { width: 11px; height: 11px; }
 .toast.ok { color: var(--ok); background: linear-gradient(var(--okTint), var(--okTint)), var(--bg); box-shadow: inset 0 0 0 1px var(--okLine), var(--toastSh); }
 .toast.warn { color: var(--verT); background: linear-gradient(var(--verTint), var(--verTint)), var(--bg); box-shadow: inset 0 0 0 1px var(--verLine), var(--toastSh); }
 .cap { left: 0; right: 0; height: 16px; font-size: 10.5px; color: var(--tx2); }
-.cap span { position: absolute; left: 0; right: 0; top: 0; text-align: center; white-space: nowrap; opacity: 0; transform: translateY(4px); transition: opacity .35s ease, transform .45s var(--ease-out); }
+.js .cap span { position: absolute; left: 0; right: 0; top: 0; text-align: center; white-space: nowrap; opacity: 0; transform: translateY(4px); transition: opacity .35s ease, transform .45s var(--ease-out); }
 .srcsd { color: var(--sdBody); }
 
 /* 0 核心流程(寬版):插卡 → 自動辨識 → 開始備份 → 讀回驗證 → 退卡 */
-.core { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.55fr); border-bottom: 1px solid var(--line); }
-.core .scene { grid-column: 2; grid-row: 1; height: 320px; margin: 14px 14px 14px 0; }
-.core-txt { grid-column: 1; grid-row: 1; min-width: 0; padding: 22px 22px 22px 26px; display: flex; flex-direction: column; justify-content: center; }
-.core-h { font-size: clamp(24px, 2.6vw, 30px); font-weight: 600; line-height: 1.3; letter-spacing: .02em; margin: 0 0 8px; text-wrap: balance; }
-.core-d { color: var(--ink-2); font-size: 14.5px; margin: 0 0 18px; }
-.steps { list-style: none; margin: 0; padding: 0; counter-reset: st; border-top: 1px solid var(--line); }
-.steps li { counter-increment: st; display: grid; grid-template-columns: 28px minmax(0, 1fr); padding: 9px 0 10px; border-bottom: 1px solid var(--line); color: var(--mute); transition: color .5s var(--ease-out); }
-.steps li::before { content: counter(st); grid-row: span 2; font-size: 17px; line-height: 1.45; }
-.steps b { font-size: 15px; letter-spacing: .05em; line-height: 1.55; }
-.steps span { font-size: 13px; line-height: 1.65; }
-.sc-core.s1 ~ .core-txt .st1, .sc-core.s6 ~ .core-txt .st2, .sc-core.s8 ~ .core-txt .st3 { color: var(--ink); }
-.sc-core.s6 ~ .core-txt .st1, .sc-core.s8 ~ .core-txt .st2 { color: var(--mute); }
 
 .sc-core .stage { width: 340px; height: 240px; margin: -120px 0 0 -170px; }
 .mb { left: 0; top: 0; width: 340px; height: 18px; border-radius: 6px; background: var(--zone); }
 .mbx { position: absolute; right: 9px; top: 0; height: 18px; display: flex; align-items: center; gap: 6px; font-size: 9.5px; font-variant-numeric: tabular-nums; }
 .mbi { width: 8px; height: 10px; color: var(--tx); --contacts: var(--bg); }
-.pct { display: inline-block; width: 0; overflow: hidden; white-space: nowrap; opacity: 0; margin-left: -6px; transition: width .3s ease, opacity .3s ease, margin .3s ease; }
+.pct { display: inline-block; min-width: 31px; text-align: right; white-space: nowrap; transition: opacity .3s ease, transform .3s ease; }
+.js .pct { opacity: 0; transform: translateX(4px); }
 .clk { color: var(--tx2); }
 .mw { left: 0; top: 26px; width: 186px; padding: 0 9px 9px; }
 .mt { position: relative; height: 20px; display: flex; align-items: center; }
@@ -261,15 +330,15 @@ html[lang="ja"] .hero .sub, html[lang^="zh"] .hero .sub { word-break: keep-all; 
 .cz-e, .cz-c { position: absolute; inset: 0; border-radius: 8px; display: flex; align-items: center; transition: opacity .4s ease; }
 .cz-e { justify-content: center; gap: 6px; border: 1px dashed var(--tx3); color: var(--tx3); font-size: 9px; }
 .cz-e .ico { width: 9px; height: 11px; color: var(--tx3); --contacts: var(--bg); }
-.cz-c { gap: 7px; padding: 0 8px; background: var(--card2); box-shadow: inset 0 0 0 1px var(--edge); opacity: 0; }
+.cz-c { gap: 7px; padding: 0 var(--space-xs); background: var(--card2); box-shadow: inset 0 0 0 1px var(--edge); opacity: 0; }
 .cz-c .tile { width: 24px; height: 24px; border-radius: 6px; }
 .cz-c .tile .ico { width: 10px; height: 12px; }
 .cz-c .t { display: flex; align-items: center; gap: 5px; height: 15px; }
 .cz-c b { font-size: 10.5px; font-weight: 600; letter-spacing: .02em; white-space: nowrap; }
-.cz-c .tag { position: static; opacity: 1; transform: none; height: 14px; line-height: 14px; font-size: 8px; padding: 0 4px; }
+.cz-c .tag { position: static; opacity: 1; transform: none; height: 14px; line-height: 14px; font-size: 8px; padding: 0 var(--space-2xs); }
 .cz-c .sub { display: block; font-size: 8.5px; color: var(--tx2); margin-top: 1px; white-space: nowrap; }
 .cz-c .ej { width: 10px; height: 10px; margin-left: auto; color: var(--tx3); transition: color .25s ease, transform .35s var(--ease-spring); }
-.rw { display: flex; align-items: center; height: 22px; margin-top: 4px; }
+.rw { display: flex; align-items: center; height: 22px; margin-top: var(--space-2xs); }
 .rw .lb { width: var(--lbw, 30px); flex: none; white-space: nowrap; font-size: 9px; font-weight: 600; color: var(--tx2); }
 .fld { position: relative; width: 80px; height: 18px; box-sizing: border-box; border-radius: 5px; background: var(--input); border: 1px solid var(--ctlB); font-size: 9.5px; }
 .fld span { position: absolute; left: 7px; top: 2px; opacity: 0; transition: opacity .3s ease, filter .3s ease; }
@@ -278,41 +347,41 @@ html[lang="ja"] .hero .sub, html[lang^="zh"] .hero .sub { word-break: keep-all; 
 .cp { height: 16px; line-height: 14px; box-sizing: border-box; padding: 0 6px; border-radius: 999px; border: 1px solid var(--ctlB); font-size: 8.5px; font-weight: 600; color: var(--tx3); white-space: nowrap;
   transition: color .3s ease, border-color .3s ease, background .3s ease, box-shadow .3s ease; }
 html:is([lang="en"], [lang="es"], [lang="pt"]) .chs { gap: 2px; }
-html:is([lang="en"], [lang="es"], [lang="pt"]) .cp { padding: 0 4px; }
+html:is([lang="en"], [lang="es"], [lang="pt"]) .cp { padding: 0 var(--space-2xs); }
 .cp.sel { color: var(--tx); border-color: var(--selB); background: var(--selF); box-shadow: inset 0 0 0 .25px var(--selB); }
 .dv { height: 1px; background: var(--track); margin-top: 7px; }
-.go { width: max-content; min-width: 112px; padding: 0 14px; box-sizing: border-box; height: 21px; margin: 8px auto 0; border-radius: 6px; background: var(--pri); color: var(--onPri); font-size: 9.5px; font-weight: 600; letter-spacing: .04em;
+.go { width: max-content; min-width: 112px; padding: 0 14px; box-sizing: border-box; height: 21px; margin: var(--space-xs) auto 0; border-radius: 6px; background: var(--pri); color: var(--onPri); font-size: 9.5px; font-weight: 600;
   display: grid; place-items: center; opacity: .4; transition: opacity .4s ease; }
 @keyframes scPress { 0%, 100% { scale: 1; filter: none; } 45% { scale: .94; filter: brightness(.88); } }
-.sprite { left: 0; top: 0; width: 22px; height: 26px; z-index: 3; opacity: 0; transform: translate(14px, 112px) rotate(-12deg);
-  transition: transform .7s cubic-bezier(.3,.7,.3,1), opacity .35s ease; filter: drop-shadow(0 4px 8px rgba(0,0,0,.35)); }
+.js .sprite { left: 0; top: 0; width: 22px; height: 26px; z-index: 3; opacity: 0; transform: translate(14px, 112px) rotate(-12deg);
+  transition: transform .7s cubic-bezier(.3,.7,.3,1), opacity .35s ease; filter: drop-shadow(0 4px 8px var(--sc-drop)); }
 .fly { left: 0; top: 0; width: 1px; height: 1px; z-index: 2; }
 .fly i { position: absolute; left: 0; top: 0; width: 7px; height: 7px; border-radius: 2px; background: var(--pri); opacity: 0; }
 @keyframes scFly { 0% { transform: translate(150px, 66px) scale(.6); opacity: 0; } 15% { opacity: 1; } 55% { transform: translate(198px, 102px) scale(1); } 85% { opacity: 1; } 100% { transform: translate(229px, 150px) scale(.7); opacity: 0; } }
-.tk { left: 198px; top: 26px; width: 142px; padding: 8px 9px; opacity: 0; transform: translateY(6px); transition: opacity .45s var(--ease-out), transform .6s var(--ease-out); }
+.js .tk { left: 198px; top: 26px; width: 142px; padding: var(--space-xs) 9px; opacity: 0; transform: translateY(6px); transition: opacity .45s var(--ease-out), transform .6s var(--ease-out); }
 .tk .task { gap: 6px; height: 17px; }
 .tk .tile { width: 20px; height: 20px; border-radius: 5px; }
 .tk .tile .ico { width: 8px; height: 10px; }
 .tk b { font-size: 9.5px; }
 .tk .tags { height: 15px; margin-left: auto; }
-.tk .tag { justify-self: end; height: 15px; line-height: 15px; font-size: 8.5px; padding: 0 4px; }
+.tk .tag { justify-self: end; height: 15px; line-height: 15px; font-size: 8.5px; padding: 0 var(--space-2xs); }
 .tk .bar { margin-top: 7px; height: 3px; }
 .tkl { position: relative; display: flex; margin-top: 5px; height: 11px; font-size: 8.5px; color: var(--tx2); font-variant-numeric: tabular-nums; }
 .tkl .sa { position: absolute; right: 0; top: 0; opacity: 0; transition: opacity .3s ease; }
 .tkl .s3x { color: var(--ok); }
-.sc-core .tk .fp { transition: width 3.2s cubic-bezier(.45,.05,.55,.95), opacity .3s ease; }
-.sc-core .tk .fv { transition: width 1.8s cubic-bezier(.45,.05,.55,.95), opacity .3s ease; }
-.fd { left: 198px; top: 100px; width: 142px; padding: 7px 9px 8px; }
-.fvh { display: flex; align-items: center; gap: 5px; height: 14px; padding-bottom: 5px; margin-bottom: 4px; border-bottom: 1px solid var(--track); font-size: 8.5px; color: var(--tx3); }
+.sc-core .tk .fp { transition: transform 3.2s cubic-bezier(.45,.05,.55,.95), opacity .3s ease; }
+.sc-core .tk .fv { transition: transform 1.8s cubic-bezier(.45,.05,.55,.95), opacity .3s ease; }
+.fd { left: 198px; top: 100px; width: 142px; padding: 7px 9px var(--space-xs); }
+.fvh { display: flex; align-items: center; gap: 5px; height: 14px; padding-bottom: 5px; margin-bottom: var(--space-2xs); border-bottom: 1px solid var(--track); font-size: 8.5px; color: var(--tx3); }
 .fvh .ico { width: 10px; height: 8px; color: var(--tx3); }
-.frow { position: relative; display: flex; align-items: center; gap: 5px; height: 16px; font-size: 9px; color: var(--tx2); white-space: nowrap;
+.js .frow { position: relative; display: flex; align-items: center; gap: 5px; height: 16px; font-size: 9px; color: var(--tx2); white-space: nowrap;
   opacity: 0; transform: translateY(4px); transition: opacity .4s ease, transform .5s var(--ease-out); transition-delay: var(--dl, 0s); }
 .frow .ico { width: 11px; height: 9px; color: var(--ver); opacity: .85; }
 .frow.f1, .frow.f2 { padding-left: 14px; }
 .frow.f1::before, .frow.f2::before { content: ""; position: absolute; left: 5px; top: -3px; width: 6px; height: 10px; border-left: 1px solid var(--track); border-bottom: 1px solid var(--track); border-bottom-left-radius: 2px; }
 .fc { margin-left: auto; font-size: 8.5px; color: var(--tx3); font-variant-numeric: tabular-nums; }
-.frow .okc { width: 9px; height: 9px; color: var(--ok); opacity: 0; transform: scale(.4); margin-left: 3px; transition: opacity .25s ease, transform .45s var(--ease-spring); }
-.pop { right: 0; top: 23px; min-width: 150px; box-sizing: border-box; padding: 8px 10px; display: flex; gap: 8px; align-items: flex-start; border-radius: 10px; background: var(--noti); border: 1px solid var(--edge); box-shadow: var(--shadow);
+.js .frow .okc { width: 9px; height: 9px; color: var(--ok); opacity: 0; transform: scale(.4); margin-left: 3px; transition: opacity .25s ease, transform .45s var(--ease-spring); }
+.js .pop { right: 0; top: 23px; min-width: 150px; box-sizing: border-box; padding: var(--space-xs) 10px; display: flex; gap: var(--space-xs); align-items: flex-start; border-radius: 10px; background: var(--noti); border: 1px solid var(--edge); box-shadow: var(--shadow);
   opacity: 0; transform: translateY(-6px) scale(.97); transform-origin: 85% 0; transition: opacity .35s ease, transform .5s var(--ease-spring); z-index: 4; }
 .pop img { width: 20px; height: 20px; border-radius: 5px; flex: none; display: block; }
 .pop b { display: block; font-size: 10px; font-weight: 600; }
@@ -336,20 +405,20 @@ html:is([lang="en"], [lang="es"], [lang="pt"]) .cp { padding: 0 4px; }
 .sc-core.s6 .go { animation: scPress .32s ease; }
 .sc-core.s6 .tk { opacity: 1; transform: none; }
 .sc-core.s6 .tk .t1 { opacity: 1; transform: none; }
-.sc-core.s6 .tk .fp { width: 100%; }
+.sc-core.s6 .tk .fp { transform: scaleX(1); }
 .sc-core.s6 .tkl .s1x { opacity: 1; }
 .sc-core.s6 .frow { opacity: 1; transform: none; }
 .sc-core.s6 .fly i { animation: scFly 1.1s cubic-bezier(.4,.1,.5,1) infinite; animation-delay: calc(var(--n) * 275ms); }
-.sc-core.s6 .pct { width: 31px; opacity: 1; margin-left: 0; }
+.sc-core.s6 .pct { opacity: 1; transform: none; }
 .sc-core.s7 .cursor { opacity: 0; transition: opacity .6s ease; }
 .sc-core.s8 .fly i { animation: none; opacity: 0; }
-.sc-core.s8 .tk .t1 { opacity: 0; transform: translateY(-3px); }
+.js .sc-core.s8 .tk .t1 { opacity: 0; transform: translateY(-3px); }
 .sc-core.s8 .tk .t2 { opacity: 1; transform: none; }
 .sc-core.s8 .tk .fp { opacity: 0; }
-.sc-core.s8 .tk .fv { width: 100%; }
+.sc-core.s8 .tk .fv { transform: scaleX(1); }
 .sc-core.s8 .tkl .s1x { opacity: 0; }
 .sc-core.s8 .tkl .s2x { opacity: 1; }
-.sc-core.s9 .tk .t2 { opacity: 0; transform: translateY(-3px); }
+.js .sc-core.s9 .tk .t2 { opacity: 0; transform: translateY(-3px); }
 .sc-core.s9 .tk .t3 { opacity: 1; transform: none; }
 .sc-core.s9 .tk .fo { opacity: 1; }
 .sc-core.s9 .tkl .s2x { opacity: 0; }
@@ -358,36 +427,36 @@ html:is([lang="en"], [lang="es"], [lang="pt"]) .cp { padding: 0 4px; }
 .sc-core.s10 .cz-c .ej { color: var(--ok); transform: scale(1.3); }
 .sc-core.s11 .cz-c { opacity: 0; }
 .sc-core.s11 .cz-e { opacity: 1; }
-.sc-core.s11 .pct { width: 0; opacity: 0; margin-left: -6px; }
+.js .sc-core.s11 .pct { opacity: 0; transform: translateX(4px); }
 .sc-core.s11 .pop { opacity: 1; transform: none; }
 .sc-core.s11 .go { opacity: .4; }
 
 /* 1 讀回驗證 */
 .sc-verify .w1 { left: 8px; top: 14px; width: 224px; padding-bottom: 9px; }
 .sc-verify .w1 .bar { margin-top: 9px; }
-.hash { margin-top: 8px; display: grid; grid-template-columns: max-content max-content 1fr; grid-auto-rows: 14px; column-gap: 8px; row-gap: 3px; align-items: center; font-size: 10px; }
+.hash { margin-top: var(--space-xs); display: grid; grid-template-columns: max-content max-content 1fr; grid-auto-rows: 14px; column-gap: var(--space-xs); row-gap: 3px; align-items: center; font-size: 10px; }
 .hl { display: contents; }
 .hl .k { color: var(--tx3); white-space: nowrap; }
 .hl .k { grid-column: 1; }
 .hl code { grid-column: 2; }
 .hl .ico { grid-column: 3; }
-.hl code { font-family: var(--mono); font-size: 10px; letter-spacing: .06em; color: var(--tx2); clip-path: inset(0 100% 0 0); transition: clip-path 2.3s steps(19, end), color .4s ease; }
-.hl .ico { width: 11px; height: 11px; color: var(--ok); opacity: 0; transform: scale(.4); transition: opacity .25s ease, transform .45s var(--ease-spring); }
+.hl code { font-family: var(--mono); font-size: 10px; color: var(--tx2); clip-path: inset(0 100% 0 0); transition: clip-path 2.3s steps(19, end), color .4s ease; }
+.js .hl .ico { width: 11px; height: 11px; color: var(--ok); opacity: 0; transform: scale(.4); transition: opacity .25s ease, transform .45s var(--ease-spring); }
 .sc-verify .toast { top: 108px; }
-.sc-verify .fp { transition: width 2.4s cubic-bezier(.45,.05,.55,.95), opacity .3s ease; }
-.sc-verify .fv { transition: width 2.3s cubic-bezier(.45,.05,.55,.95), opacity .3s ease; }
+.sc-verify .fp { transition: transform 2.4s cubic-bezier(.45,.05,.55,.95), opacity .3s ease; }
+.sc-verify .fv { transition: transform 2.3s cubic-bezier(.45,.05,.55,.95), opacity .3s ease; }
 .sc-verify.s1 .t1 { opacity: 1; transform: none; }
-.sc-verify.s2 .fp { width: 100%; }
+.sc-verify.s2 .fp { transform: scaleX(1); }
 .sc-verify.s2 .h1 code { clip-path: inset(0); }
-.sc-verify.s3 .t1 { opacity: 0; transform: translateY(-3px); }
+.js .sc-verify.s3 .t1 { opacity: 0; transform: translateY(-3px); }
 .sc-verify.s3 .t2 { opacity: 1; transform: none; }
 .sc-verify.s3 .tile { color: var(--ver); background: var(--verTint); }
 .sc-verify.s3 .fp { opacity: 0; }
-.sc-verify.s3 .fv { width: 100%; }
+.sc-verify.s3 .fv { transform: scaleX(1); }
 .sc-verify.s3 .h2 code { clip-path: inset(0); }
 .sc-verify.s4 .hl code { color: var(--ok); }
 .sc-verify.s4 .h2 .ico { opacity: 1; transform: none; }
-.sc-verify.s5 .t2 { opacity: 0; transform: translateY(-3px); }
+.js .sc-verify.s5 .t2 { opacity: 0; transform: translateY(-3px); }
 .sc-verify.s5 .t3 { opacity: 1; transform: none; }
 .sc-verify.s5 .tile { color: var(--ok); background: var(--okTint); }
 .sc-verify.s5 .fo { opacity: 1; }
@@ -435,7 +504,7 @@ html:is([lang="en"], [lang="es"], [lang="pt"]) .cp { padding: 0 4px; }
 /* 3 資料夾結構 */
 .sc-tree .pre { left: 8px; top: 0; display: flex; align-items: center; gap: 7px; height: 20px; }
 .pre .pk { font-size: 10px; color: var(--tx3); }
-.pre .pv { position: relative; display: grid; grid-template-columns: max-content 7px; column-gap: 12px; align-items: center; height: 20px; box-sizing: border-box; padding: 0 7px 0 9px; border-radius: 6px; background: var(--ctl); border: 1px solid var(--ctlB); font-size: 10px; transition: transform .2s ease; }
+.pre .pv { position: relative; display: grid; grid-template-columns: max-content 7px; column-gap: var(--space-sm); align-items: center; height: 20px; box-sizing: border-box; padding: 0 7px 0 9px; border-radius: 6px; background: var(--ctl); border: 1px solid var(--ctlB); font-size: 10px; transition: transform .2s ease; }
 .pre .pv span { grid-area: 1 / 1; white-space: nowrap; transition: opacity .3s ease, filter .3s ease; }
 .pre .pv .ico { grid-area: 1 / 2; width: 7px; height: 10px; color: var(--tx3); }
 .pre .p2 { opacity: 0; filter: blur(3px); }
@@ -443,7 +512,7 @@ html:is([lang="en"], [lang="es"], [lang="pt"]) .cp { padding: 0 4px; }
 .lvl { position: absolute; left: 0; top: 6px; height: 20px; box-sizing: border-box; border-radius: 999px; border: 1.25px solid var(--selB); background: var(--ctl);
   display: grid; place-items: center; font-size: 10px; font-weight: 600; white-space: nowrap; transform: translateX(var(--x)); transition: transform .55s var(--ease-spring), box-shadow .25s ease, background .25s ease, opacity .35s ease; }
 .sc-tree .stage { --a-dc: 40px; --a-ty: 129px; --b-ty: 40px; --b-dc: 99px; --c-cu: 11px; --c-dc: 70px; --c-ty: 159px; --cx1: 162px; --cx2: 73px; --cx3: 78px; }
-.lvl { padding: 0 8px; white-space: nowrap; }
+.lvl { padding: 0 var(--space-xs); white-space: nowrap; }
 .lvl.dc { --x: var(--a-dc); }
 .lvl.ty { --x: var(--a-ty); }
 .lvl.cu { --x: var(--c-cu); opacity: 0; border-style: dashed; }
@@ -463,13 +532,13 @@ html:is([lang="en"], [lang="es"], [lang="pt"]) .cp { padding: 0 4px; }
 .r1 { --lv: 0; --r: 0; }
 .r2 { --lv: 1; --r: 1; }
 .r3 { --lv: 2; --r: 2; }
-.cursor { left: 0; top: 0; width: 13px; height: 18px; opacity: 0; transform: translate(206px, 130px); transition: transform .65s cubic-bezier(.5,0,.2,1), opacity .3s ease; z-index: 3; filter: drop-shadow(0 1px 2px rgba(0,0,0,.35)); }
+.js .cursor { left: 0; top: 0; width: 13px; height: 18px; opacity: 0; transform: translate(206px, 130px); transition: transform .65s cubic-bezier(.5,0,.2,1), opacity .3s ease; z-index: 3; filter: drop-shadow(0 1px 2px var(--sc-drop)); }
 .cursor .ico { width: 13px; height: 18px; transform-origin: 1.2px 1.2px; }
 @keyframes scTap { 0%, 100% { scale: 1; } 45% { scale: .9; } }
 .sc-tree.s1 .row .in, .sc-tree.s1 .row::before { opacity: 1; }
 .sc-tree.s1 .row.r1::before { opacity: 0; }
 .sc-tree.s2 .cursor { opacity: 1; transform: translate(var(--cx1), 40px); }
-.sc-tree.s3 .lvl.ty { box-shadow: 0 6px 14px rgba(0,0,0,.28); background: var(--selF); }
+.sc-tree.s3 .lvl.ty { box-shadow: 0 6px 14px var(--sc-lift); background: var(--selF); }
 .sc-tree.s4 .lvl.ty { --x: var(--b-ty); }
 .sc-tree.s4 .lvl.dc { --x: var(--b-dc); }
 .sc-tree.s4 .cursor { transform: translate(var(--cx2), 40px); }
@@ -507,37 +576,37 @@ html:is([lang="en"], [lang="es"], [lang="pt"]) .cp { padding: 0 4px; }
 .dst .task b { font-size: 10.5px; font-weight: 600; }
 .dst .task { height: 15px; }
 .dst .task b { white-space: nowrap; }
-.brow { display: flex; align-items: center; gap: 6px; margin-top: 4px; height: 16px; }
+.brow { display: flex; align-items: center; gap: 6px; margin-top: var(--space-2xs); height: 16px; }
 .brow .bar { flex: 1; min-width: 0; }
 .dst .tags { height: 16px; }
 .dst .tag { justify-self: end; height: 16px; line-height: 16px; font-size: 9px; padding: 0 5px; }
 .dst .bar { height: 3px; }
 .d1 { top: 4px; } .d2 { top: 58px; }
-.sc-dual .fp { transition: width 2.5s cubic-bezier(.45,.05,.55,.95), opacity .3s ease; }
-.sc-dual .d1 .fv { transition: width 1.5s cubic-bezier(.45,.05,.55,.95), opacity .3s ease; }
-.sc-dual .d2 .fv { transition: width 2.1s cubic-bezier(.45,.05,.55,.95), opacity .3s ease; }
+.sc-dual .fp { transition: transform 2.5s cubic-bezier(.45,.05,.55,.95), opacity .3s ease; }
+.sc-dual .d1 .fv { transition: transform 1.5s cubic-bezier(.45,.05,.55,.95), opacity .3s ease; }
+.sc-dual .d2 .fv { transition: transform 2.1s cubic-bezier(.45,.05,.55,.95), opacity .3s ease; }
 .sc-dual .cap { top: 114px; }
 .sc-dual.s1 .t1 { opacity: 1; transform: none; }
 .sc-dual.s1 .c1 { opacity: 1; transform: none; }
 .sc-dual.s2 .wf { opacity: 1; animation: scAnts .55s linear infinite; }
-.sc-dual.s2 .fp { width: 100%; }
+.sc-dual.s2 .fp { transform: scaleX(1); }
 .sc-dual.s3 .wf { opacity: 0; }
 .sc-dual.s3 .fp { opacity: 0; }
-.sc-dual.s3 .fv { width: 100%; }
-.sc-dual.s3 .t1 { opacity: 0; transform: translateY(-3px); }
+.sc-dual.s3 .fv { transform: scaleX(1); }
+.js .sc-dual.s3 .t1 { opacity: 0; transform: translateY(-3px); }
 .sc-dual.s3 .t2 { opacity: 1; transform: none; }
-.sc-dual.s4 .d1 .t2 { opacity: 0; transform: translateY(-3px); }
+.js .sc-dual.s4 .d1 .t2 { opacity: 0; transform: translateY(-3px); }
 .sc-dual.s4 .d1 .t3 { opacity: 1; transform: none; }
 .sc-dual.s4 .d1 .fo { opacity: 1; }
-.sc-dual.s5 .d2 .t2 { opacity: 0; transform: translateY(-3px); }
+.js .sc-dual.s5 .d2 .t2 { opacity: 0; transform: translateY(-3px); }
 .sc-dual.s5 .d2 .t3 { opacity: 1; transform: none; }
 .sc-dual.s5 .d2 .fo { opacity: 1; }
 .sc-dual.s5 .wb { stroke: var(--okLine); }
-.sc-dual.s5 .c1 { opacity: 0; transform: translateY(-4px); }
+.js .sc-dual.s5 .c1 { opacity: 0; transform: translateY(-4px); }
 .sc-dual.s5 .c2 { opacity: 1; transform: none; }
 
 /* 5 讀卡穩定度 */
-.sc-speed .w5 { left: 6px; top: 16px; width: 228px; padding: 10px 12px 10px; }
+.sc-speed .w5 { left: 6px; top: 16px; width: 228px; padding: 10px var(--space-sm) 10px; }
 .sh { display: flex; align-items: baseline; gap: 5px; }
 .sh .k { font-size: 10px; color: var(--tx3); margin-right: 3px; white-space: nowrap; }
 .num { position: relative; display: inline-grid; height: 17px; font-size: 15px; font-weight: 600; font-variant-numeric: tabular-nums; }
@@ -546,17 +615,18 @@ html:is([lang="en"], [lang="es"], [lang="pt"]) .cp { padding: 0 4px; }
 .sh .u { font-size: 10px; color: var(--tx3); }
 .sh .tags { margin-left: auto; align-self: center; }
 .sh .tag { justify-self: end; }
-.graph { position: relative; height: 46px; margin-top: 8px; }
+.graph { position: relative; height: 46px; margin-top: var(--space-xs); }
 .gclip { position: absolute; inset: 0; clip-path: inset(0 100% 0 0); transition: clip-path 5s linear; }
 .gclip svg { display: block; width: 100%; height: 100%; overflow: visible; }
 .gclip .gl { fill: none; stroke: var(--tx2); stroke-width: 1.4; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
 .gclip .ga { fill: var(--track); opacity: .55; }
-.ph { position: absolute; top: -3px; bottom: -3px; left: 0; width: 1px; background: var(--tx3); opacity: 0; transition: left 5s linear, opacity .3s ease; }
+.ph { position: absolute; top: -3px; bottom: -3px; left: 0; width: 100%; opacity: 0; transition: transform 5s linear, opacity .3s ease; }
+.ph::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: var(--tx3); }
 .dip { position: absolute; width: 7px; height: 7px; margin: -3.5px 0 0 -3.5px; border-radius: 50%; background: var(--ver); box-shadow: 0 0 0 3px var(--verTint); transform: scale(0); transition: transform .4s var(--ease-spring); }
 .sc-speed .toast { top: 101px; }
 .sc-speed.s1 .n1 { opacity: 1; }
 .sc-speed.s2 .gclip { clip-path: inset(0); }
-.sc-speed.s2 .ph { left: 100%; opacity: 1; }
+.sc-speed.s2 .ph { transform: translateX(100%); opacity: 1; }
 .sc-speed.s3 .dp1 { transform: scale(1); }
 .sc-speed.s3 .n1 { opacity: 0; }
 .sc-speed.s3 .n2 { opacity: 1; }
@@ -572,90 +642,79 @@ html:is([lang="en"], [lang="es"], [lang="pt"]) .cp { padding: 0 4px; }
 .sc-speed.s7 .ph { opacity: 0; }
 
 /* 6 自動更新 */
-.sc-update .w6 { left: 0; top: 42px; width: 206px; padding: 9px 11px 12px; transition: opacity .55s var(--ease-out), transform .7s var(--ease-out), filter .4s ease; }
+.sc-update .w6 { left: 0; top: 42px; width: 206px; padding: 9px 11px var(--space-sm); transition: opacity .55s var(--ease-out), transform .7s var(--ease-out), filter .4s ease; }
 .sc-update .w6 .bar { margin-top: 10px; }
-.sc-update .fp { width: 28%; transition: width 4.6s cubic-bezier(.3,.1,.6,1), opacity .3s ease; }
-.noti { right: 0; top: 4px; min-width: 178px; max-width: 240px; box-sizing: border-box; padding: 8px 10px; display: flex; gap: 8px; align-items: center; border-radius: 11px; background: var(--noti); border: 1px solid var(--edge); box-shadow: var(--shadow);
+.sc-update .fp { transform: scaleX(.28); transition: transform 4.6s cubic-bezier(.3,.1,.6,1), opacity .3s ease; }
+.js .noti { right: 0; top: 4px; min-width: 178px; max-width: 240px; box-sizing: border-box; padding: var(--space-xs) 10px; display: flex; gap: var(--space-xs); align-items: center; border-radius: 11px; background: var(--noti); border: 1px solid var(--edge); box-shadow: var(--shadow);
   opacity: 0; transform: translateX(22px); transition: opacity .4s ease, transform .6s var(--ease-out); z-index: 2; }
 .noti img { width: 24px; height: 24px; border-radius: 6px; flex: none; display: block; }
 .nt { position: relative; display: grid; flex: 1; height: 28px; min-width: 0; padding-right: 14px; }
-.nt .m { grid-area: 1 / 1; opacity: 0; transform: translateY(3px); transition: opacity .3s ease, transform .35s var(--ease-out); }
+.js .nt .m { grid-area: 1 / 1; opacity: 0; transform: translateY(3px); transition: opacity .3s ease, transform .35s var(--ease-out); }
 .nt b { display: block; font-size: 10.5px; font-weight: 600; white-space: nowrap; }
 .nt small { display: block; font-size: 9.5px; color: var(--tx2); margin-top: 2px; white-space: nowrap; }
 .nt .m3 b { color: var(--ok); }
 .spin { position: absolute; right: 0; top: 2px; width: 9px; height: 9px; border-radius: 50%; border: 1.5px solid var(--track); border-top-color: var(--tx2); opacity: 0; transition: opacity .3s ease; }
 @keyframes scSpin { to { transform: rotate(360deg); } }
 .sc-update.s1 .t1 { opacity: 1; transform: none; }
-.sc-update.s2 .fp { width: 100%; }
+.sc-update.s2 .fp { transform: scaleX(1); }
 .sc-update.s3 .noti { opacity: 1; transform: none; }
 .sc-update.s3 .m1 { opacity: 1; transform: none; }
-.sc-update.s4 .t1 { opacity: 0; transform: translateY(-3px); }
+.js .sc-update.s4 .t1 { opacity: 0; transform: translateY(-3px); }
 .sc-update.s4 .t3 { opacity: 1; transform: none; }
 .sc-update.s4 .tile { color: var(--ok); background: var(--okTint); }
 .sc-update.s4 .fo { opacity: 1; }
-.sc-update.s5 .m1 { opacity: 0; transform: translateY(-3px); }
+.js .sc-update.s5 .m1 { opacity: 0; transform: translateY(-3px); }
 .sc-update.s5 .m2 { opacity: 1; transform: none; }
 .sc-update.s5 .spin { opacity: 1; animation: scSpin .8s linear infinite; }
 .sc-update.s5 .w6 { opacity: .45; filter: saturate(.5); }
-.sc-update.s6 .m2 { opacity: 0; transform: translateY(-3px); }
+.js .sc-update.s6 .m2 { opacity: 0; transform: translateY(-3px); }
 .sc-update.s6 .m3 { opacity: 1; transform: none; }
 .sc-update.s6 .spin { opacity: 0; }
 .sc-update.s6 .w6 { opacity: 1; filter: none; }
 
-footer { padding: 6px 2px 40px; font-size: 12.5px; color: var(--mute); letter-spacing: .05em; display: flex; gap: 20px; flex-wrap: wrap; }
-footer a { text-decoration: none; }
-footer a:hover { color: var(--ink); }
 
-/* 進場 */
+
+/* 進場：標題逐字浮現，其餘依序淡入 */
 .js .hero .ch { opacity: 0; filter: blur(10px); transform: translateY(.14em); }
-.js .hero .ch.in { opacity: 1; filter: blur(0); transform: none; transition: opacity .8s var(--ease-out), filter .8s var(--ease-out), transform .8s var(--ease-out); }
-.js .reveal { opacity: 0; filter: blur(6px); transform: translateY(8px); }
-.js .reveal.in { opacity: 1; filter: blur(0); transform: none; transition: opacity .8s var(--ease-out), filter .8s var(--ease-out), transform .8s var(--ease-out); }
+.js .hero .ch.in { opacity: 1; filter: blur(0); transform: none; transition: opacity .8s var(--ease), filter .8s var(--ease), transform .8s var(--ease); }
+.js .reveal { opacity: 0; transform: translateY(8px); }
+.js .reveal.in { opacity: 1; transform: none; transition: opacity .8s var(--ease), transform .8s var(--ease); }
 
-@media (max-width: 860px) {
-  .hero { grid-template-columns: 1fr; }
-  .hero-dl { border-left: 0; border-top: 1px solid var(--line-strong); }
-  .pair { grid-template-columns: 1fr; }
-  .feats { grid-template-columns: 1fr 1fr; }
-  .core { grid-template-columns: 1fr; }
-  .core .scene { grid-column: 1; grid-row: 1; height: 290px; margin: 14px 14px 0; }
-  .core-txt { grid-column: 1; grid-row: 2; padding: 16px 18px 18px; }
-  .feat:not(:nth-child(3n+1)) { border-left: 0; }
-  .feat:nth-child(2n) { border-left: 1px solid var(--line); }
-  .feat:nth-last-child(-n+3) { border-bottom: 1px solid var(--line); }
-  .feat:nth-last-child(-n+2) { border-bottom: 0; }
+@media (max-width: 60rem) {
+  :root { --gutter: 22px; }
+  .hero { grid-template-columns: minmax(0, 1fr); gap: var(--space-xl); padding-block: var(--space-2xl) var(--space-xl); }
+  .steps, .pair { grid-template-columns: minmax(0, 1fr); }
+  .feats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .kv { grid-template-columns: repeat(2, max-content); }
 }
-@media (max-width: 520px) {
-  .wrap { padding: 12px 12px 0; }
-  .hero-main { padding: 24px 20px 22px; }
-  /* 手機:橫向滑動,一次看一張多一點 */
-  .feats { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 84%; overflow-x: auto; scroll-snap-type: x mandatory;
-    overscroll-behavior-x: contain; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
-  .feats::-webkit-scrollbar { display: none; }
-  .feats .feat { scroll-snap-align: start; border-bottom: 0; border-left: 1px solid var(--line); }
-  .feats .feat:first-child { border-left: 0; }
-  .feat-ind { display: block; position: relative; width: 56px; height: 3px; margin: 2px auto 14px; border-radius: 2px; background: var(--line); overflow: hidden; }
-  .feat-ind i { position: absolute; left: 0; top: 0; bottom: 0; width: 30%; border-radius: 2px; background: var(--ink-2); }
-  .scene { height: 158px; }
-  .core .scene { height: 236px; }
-  .core-txt { padding: 14px 16px 16px; }
-  .top nav { gap: 12px; }
+@media (max-width: 40rem) {
+  :root { --gutter: 16px; --bar-h: 48px; }
+  .nav { gap: var(--space-md); }
+  .nav a[href="privacy/"] { display: none; }
+  .brand small { display: none; }
   .lang-cur { font-size: 0; }
-  .lang-cur::after { content: attr(data-short); font-size: 13px; }
-  .lang-btn { padding: 3px 9px 3px 7px; }
+  .lang-cur::after { content: attr(data-short); font-size: var(--text-xs); }
+  .sec-head { flex-direction: column; align-items: flex-start; gap: var(--space-2xs); }
+  .sec-head h2 { font-size: var(--text-xl); }
+  .hero .lede { font-size: var(--text-md); }
+  .hero .sc-core { height: 260px; border-radius: var(--radius-lg); }
+  .feats { grid-template-columns: minmax(0, 1fr); }
+  .scene { height: 158px; }
+  .panel, .again { padding: var(--space-lg); border-radius: var(--radius-lg); }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::after { transition: none !important; }
-  .app-icon { animation: none; opacity: 1; filter: none; transform: none; }
-  .js .hero .ch, .js .reveal, .result .inner { opacity: 1 !important; filter: none !important; transform: none !important; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  .js .hero .app-icon { animation: none; opacity: 1; filter: none; transform: none; }
+  .js .hero .ch, .js .reveal, .js .result .inner { opacity: 1 !important; filter: none !important; transform: none !important; }
 }
 </style>
 </head>
 <body>
 <script>document.documentElement.classList.add('js');</script>
+
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <symbol id="i-sd" viewBox="0 0 20 24"><path d="M6.5 1.5H15A2.5 2.5 0 0 1 17.5 4v16.5A2.5 2.5 0 0 1 15 23H5a2.5 2.5 0 0 1-2.5-2.5V5.5Z" style="fill:currentColor;stroke:var(--sdLine,transparent);stroke-width:1"/><g style="fill:var(--contacts,#C29D58)"><rect x="7" y="4" width="1.4" height="4.2" rx=".4"/><rect x="9.3" y="4" width="1.4" height="4.2" rx=".4"/><rect x="11.6" y="4" width="1.4" height="4.2" rx=".4"/><rect x="13.9" y="4" width="1.4" height="4.2" rx=".4"/></g></symbol>
+  <symbol id="i-sd" viewBox="0 0 20 24"><path d="M6.5 1.5H15A2.5 2.5 0 0 1 17.5 4v16.5A2.5 2.5 0 0 1 15 23H5a2.5 2.5 0 0 1-2.5-2.5V5.5Z" style="fill:currentColor;stroke:var(--sdLine,transparent);stroke-width:1"/><g style="fill:var(--contacts,var(--sc-d-contacts))"><rect x="7" y="4" width="1.4" height="4.2" rx=".4"/><rect x="9.3" y="4" width="1.4" height="4.2" rx=".4"/><rect x="11.6" y="4" width="1.4" height="4.2" rx=".4"/><rect x="13.9" y="4" width="1.4" height="4.2" rx=".4"/></g></symbol>
   <symbol id="i-check" viewBox="0 0 16 16"><path d="M3.2 8.6l3.2 3 6.4-7" style="fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"/></symbol>
   <symbol id="i-eject" viewBox="0 0 16 16"><path d="M8 2.6l5.3 6.4H2.7Z" style="fill:currentColor"/><rect x="2.7" y="10.8" width="10.6" height="2" rx=".6" style="fill:currentColor"/></symbol>
   <symbol id="i-warn" viewBox="0 0 16 16"><path d="M8 1.9l6.9 12H1.1Z" style="fill:none;stroke:currentColor;stroke-width:1.4;stroke-linejoin:round"/><rect x="7.3" y="6" width="1.4" height="4.2" rx=".6" style="fill:currentColor"/><circle cx="8" cy="11.9" r=".85" style="fill:currentColor"/></symbol>
@@ -663,45 +722,35 @@ footer a:hover { color: var(--ink); }
   <symbol id="i-folder" viewBox="0 0 16 13"><path d="M1.5 3A1.5 1.5 0 0 1 3 1.5h3.1l1.5 1.6H13a1.5 1.5 0 0 1 1.5 1.5V10a1.5 1.5 0 0 1-1.5 1.5H3A1.5 1.5 0 0 1 1.5 10Z" style="fill:currentColor"/></symbol>
   <symbol id="i-file" viewBox="0 0 12 14"><path d="M2.5 1h4.8L10 3.8v8.7a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5Z" style="fill:none;stroke:currentColor;stroke-width:1.1;stroke-linejoin:round"/></symbol>
   <symbol id="i-updown" viewBox="0 0 10 14"><path d="M2.5 5.2L5 2.7l2.5 2.5M2.5 8.8L5 11.3l2.5-2.5" style="fill:none;stroke:currentColor;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round"/></symbol>
-  <symbol id="i-cursor" viewBox="0 0 13 18"><path d="M1.2 1.2v13.6l3.3-3.1 2.2 5.1 2.2-.95-2.2-5.05h4.6Z" style="fill:#fff;stroke:#111;stroke-width:1;stroke-linejoin:round"/></symbol>
+  <symbol id="i-cursor" viewBox="0 0 13 18"><path d="M1.2 1.2v13.6l3.3-3.1 2.2 5.1 2.2-.95-2.2-5.05h4.6Z" style="fill:var(--sc-cursor-fill);stroke:var(--sc-cursor-line);stroke-width:1;stroke-linejoin:round"/></symbol>
 </svg>
 
-<header class="top">
-  <span class="brand"><img src="icons/favicon-64.png" alt="" width="20" height="20"><span data-i="brand">備份都ok</span></span>
-  <nav><a href="manual/" data-i="nav_manual">使用說明</a><a href="privacy/" data-i="nav_privacy">隱私權政策</a>
-    <div class="lang" id="lang">
+<header class="topbar">
+  <div class="container topbar-in">
+    <a class="brand" href="./"><span data-i="brand">備份都ok</span><small>我都ok啊</small></a>
+    <nav class="nav" aria-label="網站">
+      <a href="manual/" data-i="nav_manual">使用說明</a><a href="privacy/" data-i="nav_privacy">隱私權政策</a>
+      <div class="lang" id="lang">
       <button type="button" class="lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false" aria-controls="langMenu"><svg class="lang-ico" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.3"/><path d="M1.7 8h12.6M8 1.7c1.9 1.8 2.8 3.9 2.8 6.3S9.9 12.5 8 14.3M8 1.7C6.1 3.5 5.2 5.6 5.2 8s.9 4.5 2.8 6.3"/></svg><span class="lang-cur" id="langCur">繁體中文</span><span class="sr" data-i="lang_label">語言</span></button>
       <ul class="lang-menu" id="langMenu" role="menu" hidden></ul>
     </div>
-  </nav>
+    </nav>
+  </div>
 </header>
 
-<main class="wrap">
-  <div class="block hero">
-    <div class="hero-main">
+<main>
+  <div class="container hero">
+    <div>
       <img class="app-icon" src="icons/app-icon-256.png" alt="備份都ok App 圖示" data-ia="alt:icon_alt" width="64" height="64">
-      <p class="for reveal" data-i="for">給影像工作者的記憶卡備份工具</p>
       <h1 id="title" data-i="brand">備份都ok</h1>
+      <p class="lede reveal" data-i="for">給影像工作者的記憶卡備份工具</p>
       <p class="sub reveal" data-i="sub!">複製完，不算完。<br>一個不少，才叫備份。</p>
+      <div class="act reveal">
+        <a class="btn" id="dlBtn" href="#" aria-disabled="true" data-i="dl_soon">即將開放下載</a>
+        <span class="req"><span data-i="dl_req_v">macOS 13.5 以上</span><span id="dlMeta" data-i="dl_meta">已通過 Apple 公證</span></span>
+      </div>
     </div>
-    <div class="hero-dl reveal">
-      <div class="k" data-i="dl_latest">最新版本</div>
-      <div class="ver" id="dlVer">—</div>
-      <dl class="kv">
-        <dt data-i="dl_size">檔案大小</dt><dd id="dlSize">—</dd>
-        <dt data-i="dl_date">發布日期</dt><dd id="dlDate">—</dd>
-        <dt data-i="dl_req">系統需求</dt><dd data-i="dl_req_v">macOS 13.5 以上</dd>
-        <dt data-i="dl_upd">更新方式</dt><dd data-i="dl_upd_v">App 內自動更新</dd>
-      </dl>
-      <a class="pill line" id="dlBtn" href="#" aria-disabled="true" data-i="dl_soon">即將開放下載</a>
-      <div class="muted" id="dlMeta" data-i="dl_meta">已通過 Apple 公證</div>
-    </div>
-  </div>
-
-  <section class="block reveal">
-    <div class="block-h"><h2 data-i="what_h">它做什麼</h2><span class="meta" data-i="what_meta">把備份這件事做到確定</span></div>
-    <div class="core">
-      <div class="scene sc-core big" data-scene="core" aria-hidden="true"><div class="stage">
+    <div class="scene sc-core big" data-scene="core" aria-hidden="true"><div class="stage">
         <div class="mb rise"><span class="mbx"><svg class="ico mbi"><use href="#i-sd"/></svg><span class="pct" data-to="100" data-at="s6" data-ms="5000" data-ease="lin" data-fmt="{n}%">0%</span><span class="clk">14:02</span></span></div>
         <div class="mwin mw rise" style="--dl:.05s">
           <div class="mt"><span class="wdots"><i></i><i></i><i></i></span><span class="ttl" data-i="brand">備份都ok</span></div>
@@ -709,20 +758,20 @@ footer a:hover { color: var(--ink); }
             <div class="cz-e"><svg class="ico"><use href="#i-sd"/></svg><span data-i="a_insert">插入後會自動偵測</span></div>
             <div class="cz-c">
               <span class="tile"><svg class="ico"><use href="#i-sd"/></svg></span>
-              <div class="nm2"><div class="t"><b>SONY_A7IV</b><span class="tag ok" data-i="a_detected">已偵測</span></div><span class="sub" data-i="a_used">128 GB・已用 74.2 GB</span></div>
+              <div class="nm2"><div class="t"><b><code class="vol">SONY_A7IV</code></b><span class="tag ok" data-i="a_detected">已偵測</span></div><span class="sub" data-i="a_used">128 GB・已用 74.2 GB</span></div>
               <svg class="ico ej"><use href="#i-eject"/></svg>
             </div>
           </div>
-          <div class="rw"><span class="lb" data-i="a_cam">機型</span><span class="fld"><span class="v1" data-i="a_detecting">辨識中...</span><span class="v2">a75</span></span></div>
+          <div class="rw"><span class="lb" data-i="a_cam">機型</span><span class="fld"><span class="v1" data-i="a_detecting">辨識中…</span><span class="v2">a75</span></span></div>
           <div class="rw"><span class="lb" data-i="a_scope">範圍</span><span class="chs"><span class="cp" data-i="a_entire">整張卡</span><span class="cp" data-i="a_today">今天</span><span class="cp sel" data-i="a_last8">近 8 小時</span></span></div>
-          <div class="rw"><span class="lb" data-i="a_types">類型</span><span class="chs"><span class="cp k-jpg">JPG</span><span class="cp k-raw">RAW</span><span class="cp k-vid k-v2" data-i="a_video">影片</span><span class="cp" data-i="a_audio">音檔</span></span></div>
+          <div class="rw"><span class="lb" data-i="a_types">類型</span><span class="chs"><span class="cp k-jpg"><abbr>JPG</abbr></span><span class="cp k-raw"><abbr>RAW</abbr></span><span class="cp k-vid k-v2" data-i="a_video">影片</span><span class="cp" data-i="a_audio">音檔</span></span></div>
           <div class="dv"></div>
           <div class="go" data-i="a_start">開始備份</div>
         </div>
         <svg class="ico sprite srcsd"><use href="#i-sd"/></svg>
         <div class="fly"><i style="--n:0"></i><i style="--n:1"></i><i style="--n:2"></i><i style="--n:3"></i></div>
         <div class="mwin tk">
-          <div class="task"><b>SONY_A7IV</b><span class="tags"><span class="tag pri t1" data-i="a_copying">備份中</span><span class="tag ver t2" data-i="a_verifying">校驗中</span><span class="tag ok t3" data-i="a_done">完成</span></span></div>
+          <div class="task"><b><code class="vol">SONY_A7IV</code></b><span class="tags"><span class="tag pri t1" data-i="a_copying">備份中</span><span class="tag ver t2" data-i="a_verifying">校驗中</span><span class="tag ok t3" data-i="a_done">完成</span></span></div>
           <div class="bar"><i class="fp"></i><i class="fv"></i><i class="fo"></i></div>
           <div class="tkl"><span class="cnt" data-to="360" data-at="s6" data-ms="3200" data-fmt="{n} / 360">0 / 360</span><span class="sa s1x">182 MB/s</span><span class="sa s2x" data-i="a_verifying_sha">SHA-256 驗證中</span><span class="sa s3x" data-i="a_verified">已校驗</span></div>
         </div>
@@ -738,25 +787,28 @@ footer a:hover { color: var(--ink); }
         </div>
         <div class="cursor"><svg class="ico"><use href="#i-cursor"/></svg></div>
       </div></div>
-      <div class="core-txt">
-        <div class="core-h" data-i="core_h">插卡，按下開始。</div>
-        <p class="core-d" data-i="core_d">其餘的事，備份都ok 會自己做完，並一一驗證。</p>
-        <ol class="steps">
+  </div>
+
+  <section class="container" aria-labelledby="core-h">
+    <div class="sec-head"><h2 id="core-h" data-i="core_h">插卡，按下開始。</h2><span data-i="core_d">其餘的事，備份都ok 會自己做完，並一一驗證。</span></div>
+    <ol class="steps">
           <li class="st1"><b data-i="st1_b">插卡</b><span data-i="st1_s">自動選卡、辨識機型，亮起卡裡有的檔案類型</span></li>
           <li class="st2"><b data-i="st2_b">開始備份</b><span data-i="st2_s">照你的資料夾結構，照片、影片分開放好</span></li>
           <li class="st3"><b data-i="st3_b">驗證後退卡</b><span data-i="st3_s">每個檔案讀回比對，全部無誤才退卡，選單列通知完成</span></li>
         </ol>
-      </div>
-    </div>
+  </section>
+
+  <section class="container" aria-labelledby="what-h">
+    <div class="sec-head"><h2 id="what-h" data-i="what_h">它做什麼</h2><span data-i="what_meta">把備份這件事做到確定</span></div>
     <div class="feats" id="feats">
 
-      <div class="feat">
+      <div class="feat reveal">
         <div class="scene sc-verify" data-scene="verify" aria-hidden="true"><div class="stage">
           <div class="mwin w1 rise">
             <div class="task">
               <span class="tile"><svg class="ico"><use href="#i-sd"/></svg></span>
               <div class="nm2">
-                <div class="t"><b>SONY_A7IV</b><span class="tags"><span class="tag pri t1" data-i="a_copying">備份中</span><span class="tag ver t2" data-i="a_verifying">校驗中</span><span class="tag ok t3" data-i="a_done">完成</span></span></div>
+                <div class="t"><b><code class="vol">SONY_A7IV</code></b><span class="tags"><span class="tag pri t1" data-i="a_copying">備份中</span><span class="tag ver t2" data-i="a_verifying">校驗中</span><span class="tag ok t3" data-i="a_done">完成</span></span></div>
                 <span class="sub">→ 2026_1009_a75・41.2 GB</span>
               </div>
             </div>
@@ -771,12 +823,12 @@ footer a:hover { color: var(--ink); }
         <div class="h" data-i="f1_h">讀回驗證</div><div class="d" data-i="f1_d">每個檔案寫入後都讀回來做 SHA-256 比對，有任何一個不符就不退卡。</div>
       </div>
 
-      <div class="feat">
+      <div class="feat reveal">
         <div class="scene sc-skip" data-scene="skip" aria-hidden="true"><div class="stage">
           <div class="src rise">
             <span class="slot"></span>
             <svg class="ico card srcsd"><use href="#i-sd"/></svg>
-            <span class="nm">SONY_A7IV</span>
+            <span class="nm"><code class="vol">SONY_A7IV</code></span>
           </div>
           <div class="chev"><i style="--n:0"></i><i style="--n:1"></i><i style="--n:2"></i></div>
           <div class="grid rise" style="--dl:.1s">
@@ -789,7 +841,7 @@ footer a:hover { color: var(--ink); }
         <div class="h" data-i="f2_h">不重複備份</div><div class="d" data-i="f2_d">已經備份過的檔案自動跳過；中途拔卡，重來時只補沒完成的部分。</div>
       </div>
 
-      <div class="feat">
+      <div class="feat reveal">
         <div class="scene sc-tree" data-scene="tree" aria-hidden="true"><div class="stage">
           <div class="pre rise"><span class="pk" data-i="a_preset">預設集</span><span class="pv"><span class="p1" data-i="a_preset1">日常</span><span class="p2" data-i="a_preset2">婚禮案</span><svg class="ico"><use href="#i-updown"/></svg></span></div>
           <div class="zone rise" style="--dl:.08s">
@@ -808,9 +860,9 @@ footer a:hover { color: var(--ink); }
         <div class="h" data-i="f3_h">你的資料夾結構</div><div class="d" data-i="f3_d">日期、檔案類型、機種、自訂名稱自由組合，存成預設集，接案時一鍵切換。</div>
       </div>
 
-      <div class="feat">
+      <div class="feat reveal">
         <div class="scene sc-dual" data-scene="dual" aria-hidden="true"><div class="stage">
-          <div class="src rise"><svg class="ico srcsd"><use href="#i-sd"/></svg><span>SONY_A7IV</span></div>
+          <div class="src rise"><svg class="ico srcsd"><use href="#i-sd"/></svg><span><code class="vol">SONY_A7IV</code></span></div>
           <svg class="wires" viewBox="0 0 52 74">
             <path class="wb" d="M0 36 C26 36 26 9 52 9"/><path class="wb" d="M0 36 C26 36 26 63 52 63"/>
             <path class="wf" d="M0 36 C26 36 26 9 52 9"/><path class="wf" d="M0 36 C26 36 26 63 52 63"/>
@@ -828,7 +880,7 @@ footer a:hover { color: var(--ink); }
         <div class="h" data-i="f4_h">兩個備份點</div><div class="d" data-i="f4_d">讀一次卡，同時寫進兩個位置，各自驗證，耗時幾乎不變。</div>
       </div>
 
-      <div class="feat">
+      <div class="feat reveal">
         <div class="scene sc-speed" data-scene="speed" aria-hidden="true"><div class="stage">
           <div class="mwin w5 rise">
             <div class="sh"><span class="k" data-i="a_speed">讀取速度</span><span class="num"><span class="n1">182</span><span class="n2 lo">23</span><span class="n3">176</span><span class="n4 lo">31</span><span class="n5">179</span></span><span class="u">MB/s</span>
@@ -847,14 +899,14 @@ footer a:hover { color: var(--ink); }
         <div class="h" data-i="f5_h">讀卡穩定度</div><div class="d" data-i="f5_d">備份途中持續量測讀取速度，記憶卡或讀卡機不穩時當場提醒。</div>
       </div>
 
-      <div class="feat">
+      <div class="feat reveal">
         <div class="scene sc-update" data-scene="update" aria-hidden="true"><div class="stage">
           <div class="mwin w6 rise">
             <div class="wdots"><i></i><i></i><i></i></div>
             <div class="task">
               <span class="tile"><svg class="ico"><use href="#i-sd"/></svg></span>
               <div class="nm2">
-                <div class="t"><b>FX3_CARD</b><span class="tags"><span class="tag pri t1" data-i="a_copying">備份中</span><span class="tag ok t3" data-i="a_done">完成</span></span></div>
+                <div class="t"><b><code class="vol">FX3_CARD</code></b><span class="tags"><span class="tag pri t1" data-i="a_copying">備份中</span><span class="tag ok t3" data-i="a_done">完成</span></span></div>
                 <span class="sub">→ 2026_1009_FX3・118.6 GB</span>
               </div>
             </div>
@@ -874,38 +926,35 @@ footer a:hover { color: var(--ink); }
       </div>
 
     </div>
-    <div class="feat-ind" aria-hidden="true"><i></i></div>
+    <div class="feat-ind" aria-hidden="true"><i></i></div><div class="feat-ind" aria-hidden="true"><i></i></div>
   </section>
 
-  <div class="pair">
-    <section class="block reveal" id="claim">
-      <div class="block-h"><h2 data-i="claim_h">領取測試金鑰</h2><span class="meta" data-i="claim_meta">測試期間</span></div>
-      <div class="block-b">
-        <p class="lede" data-i="claim_lede">填寫你的信箱，立刻拿到一把測試人員金鑰，所有功能都可以使用。</p>
+  <section class="container">
+    <div class="pair">
+      <div class="panel" id="claim">
+        <div class="ph2"><h2 data-i="claim_h">領取測試金鑰</h2><span data-i="claim_meta">測試期間</span></div>
+        <p class="plede" data-i="claim_lede">填寫你的信箱，立刻拿到一把測試人員金鑰，所有功能都可以使用。</p>
         <form class="claim" id="claimForm" novalidate>
           <div class="field">
             <label for="email" data-i="claim_email">電子郵件</label>
             <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="name@example.com" required>
           </div>
           <div class="hp" aria-hidden="true"><label for="website">網站</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
-          <button class="pill line" id="claimBtn" type="submit"><span class="swap-t" id="claimT" data-i="claim_btn">領取</span></button>
+          <button class="btn" id="claimBtn" type="submit"><span class="swap-t" id="claimT" data-i="claim_btn">領取</span></button>
         </form>
         <div class="msg" id="claimMsg" role="status" aria-live="polite"></div>
         <div class="result" id="result" aria-hidden="true">
           <div><div class="inner">
             <div class="keyrow">
               <code id="keyText"></code>
-              <button class="ghost" id="copyBtn" type="button"><span class="swap-t" id="copyT" data-i="copy">複製</span></button>
+              <button class="btn" id="copyBtn" type="button"><span class="swap-t" id="copyT" data-i="copy">複製</span></button>
             </div>
           </div></div>
         </div>
         <div class="note" data-i="claim_note">同一個信箱再次填寫，會拿回同一把金鑰。一把金鑰只能在一台 Mac 上使用，在另一台啟用會讓原本那台登出。</div>
       </div>
-    </section>
-
-    <section class="block reveal">
-      <div class="block-h"><h2 data-i="start_h">開始使用</h2><span class="meta" data-i="start_meta">約三分鐘</span></div>
-      <div class="block-b">
+      <div class="panel">
+        <div class="ph2"><h2 data-i="start_h">開始使用</h2><span data-i="start_meta">約三分鐘</span></div>
         <ol class="next">
           <li><span data-i="start1!">按「<b>下載</b>」，打開映像檔，把「備份都ok」拖進「應用程式」資料夾。</span></li>
           <li><span data-i="start2!">第一次打開時系統會確認一次，按「<b>打開</b>」即可。</span></li>
@@ -913,20 +962,37 @@ footer a:hover { color: var(--ink); }
           <li><span data-i="start4!">第一次使用，建議先讀<a href="manual/">使用說明</a>的前四章。</span></li>
         </ol>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 
-  <footer>
+  <section class="container">
+    <div class="again">
+      <div class="who">
+        <img src="icons/app-icon-256.png" alt="" width="48" height="48">
+        <div><h2 data-i="brand">備份都ok</h2><p data-i="for">給影像工作者的記憶卡備份工具</p></div>
+      </div>
+      <dl class="kv">
+        <div><dt data-i="dl_latest">最新版本</dt><dd id="dlVer"></dd></div>
+        <div><dt data-i="dl_size">檔案大小</dt><dd id="dlSize"></dd></div>
+        <div><dt data-i="dl_date">發布日期</dt><dd id="dlDate"></dd></div>
+        <div><dt data-i="dl_upd">更新方式</dt><dd data-i="dl_upd_v">App 內自動更新</dd></div>
+      </dl>
+      <div class="act"><a class="btn" id="dlBtn2" href="#" aria-disabled="true" data-i="dl_soon">即將開放下載</a><small data-i="dl_req_v">macOS 13.5 以上</small></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="container">
     <a href="manual/" data-i="nav_manual">使用說明</a>
     <a href="privacy/" data-i="nav_privacy">隱私權政策</a>
     <span data-i="copyright">© 2026 備份都ok</span>
-  </footer>
-</main>
-
+  </div>
+</footer>
 <script>
 // 多國語言:六種語言與 App 相同。順序 = 網址 ?lang= → 使用者上次選的 → 系統語言 → 英文
 (function () {
-  var D = /*I18N-DATA*/{"brand":["備份都ok","备份都ok","Backup OK","Backup OK","Backup OK","Backup OK"],"meta_desc":["給影像工作者的記憶卡備份工具。每一個檔案，都讀回來再確認一次。","给影像工作者的存储卡备份工具。每一个文件，都读回来再确认一次。","Memory card backup for photographers and filmmakers. Every file is read back and verified.","写真・映像クリエイターのためのメモリーカード・バックアップツール。ファイルを1つ残らず読み戻して、もう一度確かめます。","App de copias de seguridad de tarjetas de memoria para fotógrafos y videógrafos. Cada archivo se vuelve a leer y se comprueba.","Backup de cartões de memória para fotógrafos e videomakers. Cada arquivo é lido de volta e conferido."],"nav_manual":["使用說明","使用说明","User guide","使い方ガイド","Guía de uso","Guia de uso"],"nav_privacy":["隱私權政策","隐私政策","Privacy","プライバシーポリシー","Privacidad","Privacidade"],"lang_label":["語言","语言","Language","言語","Idioma","Idioma"],"icon_alt":["備份都ok App 圖示","备份都ok App 图标","Backup OK app icon","Backup OK のアプリアイコン","Icono de la app Backup OK","Ícone do app Backup OK"],"for":["給影像工作者的記憶卡備份工具","给影像工作者的存储卡备份工具","Memory card backup for photographers and filmmakers","写真・映像クリエイターのためのメモリーカード・バックアップツール","Copias de seguridad de tarjetas de memoria para fotógrafos y videógrafos","Backup de cartões de memória para fotógrafos e videomakers"],"sub!":["複製完，不算完。<br>一個不少，才叫備份。","复制完，不算完。<br>一个不少，才叫备份。","Copied isn’t done.<br>Every file accounted for — that’s a&nbsp;backup.","コピーしただけでは、<wbr>終わらない。<br>ひとつ残らずそろって、<wbr>はじめてバックアップ。","Copiar no es terminar.<br>Solo es una copia de seguridad si no falta ni&nbsp;uno.","Copiar não é terminar.<br>Backup é quando não falta nenhum."],"dl_latest":["最新版本","最新版本","Latest version","最新バージョン","Última versión","Versão mais recente"],"dl_size":["檔案大小","文件大小","Size","サイズ","Tamaño","Tamanho"],"dl_date":["發布日期","发布日期","Released","リリース日","Publicada","Lançamento"],"dl_req":["系統需求","系统要求","Requires","動作環境","Requisitos","Requisitos"],"dl_req_v":["macOS 13.5 以上","macOS 13.5 或更高版本","macOS 13.5 or later","macOS 13.5 以降","macOS 13.5 o posterior","macOS 13.5 ou posterior"],"dl_upd":["更新方式","更新方式","Updates","アップデート","Actualizaciones","Atualizações"],"dl_upd_v":["App 內自動更新","App 内自动更新","Automatic, in the app","アプリ内で自動アップデート","Automáticas desde la app","Automáticas, no app"],"dl_soon":["即將開放下載","即将开放下载","Coming soon","まもなく公開","Próximamente","Em breve"],"dl_btn":["下載","下载","Download","ダウンロード","Descargar","Baixar"],"dl_meta":["已通過 Apple 公證","已通过 Apple 公证","Notarized by Apple","Apple による公証済み","Notarizada por Apple","Notarizado pela Apple"],"dl_beta":["測試版","测试版","Beta","ベータ版","Beta","Beta"],"what_h":["它做什麼","它能做什么","What it does","できること","Qué hace","O que ele faz"],"what_meta":["把備份這件事做到確定","把备份这件事做到万无一失","Backups you can be sure of","確かなバックアップのために","Copias en las que puedes confiar","Backups em que você pode confiar"],"core_h":["插卡，按下開始。","插卡，按下开始。","Insert the card. Click Start backup.","カードを挿して、ボタンを押すだけ。","Inserta la tarjeta y haz clic en Iniciar.","Insira o cartão e clique em Iniciar."],"core_d":["其餘的事，備份都ok 會自己做完，並一一驗證。","其余的事，备份都ok 会自己做完，并逐一验证。","Backup OK does the rest and verifies every file.","あとは Backup OK が最後まで済ませ、ファイルを1つずつ検証します。","Backup OK se encarga del resto y verifica cada archivo.","O Backup OK cuida do resto e verifica cada arquivo."],"st1_b":["插卡","插卡","Insert the card","カードを挿す","Inserta la tarjeta","Insira o cartão"],"st1_s":["自動選卡、辨識機型，亮起卡裡有的檔案類型","自动选卡、识别机型，并勾选卡里有的文件类型","It picks up the card, identifies the camera model and selects the file types the card contains.","カードを自動で選び、カメラ機種を認識。カード内にあるファイル種別だけがオンになります。","La app la selecciona, detecta la cámara y marca los tipos de archivo que contiene.","O app seleciona o cartão, detecta a câmera e marca os tipos de arquivo presentes."],"st2_b":["開始備份","开始备份","Start backup","バックアップを開始","Inicia la copia","Inicie o backup"],"st2_s":["照你的資料夾結構，照片、影片分開放好","按你的文件夹结构，把照片、视频分开存放","Files go into your folder structure, sorted by type.","決めておいたフォルダ構成どおりに、種類ごとに分けて保存します。","Los archivos se guardan según tu estructura de carpetas, ordenados por tipo.","Os arquivos são organizados na sua estrutura de pastas, separados por tipo."],"st3_b":["驗證後退卡","验证后推出","Verify, then eject","検証してから取り出す","Verificación y expulsión","Verificação e ejeção"],"st3_s":["每個檔案讀回比對，全部無誤才退卡，選單列通知完成","每个文件读回比对，全部无误才推出存储卡，菜单栏通知完成","Every file is read back and compared. The card is ejected only when all match, and you’re notified in the menu bar when it’s done.","ファイルを1つ残らず読み戻して照合。すべて一致してから取り出し、メニューバーで完了をお知らせします。","Cada archivo se vuelve a leer y se compara. La tarjeta solo se expulsa si todo coincide, y la barra de menús te avisa.","Cada arquivo é lido de volta e comparado. O cartão só é ejetado se tudo bater, e um aviso aparece na barra de menus."],"f1_h":["讀回驗證","读回验证","Read-back verification","読み戻し検証","Verificación por relectura","Verificação por releitura"],"f1_d":["每個檔案寫入後都讀回來做 SHA-256 比對，有任何一個不符就不退卡。","每个文件写入后都读回来做 SHA-256 比对，只要有一个不一致，就不推出存储卡。","After each file is written, it’s read back and its SHA-256 checksum compared. If even one file doesn’t match, the card isn’t ejected.","書き込んだファイルはすべて読み戻して SHA-256 で照合。1つでも一致しなければ、カードは取り出しません。","Tras escribirse, cada archivo se vuelve a leer y se comprueba con SHA-256. Si uno solo no coincide, la tarjeta no se expulsa.","Cada arquivo é lido de volta após a gravação e comparado por SHA-256. Se um único arquivo não bater, o cartão não é ejetado."],"f2_h":["不重複備份","不重复备份","Never copies twice","重複しないバックアップ","Sin copias duplicadas","Sem cópias duplicadas"],"f2_d":["已經備份過的檔案自動跳過；中途拔卡，重來時只補沒完成的部分。","已经备份过的文件自动跳过；中途拔卡，重来时只补没完成的部分。","Files you’ve already backed up are skipped. If the card is pulled midway, the next run copies only what’s missing.","バックアップ済みのファイルは自動でスキップ。途中でカードを抜いても、次は残りの分だけをコピーします。","Los archivos ya copiados se omiten. Si sacas la tarjeta a mitad de copia, la próxima vez solo se copia lo que falta.","Arquivos já copiados são ignorados. Se o cartão for removido no meio do backup, da próxima vez só é copiado o que falta."],"f3_h":["你的資料夾結構","你的文件夹结构","Your folder structure","思いどおりのフォルダ構成","Tu estructura de carpetas","Sua estrutura de pastas"],"f3_d":["日期、檔案類型、機種、自訂名稱自由組合，存成預設集，接案時一鍵切換。","日期、文件类型、机型、自定义名称自由组合，存成预设集，不同项目一键切换。","Mix and match date, file type, camera model and custom names. Save the combination as a preset and switch between jobs in one click.","日付・ファイル種別・カメラ機種・カスタム名を自由に組み合わせてプリセットに保存。案件ごとにワンクリックで切り替えられます。","Combina fecha, tipo de archivo, cámara y nombres personalizados a tu gusto. Guarda cada combinación como preajuste y cambia de uno a otro con un clic según el encargo.","Combine data, tipo de arquivo, câmera e nomes personalizados como quiser. Salve como predefinição e troque com um clique a cada trabalho."],"f4_h":["兩個備份點","两个备份位置","Two destinations","2か所に同時保存","Dos destinos","Dois destinos"],"f4_d":["讀一次卡，同時寫進兩個位置，各自驗證，耗時幾乎不變。","读一次卡，同时写入两个位置，各自验证，耗时几乎不变。","The card is read once and written to two places at once. Each copy is verified independently, and it takes barely any longer.","カードの読み込みは1回だけ。2か所へ同時に書き込んでそれぞれ検証し、かかる時間はほぼ変わりません。","La tarjeta se lee una sola vez y se escribe en dos destinos al mismo tiempo. Cada copia se verifica por separado y apenas tarda más.","O cartão é lido uma vez e gravado em dois lugares ao mesmo tempo. Cada cópia é verificada separadamente, e o tempo total quase não muda."],"f5_h":["讀卡穩定度","读卡稳定性","Read stability","読み取りの安定性","Estabilidad de lectura","Estabilidade de leitura"],"f5_d":["備份途中持續量測讀取速度，記憶卡或讀卡機不穩時當場提醒。","备份过程中持续测量读取速度，存储卡或读卡器不稳定时当场提醒。","Read speed is monitored throughout the backup. If the card or reader becomes unstable, you’re alerted right away.","バックアップ中は読み取り速度を常に計測。カードやカードリーダーが不安定になると、その場でお知らせします。","La velocidad de lectura se mide durante toda la copia. Si la tarjeta o el lector de tarjetas se vuelven inestables, la app te avisa al momento.","A velocidade de leitura é medida durante todo o backup. Se o cartão ou o leitor ficarem instáveis, você é avisado na hora."],"f6_h":["自動更新","自动更新","Automatic updates","自動アップデート","Actualizaciones automáticas","Atualizações automáticas"],"f6_d":["有新版本時在 App 內提示；備份進行中不會重新啟動。","有新版本时在 App 内提示；备份进行中不会重新启动。","The app lets you know when a new version is out, and never restarts during a backup.","新しいバージョンはアプリ内でお知らせ。バックアップ中に再起動することはありません。","La app te avisa cuando hay una versión nueva y nunca se reinicia durante una copia.","O app avisa quando há uma nova versão e nunca reinicia durante um backup."],"claim_h":["領取測試金鑰","领取测试密钥","Get a tester key","テスター用キーを受け取る","Obtén una clave de probador","Receba uma chave de testador"],"claim_meta":["測試期間","测试期间","During the beta","ベータ期間中","Durante la beta","Durante o beta"],"claim_lede":["填寫你的信箱，立刻拿到一把測試人員金鑰，所有功能都可以使用。","填写你的邮箱，即可立即获得一个测试密钥，解锁全部功能。","Enter your email to get a tester key right away. Every feature is unlocked.","メールアドレスを入力すると、その場でテスター用キーを発行します。すべての機能を使えます。","Escribe tu correo y obtén al instante una clave de probador con todas las funciones.","Digite seu e-mail e receba na hora uma chave de testador com todos os recursos."],"claim_email":["電子郵件","电子邮箱","Email","メールアドレス","Correo electrónico","E-mail"],"claim_btn":["領取","领取","Get key","受け取る","Obtener","Obter chave"],"claim_busy":["領取中","领取中","Getting key…","発行中…","Obteniendo…","Obtendo…"],"copy":["複製","复制","Copy","コピー","Copiar","Copiar"],"copied":["已複製","已复制","Copied","コピーしました","Copiado","Copiado"],"claim_note":["同一個信箱再次填寫，會拿回同一把金鑰。一把金鑰只能在一台 Mac 上使用，在另一台啟用會讓原本那台登出。","用同一个邮箱再次填写，会拿到同一个密钥。每个密钥只能在一台 Mac 上使用，在另一台启用后，原来那台会退出登录。","Entering the same email again gives you the same key. A key works on one Mac at a time; activating it on another Mac signs the first one out.","同じメールアドレスなら、同じキーをもう一度表示します。キーは同時に1台の Mac でのみ使え、別の Mac でアクティベートすると元の Mac はサインアウトされます。","Con el mismo correo recibirás la misma clave. Una clave funciona en un solo Mac a la vez: si la activas en otro, se cierra la sesión en el primero.","Com o mesmo e-mail você recebe a mesma chave. Uma chave funciona em apenas um Mac por vez: ao ativá-la em outro, a sessão no primeiro é encerrada."],"msg_new":["這是你的測試金鑰，請妥善保存。","这是你的测试密钥，请妥善保存。","Here’s your tester key. Keep it somewhere safe.","テスター用キーを発行しました。大切に保管してください。","Esta es tu clave de probador. Guárdala en un lugar seguro.","Esta é a sua chave de testador. Guarde-a em um lugar seguro."],"msg_existing":["這個信箱已經領過，這是你原本的金鑰。","这个邮箱已经领过，这是你原来的密钥。","This email already has a key. Here it is again.","このメールアドレスにはすでにキーが発行されています。以前のキーを表示しています。","Este correo ya tiene una clave. Aquí la tienes de nuevo.","Este e-mail já recebeu uma chave. Esta é a mesma de antes."],"err_invalid_email":["這個信箱格式看起來不對，請再確認一次。","这个邮箱格式看起来不对，请再确认一次。","That email address doesn’t look right. Please check it.","メールアドレスの形式が正しくないようです。もう一度ご確認ください。","Ese correo no parece válido. Revísalo, por favor.","Esse e-mail não parece válido. Confira, por favor."],"err_closed":["目前暫停領取測試金鑰。","目前暂停领取测试密钥。","Tester key sign-ups are paused for now.","現在、テスター用キーの発行を停止しています。","La entrega de claves de probador está en pausa.","A entrega de chaves de testador está pausada."],"err_rate_limited":["嘗試次數太多了，請稍後再試。","尝试次数过多，请稍后再试。","Too many attempts. Please try again later.","試行回数が多すぎます。しばらくしてからもう一度お試しください。","Demasiados intentos. Inténtalo más tarde.","Tentativas demais. Tente novamente mais tarde."],"err_cap_reached":["今天的名額已經發完，請明天再來。","今天的名额已经发完，请明天再来。","Today’s keys are all gone. Please come back tomorrow.","本日の発行分は終了しました。明日もう一度お試しください。","Ya no quedan claves por hoy. Vuelve mañana.","As chaves de hoje acabaram. Volte amanhã."],"err_blocked":["這個信箱不開放領取測試金鑰。","该邮箱无法领取测试密钥。","This email address isn’t eligible for a tester key.","このメールアドレスではテスター用キーを受け取れません。","Este correo no puede recibir una clave de probador.","Este e-mail não pode receber uma chave de testador."],"err_revoked":["這個信箱的測試金鑰已經停用。如有疑問請來信 imokahhhh@gmail.com。","这个邮箱的测试密钥已经停用。如有疑问，请发邮件至 imokahhhh@gmail.com。","The tester key for this email has been deactivated. Questions? Email imokahhhh@gmail.com.","このメールアドレスのテスター用キーは無効化されました。ご不明な点は imokahhhh@gmail.com までご連絡ください。","La clave de probador de este correo fue revocada. ¿Dudas? Escribe a imokahhhh@gmail.com.","A chave de testador deste e-mail foi revogada. Dúvidas? Escreva para imokahhhh@gmail.com."],"err_bad_request":["送出失敗，請重新整理頁面後再試。","提交失败，请刷新页面后再试。","Couldn’t submit. Reload the page and try again.","送信できませんでした。ページを再読み込みしてもう一度お試しください。","No se pudo enviar. Recarga la página e inténtalo de nuevo.","Não foi possível enviar. Recarregue a página e tente novamente."],"err_failed":["送出失敗，請稍後再試。","提交失败，请稍后再试。","Couldn’t submit. Please try again later.","送信できませんでした。しばらくしてからもう一度お試しください。","No se pudo enviar. Inténtalo más tarde.","Não foi possível enviar. Tente novamente mais tarde."],"err_offline":["無法連線，請確認網路後再試。","无法连接，请检查网络后再试。","Can’t connect. Check your internet connection and try again.","接続できません。ネットワークを確認してもう一度お試しください。","No hay conexión. Revisa tu red e inténtalo de nuevo.","Sem conexão. Verifique sua conexão com a internet e tente novamente."],"start_h":["開始使用","开始使用","Get started","はじめかた","Primeros pasos","Primeiros passos"],"start_meta":["約三分鐘","约三分钟","About 3 minutes","約3分","Unos 3 minutos","Cerca de 3 minutos"],"start1!":["按「<b>下載<\/b>」，打開映像檔，把「備份都ok」拖進「應用程式」資料夾。","点“<b>下载<\/b>”，打开磁盘映像，把“备份都ok”拖进“应用程序”文件夹。","Click <b>Download<\/b>, open the disk image and drag Backup OK into the Applications folder.","「<b>ダウンロード<\/b>」をクリックしてディスクイメージを開き、Backup OK を「アプリケーション」フォルダにドラッグします。","Haz clic en <b>Descargar<\/b>, abre la imagen de disco y arrastra Backup OK a la carpeta Aplicaciones.","Clique em <b>Baixar<\/b>, abra a imagem de disco e arraste o Backup OK para a pasta Aplicativos."],"start2!":["第一次打開時系統會確認一次，按「<b>打開<\/b>」即可。","第一次打开时系统会确认一次，点“<b>打开<\/b>”即可。","The first time you open it, macOS asks you to confirm. Click <b>Open<\/b>.","初めて開くときは macOS が確認を求めるので、「<b>開く<\/b>」をクリックします。","La primera vez que la abras, macOS te pedirá confirmación. Haz clic en <b>Abrir<\/b>.","Na primeira vez que abrir, o macOS pede confirmação. Clique em <b>Abrir<\/b>."],"start3!":["在「輸入金鑰」視窗貼上金鑰，按「<b>啟用<\/b>」。","在“输入密钥”窗口粘贴密钥，点“<b>启用<\/b>”。","Paste your key into the “Enter license key” window and click <b>Activate<\/b>.","「ライセンスキーを入力」ウインドウにキーを貼り付けて、「<b>アクティベート<\/b>」をクリックします。","Pega la clave en la ventana “Introduce la clave” y haz clic en <b>Activar<\/b>.","Cole a chave na janela “Insira a chave” e clique em <b>Ativar<\/b>."],"start4!":["第一次使用，建議先讀<a href=\"manual/\">使用說明<\/a>的前四章。","第一次使用，建议先读<a href=\"manual/\">使用说明<\/a>的前四章。","Using it for the first time? Start with the first four chapters of the <a href=\"manual/\">user guide<\/a>.","初めて使うときは、<a href=\"manual/\">使い方ガイド<\/a>の第1〜4章を先にお読みください。","Si es tu primera vez, te recomendamos leer los cuatro primeros capítulos de la <a href=\"manual/\">guía de uso<\/a>.","Se for a sua primeira vez, recomendamos ler os quatro primeiros capítulos do <a href=\"manual/\">guia de uso<\/a>."],"copyright":["© 2026 備份都ok","© 2026 备份都ok","© 2026 Backup OK","© 2026 Backup OK","© 2026 Backup OK","© 2026 Backup OK"],"a_copying":["備份中","备份中","Backing up","バックアップ中","Copiando","Copiando"],"a_verifying":["校驗中","校验中","Verifying","検証中","Verificando","Verificando"],"a_done":["完成","完成","Done","完了","Listo","Concluído"],"a_detected":["已偵測","已检测到","Detected","検出済み","Detectada","Detectado"],"a_insert":["插入後會自動偵測","插卡后自动识别","Insert a card to detect it","挿入すると自動で検出します","Inserta una tarjeta","Insira um cartão para detectar"],"a_used":["128 GB・已用 74.2 GB","128 GB · 已用 74.2 GB","128 GB · 74.2 GB used","128 GB・使用済み 74.2 GB","128 GB · Usado 74.2 GB","128 GB · Usado 74.2 GB"],"a_cam":["機型","机型","Camera","機種","Cámara","Câmera"],"a_detecting":["辨識中...","识别中…","Detecting…","認識中…","Detectando…","Detectando…"],"a_scope":["範圍","范围","Scope","範囲","Rango","Escopo"],"a_entire":["整張卡","整张卡","Whole card","全体","Entera","Tudo"],"a_today":["今天","今天","Today","今日","Hoy","Hoje"],"a_last8":["近 8 小時","近 8 小时","Last 8h","8時間以内","Últimas 8 h","Últimas 8 h"],"a_types":["類型","类型","Types","種別","Tipo","Tipo"],"a_video":["影片","视频","Video","動画","Video","Vídeo"],"a_audio":["音檔","音频","Audio","音声","Audio","Áudio"],"a_start":["開始備份","开始备份","Start backup","バックアップを開始","Iniciar","Iniciar"],"a_verifying_sha":["SHA-256 驗證中","SHA-256 验证中","SHA-256 check","SHA-256 検証中","SHA-256","SHA-256"],"a_verified":["已校驗","已校验","Verified","検証済み","Verificado","Verificado"],"a_desktop":["桌面","桌面","Desktop","デスクトップ","Escritorio","Mesa"],"a_folder2":["影片","影片","JPG","JPG","JPG","JPG"],"a_complete":["備份完成","备份完成","Backup complete","バックアップ完了","Copia completada","Backup concluído"],"a_files":["360 個檔案・41.2 GB","360 个文件 · 41.2 GB","360 files · 41.2 GB","360 ファイル・41.2 GB","360 archivos · 41.2 GB","360 arquivos · 41.2 GB"],"a_verified_time":["已校驗・4 分 12 秒","已校验 · 4 分 12 秒","Verified · 4m 12s","検証済み・4分12秒","Verificado · 4 m 12 s","Verificado · 4 min 12 s"],"a_write":["寫入","写入","Write","書き込み","Escrito","Gravado"],"a_read":["讀回","读回","Read","読み戻し","Leído","Lido"],"a_eject_ok":["全部相符，可以退卡","全部相符，可以推出","All match. Safe to eject","すべて一致。取り出せます","Todo coincide. Puedes expulsarla","Tudo confere. Pode ejetar"],"a_skip1":["已備份過的 8 個，自動跳過","已备份过的 8 个，自动跳过","8 already backed up, skipped","バックアップ済みの 8 件はスキップ","8 ya copiados, se omiten","8 já copiados, ignorados"],"a_skip2":["中途拔卡，完成的都保留","中途拔卡，完成的都保留","Card removed. Finished files kept","カードを抜いても、完了分は保持","Tarjeta retirada: lo copiado se conserva","Cartão removido: cópias mantidas"],"a_skip3":["插回來，只補剩下的 5 個","插回来，只补剩下的 5 个","Reinserted: copying the last 5","挿し直すと、残りの 5 件だけ","Al reinsertarla, solo los 5 que faltan","Ao reinserir, só os 5 que faltam"],"a_skip4":["完成，新增 10 個","完成，新增 10 个","Done: 10 new files","完了、10 件を追加","Listo: 10 archivos nuevos","Concluído: 10 arquivos novos"],"a_preset":["預設集","预设集","Preset","プリセット","Preajuste","Predefinição"],"a_preset1":["日常","日常","Everyday","日常","Diario","Dia a dia"],"a_preset2":["婚禮案","婚礼项目","Wedding","婚礼","Bodas","Casamento"],"a_lv_datecam":["日期+拍攝機種","日期+拍摄机型","Date+Camera","日付+カメラ機種","Fecha+Cámara","Data+Câmera"],"a_lv_type":["檔案類型","文件类型","File type","ファイル種別","Tipo","Tipo"],"a_custom":["林家婚禮","林家婚礼","Ana & Leo","佐藤家","Ana y Leo","Ana e Leo"],"a_ext":["外接硬碟","外置硬盘","External drive","外付けディスク","Disco externo","HD externo"],"a_dual1":["讀一次卡，同時寫進兩個位置","读一次卡，同时写入两个位置","Read once, written twice","1回の読み込みで2か所へ","Una lectura, dos destinos","Uma leitura, dois destinos"],"a_dual2":["兩邊各自驗證完成","两边各自验证完成","Both copies verified","それぞれ検証して完了","Ambas copias verificadas","Ambas as cópias verificadas"],"a_speed":["讀取速度","读取速度","Read speed","読み取り速度","Lectura","Leitura"],"a_unstable":["讀取不穩","读取不稳","Unstable reads","読取不安定","Lectura inestable","Leitura instável"],"a_stalls":["偵測到 2 次讀取卡頓，建議檢查讀卡機","检测到 2 次读取卡顿，建议检查读卡器","2 read stalls detected. Check the reader","読取停滞を2回検出・リーダーを確認","2 bloqueos de lectura. Revisa el lector","2 travamentos. Verifique o leitor"],"a_upd1_b":["可以更新了","有可用更新","Update available","アップデートがあります","Actualización disponible","Atualização disponível"],"a_upd1_s":["備份完成後會自動安裝","备份完成后会自动安装","Installs when backups finish","バックアップ完了後にインストール","Se instala al terminar las copias","Instala ao fim dos backups"],"a_upd2_b":["正在安裝 2.5","正在安装 2.5","Installing 2.5","2.5 をインストール中","Instalando 2.5","Instalando 2.5"],"a_upd2_s":["備份已經完成","备份已经完成","Backup finished","バックアップは完了しました","Copia completada","Os backups terminaram"],"a_upd3_b":["已更新到 2.5","已更新到 2.5","Updated to 2.5","2.5 にアップデート済み","Actualizado a 2.5","Atualizado para 2.5"],"a_upd3_s":["下次插卡就是新版","下次插卡就是新版","Ready for your next card","次のカードから新バージョン","Lista para la próxima tarjeta","Pronto para o próximo cartão"],"title_manual":["備份都ok 使用說明","备份都ok 使用说明","Backup OK User Guide","Backup OK 使い方ガイド","Guía de uso de Backup OK","Guia de uso do Backup OK"],"title_privacy":["備份都ok 隱私權政策","备份都ok 隐私政策","Backup OK Privacy Policy","Backup OK プライバシーポリシー","Política de privacidad de Backup OK","Política de Privacidade do Backup OK"]}/*END-I18N-DATA*/;
+  var D = /*I18N-DATA*/{"brand":["備份都ok","备份都ok","Backup OK","Backup OK","Backup OK","Backup OK"],"meta_desc":["給影像工作者的記憶卡備份工具。每一個檔案，都讀回來再確認一次。","给影像工作者的存储卡备份工具。每一个文件，都读回来再确认一次。","Memory card backup for photographers and filmmakers. Every file is read back and verified.","写真・映像クリエイターのためのメモリーカード・バックアップツール。ファイルを1つ残らず読み戻して、もう一度確かめます。","App de copias de seguridad de tarjetas de memoria para fotógrafos y videógrafos. Cada archivo se vuelve a leer y se comprueba.","Backup de cartões de memória para fotógrafos e videomakers. Cada arquivo é lido de volta e conferido."],"nav_manual":["使用說明","使用说明","User guide","使い方ガイド","Guía de uso","Guia de uso"],"nav_privacy":["隱私權政策","隐私政策","Privacy","プライバシーポリシー","Privacidad","Privacidade"],"lang_label":["語言","语言","Language","言語","Idioma","Idioma"],"icon_alt":["備份都ok App 圖示","备份都ok App 图标","Backup OK app icon","Backup OK のアプリアイコン","Icono de la app Backup OK","Ícone do app Backup OK"],"for":["給影像工作者的記憶卡備份工具","给影像工作者的存储卡备份工具","Memory card backup for photographers and filmmakers","写真・映像クリエイターのためのメモリーカード・バックアップツール","Copias de seguridad de tarjetas de memoria para fotógrafos y videógrafos","Backup de cartões de memória para fotógrafos e videomakers"],"sub!":["複製完，不算完。<br>一個不少，才叫備份。","复制完，不算完。<br>一个不少，才叫备份。","Copied isn’t done.<br>Every file accounted for — that’s a&nbsp;backup.","コピーしただけでは、<wbr>終わらない。<br>ひとつ残らずそろって、<wbr>はじめてバックアップ。","Copiar no es terminar.<br>Solo es una copia de seguridad si no falta ni&nbsp;uno.","Copiar não é terminar.<br>Backup é quando não falta nenhum."],"dl_latest":["最新版本","最新版本","Latest version","最新バージョン","Última versión","Versão mais recente"],"dl_size":["檔案大小","文件大小","Size","サイズ","Tamaño","Tamanho"],"dl_date":["發布日期","发布日期","Released","リリース日","Publicada","Lançamento"],"dl_req":["系統需求","系统要求","Requires","動作環境","Requisitos","Requisitos"],"dl_req_v":["macOS 13.5 以上","macOS 13.5 或更高版本","macOS 13.5 or later","macOS 13.5 以降","macOS 13.5 o posterior","macOS 13.5 ou posterior"],"dl_upd":["更新方式","更新方式","Updates","アップデート","Actualizaciones","Atualizações"],"dl_upd_v":["App 內自動更新","App 内自动更新","Automatic, in the app","アプリ内で自動アップデート","Automáticas desde la app","Automáticas, no app"],"dl_soon":["即將開放下載","即将开放下载","Coming soon","まもなく公開","Próximamente","Em breve"],"dl_btn":["下載","下载","Download","ダウンロード","Descargar","Baixar"],"dl_meta":["已通過 Apple 公證","已通过 Apple 公证","Notarized by Apple","Apple による公証済み","Notarizada por Apple","Notarizado pela Apple"],"dl_beta":["測試版","测试版","Beta","ベータ版","Beta","Beta"],"what_h":["它做什麼","它能做什么","What it does","できること","Qué hace","O que ele faz"],"what_meta":["把備份這件事做到確定","把备份这件事做到万无一失","Backups you can be sure of","確かなバックアップのために","Copias en las que puedes confiar","Backups em que você pode confiar"],"core_h":["插卡，按下開始。","插卡，按下开始。","Insert the card. Click Start backup.","カードを挿して、ボタンを押すだけ。","Inserta la tarjeta y haz clic en Iniciar.","Insira o cartão e clique em Iniciar."],"core_d":["其餘的事，備份都ok 會自己做完，並一一驗證。","其余的事，备份都ok 会自己做完，并逐一验证。","Backup OK does the rest and verifies every file.","あとは Backup OK が最後まで済ませ、ファイルを1つずつ検証します。","Backup OK se encarga del resto y verifica cada archivo.","O Backup OK cuida do resto e verifica cada arquivo."],"st1_b":["插卡","插卡","Insert the card","カードを挿す","Inserta la tarjeta","Insira o cartão"],"st1_s":["自動選卡、辨識機型，亮起卡裡有的檔案類型","自动选卡、识别机型，并勾选卡里有的文件类型","It picks up the card, identifies the camera model and selects the file types the card contains.","カードを自動で選び、カメラ機種を認識。カード内にあるファイル種別だけがオンになります。","La app la selecciona, detecta la cámara y marca los tipos de archivo que contiene.","O app seleciona o cartão, detecta a câmera e marca os tipos de arquivo presentes."],"st2_b":["開始備份","开始备份","Start backup","バックアップを開始","Inicia la copia","Inicie o backup"],"st2_s":["照你的資料夾結構，照片、影片分開放好","按你的文件夹结构，把照片、视频分开存放","Files go into your folder structure, sorted by type.","決めておいたフォルダ構成どおりに、種類ごとに分けて保存します。","Los archivos se guardan según tu estructura de carpetas, ordenados por tipo.","Os arquivos são organizados na sua estrutura de pastas, separados por tipo."],"st3_b":["驗證後退卡","验证后推出","Verify, then eject","検証してから取り出す","Verificación y expulsión","Verificação e ejeção"],"st3_s":["每個檔案讀回比對，全部無誤才退卡，選單列通知完成","每个文件读回比对，全部无误才推出存储卡，菜单栏通知完成","Every file is read back and compared. The card is ejected only when all match, and you’re notified in the menu bar when it’s done.","ファイルを1つ残らず読み戻して照合。すべて一致してから取り出し、メニューバーで完了をお知らせします。","Cada archivo se vuelve a leer y se compara. La tarjeta solo se expulsa si todo coincide, y la barra de menús te avisa.","Cada arquivo é lido de volta e comparado. O cartão só é ejetado se tudo bater, e um aviso aparece na barra de menus."],"f1_h":["讀回驗證","读回验证","Read-back verification","読み戻し検証","Verificación por relectura","Verificação por releitura"],"f1_d":["每個檔案寫入後都讀回來做 SHA-256 比對，有任何一個不符就不退卡。","每个文件写入后都读回来做 SHA-256 比对，只要有一个不一致，就不推出存储卡。","After each file is written, it’s read back and its SHA-256 checksum compared. If even one file doesn’t match, the card isn’t ejected.","書き込んだファイルはすべて読み戻して SHA-256 で照合。1つでも一致しなければ、カードは取り出しません。","Tras escribirse, cada archivo se vuelve a leer y se comprueba con SHA-256. Si uno solo no coincide, la tarjeta no se expulsa.","Cada arquivo é lido de volta após a gravação e comparado por SHA-256. Se um único arquivo não bater, o cartão não é ejetado."],"f2_h":["不重複備份","不重复备份","Never copies twice","重複しないバックアップ","Sin copias duplicadas","Sem cópias duplicadas"],"f2_d":["已經備份過的檔案自動跳過；中途拔卡，重來時只補沒完成的部分。","已经备份过的文件自动跳过；中途拔卡，重来时只补没完成的部分。","Files you’ve already backed up are skipped. If the card is pulled midway, the next run copies only what’s missing.","バックアップ済みのファイルは自動でスキップ。途中でカードを抜いても、次は残りの分だけをコピーします。","Los archivos ya copiados se omiten. Si sacas la tarjeta a mitad de copia, la próxima vez solo se copia lo que falta.","Arquivos já copiados são ignorados. Se o cartão for removido no meio do backup, da próxima vez só é copiado o que falta."],"f3_h":["你的資料夾結構","你的文件夹结构","Your folder structure","思いどおりのフォルダ構成","Tu estructura de carpetas","Sua estrutura de pastas"],"f3_d":["日期、檔案類型、機種、自訂名稱自由組合，存成預設集，接案時一鍵切換。","日期、文件类型、机型、自定义名称自由组合，存成预设集，不同项目一键切换。","Mix and match date, file type, camera model and custom names. Save the combination as a preset and switch between jobs in one click.","日付・ファイル種別・カメラ機種・カスタム名を自由に組み合わせてプリセットに保存。案件ごとにワンクリックで切り替えられます。","Combina fecha, tipo de archivo, cámara y nombres personalizados a tu gusto. Guarda cada combinación como preajuste y cambia de uno a otro con un clic según el encargo.","Combine data, tipo de arquivo, câmera e nomes personalizados como quiser. Salve como predefinição e troque com um clique a cada trabalho."],"f4_h":["兩個備份點","两个备份位置","Two destinations","2か所に同時保存","Dos destinos","Dois destinos"],"f4_d":["讀一次卡，同時寫進兩個位置，各自驗證，耗時幾乎不變。","读一次卡，同时写入两个位置，各自验证，耗时几乎不变。","The card is read once and written to two places at once. Each copy is verified independently, and it takes barely any longer.","カードの読み込みは1回だけ。2か所へ同時に書き込んでそれぞれ検証し、かかる時間はほぼ変わりません。","La tarjeta se lee una sola vez y se escribe en dos destinos al mismo tiempo. Cada copia se verifica por separado y apenas tarda más.","O cartão é lido uma vez e gravado em dois lugares ao mesmo tempo. Cada cópia é verificada separadamente, e o tempo total quase não muda."],"f5_h":["讀卡穩定度","读卡稳定性","Read stability","読み取りの安定性","Estabilidad de lectura","Estabilidade de leitura"],"f5_d":["備份途中持續量測讀取速度，記憶卡或讀卡機不穩時當場提醒。","备份过程中持续测量读取速度，存储卡或读卡器不稳定时当场提醒。","Read speed is monitored throughout the backup. If the card or reader becomes unstable, you’re alerted right away.","バックアップ中は読み取り速度を常に計測。カードやカードリーダーが不安定になると、その場でお知らせします。","La velocidad de lectura se mide durante toda la copia. Si la tarjeta o el lector de tarjetas se vuelven inestables, la app te avisa al momento.","A velocidade de leitura é medida durante todo o backup. Se o cartão ou o leitor ficarem instáveis, você é avisado na hora."],"f6_h":["自動更新","自动更新","Automatic updates","自動アップデート","Actualizaciones automáticas","Atualizações automáticas"],"f6_d":["有新版本時在 App 內提示；備份進行中不會重新啟動。","有新版本时在 App 内提示；备份进行中不会重新启动。","The app lets you know when a new version is out, and never restarts during a backup.","新しいバージョンはアプリ内でお知らせ。バックアップ中に再起動することはありません。","La app te avisa cuando hay una versión nueva y nunca se reinicia durante una copia.","O app avisa quando há uma nova versão e nunca reinicia durante um backup."],"claim_h":["領取測試金鑰","领取测试密钥","Get a tester key","テスター用キーを受け取る","Obtén una clave de probador","Receba uma chave de testador"],"claim_meta":["測試期間","测试期间","During the beta","ベータ期間中","Durante la beta","Durante o beta"],"claim_lede":["填寫你的信箱，立刻拿到一把測試人員金鑰，所有功能都可以使用。","填写你的邮箱，即可立即获得一个测试密钥，解锁全部功能。","Enter your email to get a tester key right away. Every feature is unlocked.","メールアドレスを入力すると、その場でテスター用キーを発行します。すべての機能を使えます。","Escribe tu correo y obtén al instante una clave de probador con todas las funciones.","Digite seu e-mail e receba na hora uma chave de testador com todos os recursos."],"claim_email":["電子郵件","电子邮箱","Email","メールアドレス","Correo electrónico","E-mail"],"claim_btn":["領取","领取","Get key","受け取る","Obtener","Obter chave"],"claim_busy":["領取中","领取中","Getting key…","発行中…","Obteniendo…","Obtendo…"],"copy":["複製","复制","Copy","コピー","Copiar","Copiar"],"copied":["已複製","已复制","Copied","コピーしました","Copiado","Copiado"],"claim_note":["同一個信箱再次填寫，會拿回同一把金鑰。一把金鑰只能在一台 Mac 上使用，在另一台啟用會讓原本那台登出。","用同一个邮箱再次填写，会拿到同一个密钥。每个密钥只能在一台 Mac 上使用，在另一台启用后，原来那台会退出登录。","Entering the same email again gives you the same key. A key works on one Mac at a time; activating it on another Mac signs the first one out.","同じメールアドレスなら、同じキーをもう一度表示します。キーは同時に1台の Mac でのみ使え、別の Mac でアクティベートすると元の Mac はサインアウトされます。","Con el mismo correo recibirás la misma clave. Una clave funciona en un solo Mac a la vez: si la activas en otro, se cierra la sesión en el primero.","Com o mesmo e-mail você recebe a mesma chave. Uma chave funciona em apenas um Mac por vez: ao ativá-la em outro, a sessão no primeiro é encerrada."],"msg_new":["這是你的測試金鑰，請妥善保存。","这是你的测试密钥，请妥善保存。","Here’s your tester key. Keep it somewhere safe.","テスター用キーを発行しました。大切に保管してください。","Esta es tu clave de probador. Guárdala en un lugar seguro.","Esta é a sua chave de testador. Guarde-a em um lugar seguro."],"msg_existing":["這個信箱已經領過，這是你原本的金鑰。","这个邮箱已经领过，这是你原来的密钥。","This email already has a key. Here it is again.","このメールアドレスにはすでにキーが発行されています。以前のキーを表示しています。","Este correo ya tiene una clave. Aquí la tienes de nuevo.","Este e-mail já recebeu uma chave. Esta é a mesma de antes."],"err_invalid_email":["這個信箱格式看起來不對，請再確認一次。","这个邮箱格式看起来不对，请再确认一次。","That email address doesn’t look right. Please check it.","メールアドレスの形式が正しくないようです。もう一度ご確認ください。","Ese correo no parece válido. Revísalo, por favor.","Esse e-mail não parece válido. Confira, por favor."],"err_closed":["目前暫停領取測試金鑰。","目前暂停领取测试密钥。","Tester key sign-ups are paused for now.","現在、テスター用キーの発行を停止しています。","La entrega de claves de probador está en pausa.","A entrega de chaves de testador está pausada."],"err_rate_limited":["嘗試次數太多了，請稍後再試。","尝试次数过多，请稍后再试。","Too many attempts. Please try again later.","試行回数が多すぎます。しばらくしてからもう一度お試しください。","Demasiados intentos. Inténtalo más tarde.","Tentativas demais. Tente novamente mais tarde."],"err_cap_reached":["今天的名額已經發完，請明天再來。","今天的名额已经发完，请明天再来。","Today’s keys are all gone. Please come back tomorrow.","本日の発行分は終了しました。明日もう一度お試しください。","Ya no quedan claves por hoy. Vuelve mañana.","As chaves de hoje acabaram. Volte amanhã."],"err_blocked":["這個信箱不開放領取測試金鑰。","该邮箱无法领取测试密钥。","This email address isn’t eligible for a tester key.","このメールアドレスではテスター用キーを受け取れません。","Este correo no puede recibir una clave de probador.","Este e-mail não pode receber uma chave de testador."],"err_revoked":["這個信箱的測試金鑰已經停用。如有疑問請來信 imokahhhh@gmail.com。","这个邮箱的测试密钥已经停用。如有疑问，请发邮件至 imokahhhh@gmail.com。","The tester key for this email has been deactivated. Questions? Email imokahhhh@gmail.com.","このメールアドレスのテスター用キーは無効化されました。ご不明な点は imokahhhh@gmail.com までご連絡ください。","La clave de probador de este correo fue revocada. ¿Dudas? Escribe a imokahhhh@gmail.com.","A chave de testador deste e-mail foi revogada. Dúvidas? Escreva para imokahhhh@gmail.com."],"err_bad_request":["送出失敗，請重新整理頁面後再試。","提交失败，请刷新页面后再试。","Couldn’t submit. Reload the page and try again.","送信できませんでした。ページを再読み込みしてもう一度お試しください。","No se pudo enviar. Recarga la página e inténtalo de nuevo.","Não foi possível enviar. Recarregue a página e tente novamente."],"err_failed":["送出失敗，請稍後再試。","提交失败，请稍后再试。","Couldn’t submit. Please try again later.","送信できませんでした。しばらくしてからもう一度お試しください。","No se pudo enviar. Inténtalo más tarde.","Não foi possível enviar. Tente novamente mais tarde."],"err_offline":["無法連線，請確認網路後再試。","无法连接，请检查网络后再试。","Can’t connect. Check your internet connection and try again.","接続できません。ネットワークを確認してもう一度お試しください。","No hay conexión. Revisa tu red e inténtalo de nuevo.","Sem conexão. Verifique sua conexão com a internet e tente novamente."],"start_h":["開始使用","开始使用","Get started","はじめかた","Primeros pasos","Primeiros passos"],"start_meta":["約三分鐘","约三分钟","About 3 minutes","約3分","Unos 3 minutos","Cerca de 3 minutos"],"start1!":["按「<b>下載<\/b>」，打開映像檔，把「備份都ok」拖進「應用程式」資料夾。","点“<b>下载<\/b>”，打开磁盘映像，把“备份都ok”拖进“应用程序”文件夹。","Click <b>Download<\/b>, open the disk image and drag Backup OK into the Applications folder.","「<b>ダウンロード<\/b>」をクリックしてディスクイメージを開き、Backup OK を「アプリケーション」フォルダにドラッグします。","Haz clic en <b>Descargar<\/b>, abre la imagen de disco y arrastra Backup OK a la carpeta Aplicaciones.","Clique em <b>Baixar<\/b>, abra a imagem de disco e arraste o Backup OK para a pasta Aplicativos."],"start2!":["第一次打開時系統會確認一次，按「<b>打開<\/b>」即可。","第一次打开时系统会确认一次，点“<b>打开<\/b>”即可。","The first time you open it, macOS asks you to confirm. Click <b>Open<\/b>.","初めて開くときは macOS が確認を求めるので、「<b>開く<\/b>」をクリックします。","La primera vez que la abras, macOS te pedirá confirmación. Haz clic en <b>Abrir<\/b>.","Na primeira vez que abrir, o macOS pede confirmação. Clique em <b>Abrir<\/b>."],"start3!":["在「輸入金鑰」視窗貼上金鑰，按「<b>啟用<\/b>」。","在“输入密钥”窗口粘贴密钥，点“<b>启用<\/b>”。","Paste your key into the “Enter license key” window and click <b>Activate<\/b>.","「ライセンスキーを入力」ウインドウにキーを貼り付けて、「<b>アクティベート<\/b>」をクリックします。","Pega la clave en la ventana “Introduce la clave” y haz clic en <b>Activar<\/b>.","Cole a chave na janela “Insira a chave” e clique em <b>Ativar<\/b>."],"start4!":["第一次使用，建議先讀<a href=\"manual/\">使用說明<\/a>的前四章。","第一次使用，建议先读<a href=\"manual/\">使用说明<\/a>的前四章。","Using it for the first time? Start with the first four chapters of the <a href=\"manual/\">user guide<\/a>.","初めて使うときは、<a href=\"manual/\">使い方ガイド<\/a>の第1〜4章を先にお読みください。","Si es tu primera vez, te recomendamos leer los cuatro primeros capítulos de la <a href=\"manual/\">guía de uso<\/a>.","Se for a sua primeira vez, recomendamos ler os quatro primeiros capítulos do <a href=\"manual/\">guia de uso<\/a>."],"copyright":["© 2026 備份都ok","© 2026 备份都ok","© 2026 Backup OK","© 2026 Backup OK","© 2026 Backup OK","© 2026 Backup OK"],"a_copying":["備份中","备份中","Backing up","バックアップ中","Copiando","Copiando"],"a_verifying":["校驗中","校验中","Verifying","検証中","Verificando","Verificando"],"a_done":["完成","完成","Done","完了","Listo","Concluído"],"a_detected":["已偵測","已检测到","Detected","検出済み","Detectada","Detectado"],"a_insert":["插入後會自動偵測","插卡后自动识别","Insert a card to detect it","挿入すると自動で検出します","Inserta una tarjeta","Insira um cartão para detectar"],"a_used":["128 GB・已用 74.2 GB","128 GB · 已用 74.2 GB","128 GB · 74.2 GB used","128 GB・使用済み 74.2 GB","128 GB · Usado 74.2 GB","128 GB · Usado 74.2 GB"],"a_cam":["機型","机型","Camera","機種","Cámara","Câmera"],"a_detecting":["辨識中…","识别中…","Detecting…","認識中…","Detectando…","Detectando…"],"a_scope":["範圍","范围","Scope","範囲","Rango","Escopo"],"a_entire":["整張卡","整张卡","Whole card","全体","Entera","Tudo"],"a_today":["今天","今天","Today","今日","Hoy","Hoje"],"a_last8":["近 8 小時","近 8 小时","Last 8h","8時間以内","Últimas 8 h","Últimas 8 h"],"a_types":["類型","类型","Types","種別","Tipo","Tipo"],"a_video":["影片","视频","Video","動画","Video","Vídeo"],"a_audio":["音檔","音频","Audio","音声","Audio","Áudio"],"a_start":["開始備份","开始备份","Start backup","バックアップを開始","Iniciar","Iniciar"],"a_verifying_sha":["SHA-256 驗證中","SHA-256 验证中","SHA-256 check","SHA-256 検証中","SHA-256","SHA-256"],"a_verified":["已校驗","已校验","Verified","検証済み","Verificado","Verificado"],"a_desktop":["桌面","桌面","Desktop","デスクトップ","Escritorio","Mesa"],"a_folder2":["影片","影片","JPG","JPG","JPG","JPG"],"a_complete":["備份完成","备份完成","Backup complete","バックアップ完了","Copia completada","Backup concluído"],"a_files":["360 個檔案・41.2 GB","360 个文件 · 41.2 GB","360 files · 41.2 GB","360 ファイル・41.2 GB","360 archivos · 41.2 GB","360 arquivos · 41.2 GB"],"a_verified_time":["已校驗・4 分 12 秒","已校验 · 4 分 12 秒","Verified · 4m 12s","検証済み・4分12秒","Verificado · 4 m 12 s","Verificado · 4 min 12 s"],"a_write":["寫入","写入","Write","書き込み","Escrito","Gravado"],"a_read":["讀回","读回","Read","読み戻し","Leído","Lido"],"a_eject_ok":["全部相符，可以退卡","全部相符，可以推出","All match. Safe to eject","すべて一致。取り出せます","Todo coincide. Puedes expulsarla","Tudo confere. Pode ejetar"],"a_skip1":["已備份過的 8 個，自動跳過","已备份过的 8 个，自动跳过","8 already backed up, skipped","バックアップ済みの 8 件はスキップ","8 ya copiados, se omiten","8 já copiados, ignorados"],"a_skip2":["中途拔卡，完成的都保留","中途拔卡，完成的都保留","Card removed. Finished files kept","カードを抜いても、完了分は保持","Tarjeta retirada: lo copiado se conserva","Cartão removido: cópias mantidas"],"a_skip3":["插回來，只補剩下的 5 個","插回来，只补剩下的 5 个","Reinserted: copying the last 5","挿し直すと、残りの 5 件だけ","Al reinsertarla, solo los 5 que faltan","Ao reinserir, só os 5 que faltam"],"a_skip4":["完成，新增 10 個","完成，新增 10 个","Done: 10 new files","完了、10 件を追加","Listo: 10 archivos nuevos","Concluído: 10 arquivos novos"],"a_preset":["預設集","预设集","Preset","プリセット","Preajuste","Predefinição"],"a_preset1":["日常","日常","Everyday","日常","Diario","Dia a dia"],"a_preset2":["婚禮案","婚礼项目","Wedding","婚礼","Bodas","Casamento"],"a_lv_datecam":["日期+拍攝機種","日期+拍摄机型","Date+Camera","日付+カメラ機種","Fecha+Cámara","Data+Câmera"],"a_lv_type":["檔案類型","文件类型","File type","ファイル種別","Tipo","Tipo"],"a_custom":["林家婚禮","林家婚礼","Ana & Leo","佐藤家","Ana y Leo","Ana e Leo"],"a_ext":["外接硬碟","外置硬盘","External drive","外付けディスク","Disco externo","HD externo"],"a_dual1":["讀一次卡，同時寫進兩個位置","读一次卡，同时写入两个位置","Read once, written twice","1回の読み込みで2か所へ","Una lectura, dos destinos","Uma leitura, dois destinos"],"a_dual2":["兩邊各自驗證完成","两边各自验证完成","Both copies verified","それぞれ検証して完了","Ambas copias verificadas","Ambas as cópias verificadas"],"a_speed":["讀取速度","读取速度","Read speed","読み取り速度","Lectura","Leitura"],"a_unstable":["讀取不穩","读取不稳","Unstable reads","読取不安定","Lectura inestable","Leitura instável"],"a_stalls":["偵測到 2 次讀取卡頓，建議檢查讀卡機","检测到 2 次读取卡顿，建议检查读卡器","2 read stalls detected. Check the reader","読取停滞を2回検出・リーダーを確認","2 bloqueos de lectura. Revisa el lector","2 travamentos. Verifique o leitor"],"a_upd1_b":["可以更新了","有可用更新","Update available","アップデートがあります","Actualización disponible","Atualização disponível"],"a_upd1_s":["備份完成後會自動安裝","备份完成后会自动安装","Installs when backups finish","バックアップ完了後にインストール","Se instala al terminar las copias","Instala ao fim dos backups"],"a_upd2_b":["正在安裝 2.5","正在安装 2.5","Installing 2.5","2.5 をインストール中","Instalando 2.5","Instalando 2.5"],"a_upd2_s":["備份已經完成","备份已经完成","Backup finished","バックアップは完了しました","Copia completada","Os backups terminaram"],"a_upd3_b":["已更新到 2.5","已更新到 2.5","Updated to 2.5","2.5 にアップデート済み","Actualizado a 2.5","Atualizado para 2.5"],"a_upd3_s":["下次插卡就是新版","下次插卡就是新版","Ready for your next card","次のカードから新バージョン","Lista para la próxima tarjeta","Pronto para o próximo cartão"],"title_manual":["備份都ok 使用說明","备份都ok 使用说明","Backup OK User Guide","Backup OK 使い方ガイド","Guía de uso de Backup OK","Guia de uso do Backup OK"],"title_privacy":["備份都ok 隱私權政策","备份都ok 隐私政策","Backup OK Privacy Policy","Backup OK プライバシーポリシー","Política de privacidad de Backup OK","Política de Privacidade do Backup OK"]}/*END-I18N-DATA*/;
   var LANGS = ['zh-Hant', 'zh-Hans', 'en', 'ja', 'es', 'pt'];
   var NAMES = { 'zh-Hant': '繁體中文', 'zh-Hans': '简体中文', en: 'English', ja: '日本語', es: 'Español', pt: 'Português' };
   var SHORT = { 'zh-Hant': '繁中', 'zh-Hans': '简中', en: 'EN', ja: '日本語', es: 'ES', pt: 'PT' };
@@ -1033,10 +1099,12 @@ footer a:hover { color: var(--ink); }
     if (/^https?:/.test(d.file)) { b.target = '_blank'; b.rel = 'noopener'; }
     b.removeAttribute('aria-disabled');
     b.setAttribute('data-i', 'dl_btn'); b.textContent = BK.t('dl_btn');
+    var b2 = document.getElementById('dlBtn2');
+    if (b2) { b2.href = b.href; if (b.target) { b2.target = b.target; b2.rel = b.rel; } b2.removeAttribute('aria-disabled'); b2.setAttribute('data-i', 'dl_btn'); b2.textContent = b.textContent; }
     var ver = document.getElementById('dlVer');
     if (d.version) ver.textContent = d.version; else { ver.setAttribute('data-i', 'dl_beta'); ver.textContent = BK.t('dl_beta'); }
-    document.getElementById('dlSize').textContent = d.size || '—';
-    document.getElementById('dlDate').textContent = d.date || '—';
+    document.getElementById('dlSize').textContent = d.size || '';
+    document.getElementById('dlDate').textContent = d.date || '';
   }).catch(function () {});
 
   // 換字(模糊淡出 → 換字 → 淡入)

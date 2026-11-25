@@ -7,477 +7,473 @@
 <script>if (window.top !== window.self) document.documentElement.style.display = 'none';</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>隱私權政策 · 備份都ok</title>
+<meta name="description" content="備份都ok 的隱私權政策：照片只留在你的 Mac，只有領取金鑰、啟用授權與檢查更新時，才和伺服器交換最少的資料。">
 <link rel="icon" type="image/png" sizes="64x64" href="../icons/favicon-64.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../icons/favicon-32.png">
 <link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
 <style>
+/* Hallmark · shape: privacy policy, send-ok document · genre: editorial · theme: custom (imokahhhh style) · redesign: full · job: try · idea: "what the app sends and what it never does, in plain words" · vibe: "warm paper, quiet type, plain words"
+ * paper: oklch(97.2% 0.006 82) · accent: oklch(19% 0.024 52) · display: system (SF Pro Display, PingFang) · body: system (SF Pro Text, PingFang) · hero: the promise as the title, one sentence and the date · nav: a frosted bar, the app name, quiet links and the language menu · footer: a band with the policy links · imagery: none · signature: the promise in the title: your photos stay on your Mac
+ * axes: light/system-sans/warm · posture: restrained · contrast: pass · fold: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H3 E4 S4 R4 V3 · weakest: H, a document page has no picture; the 40px head and the band cards per part carry it, as on send-ok */
+/* Hallmark · waive 1 · the display face is the system face · the owner asked for Apple system type on every imokahhhh page, same as imokahhhh.com and the send-ok page */
+/* Hallmark · waive 29 · .topbar uses --nav-glass with saturate and blur · the frosted bar is the imokahhhh chrome shared with the backup home page and send-ok */
+/* Hallmark · waive 79 · the document head ends high and the first band card follows · the send-ok policy and guide pages open the same way, title and date, then the parts */
+/* Hallmark · waive 77 · each part is a band card in a 46rem reading column · send-ok sets its policy and guide parts in the same column so lines stay readable */
+/* Hallmark · waive 78 · part heads render 21px under the 40px title · the send-ok documents use the same two sizes, a page title and part titles */
+/* Hallmark · waive 59 · band cards sit 28px apart in one column · the policy follows the send-ok document rhythm so the imokahhhh apps read alike */
+/* Hallmark · dropped favicon-64.png, the 20px icon beside the name in the bar, · the send-ok bar carries the app name alone */
+/* Hallmark · reworded "Privacy policy" to "Privacy policy" · 54, the page name moves from a head above the title into the meta line, as on send-ok */
 :root {
-  --paper: #F4F4F1;
-  --ink: #1D1D1B;
-  --ink-2: #5A5A52;
-  --mute: #9C9C95;
-  --line: rgba(29,29,27,.10);
-  --line-strong: rgba(29,29,27,.24);
-  --ai: #44617B;
-  --font: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
-  --ease-out: cubic-bezier(.22, 1, .36, 1);
-  --ease-spring: cubic-bezier(.34, 1.4, .64, 1);
-  --col: 620px;
-  --top-h: 52px;
+  color-scheme: light;
+  --color-paper: oklch(97.2% 0.006 82);
+  --color-band: oklch(93.6% 0.011 76);
+  --color-card: oklch(99% 0.004 82);
+  --color-tile: oklch(90.5% 0.013 74);
+  --color-ink: oklch(19% 0.024 52);
+  --color-ink-2: oklch(31% 0.018 54);
+  --color-muted: oklch(46% 0.014 60);
+  --color-hairline: oklch(83% 0.011 70);
+  --color-focus: var(--color-ink);
+  --color-err: oklch(45% 0.13 33);
+  --nav-glass: oklch(97.2% 0.006 82 / 0.8);
+  --wash: oklch(19% 0.024 52 / 0.04);
+  --wash-2: oklch(19% 0.024 52 / 0.07);
+  --selection: oklch(19% 0.024 52 / 0.12);
+  --ring: 0 0 0 1px oklch(19% 0.024 52 / 0.05);
+  --shadow-lift: 0 0 0 1px oklch(19% 0.024 52 / 0.06), 0 14px 30px -18px oklch(19% 0.024 52 / 0.35);
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang TC", "Helvetica Neue", "Noto Sans TC", Arial, sans-serif;
+  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang TC", "Helvetica Neue", "Noto Sans TC", Arial, sans-serif;
+  --font-latin: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  --font-tc: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang TC", "Noto Sans TC", sans-serif;
+  --font-sc: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Noto Sans SC", sans-serif;
+  --font-ja: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Hiragino Sans", "Noto Sans JP", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace; --mono: var(--font-mono);
+  --text-xs: 12px; --text-sm: 14px; --text-md: 17px; --text-lg: 21px; --text-xl: 28px; --text-2xl: 40px; --text-display: clamp(44px, 7vw, 72px);
+  --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 20px; --space-xl: 28px; --space-2xl: 52px; --space-3xl: 90px;
+  --radius-xl: 28px; --radius-lg: 20px; --radius-md: 14px; --radius-pill: 9999px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1); --dur: 240ms; --dur-long: 480ms;
+  --container: 1200px; --gutter: 40px; --bar-h: 52px;
 }
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0; background: var(--paper); color: var(--ink);
-  font-family: var(--font); font-weight: 400; font-size: 16.5px; line-height: 1.95; letter-spacing: .02em;
-  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; font-variant-numeric: tabular-nums;
-  padding-bottom: env(safe-area-inset-bottom, 0px);
-}
-h1, h2, h3, b, strong { font-weight: 600; }
+html[lang="zh-Hans"] { --font: var(--font-sc); --font-display: var(--font-sc); }
+html[lang="ja"] { --font: var(--font-ja); --font-display: var(--font-ja); }
+html[lang="en"], html[lang="es"], html[lang="pt"] { --font: var(--font-latin); }
+*, *::before, *::after { box-sizing: border-box; }
+html, body { overflow-x: clip; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 72px; scroll-behavior: smooth; background: var(--color-paper); }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink-2); font-family: var(--font); font-size: var(--text-md); line-height: 1.47; letter-spacing: -0.016em; -webkit-font-smoothing: antialiased; touch-action: manipulation; }
+h1, h2, h3 { margin: 0; font-family: var(--font-display); color: var(--color-ink); font-weight: 600; overflow-wrap: break-word; min-width: 0; text-wrap: balance; }
+p { margin: 0; text-wrap: pretty; }
+b, strong { font-weight: 600; color: var(--color-ink); }
 a { color: inherit; }
-::selection { background: rgba(68,97,123,.18); }
-:focus-visible { outline: 1px solid var(--ink); outline-offset: 4px; border-radius: 2px; }
+[hidden] { display: none !important; }
+::selection { background: var(--selection); }
+:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
+.container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
-.top {
-  position: sticky; top: 0; z-index: 20; height: var(--top-h);
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 0 clamp(18px, 3vw, 40px);
-  padding-top: env(safe-area-inset-top, 0px);
-  background: rgba(244,244,241,.74);
-  -webkit-backdrop-filter: saturate(160%) blur(18px); backdrop-filter: saturate(160%) blur(18px);
-  border-bottom: 1px solid var(--line);
-  font-size: 14px; letter-spacing: .05em;
-}
-.top nav { display: flex; gap: 22px; }
-.brand { display: inline-flex; align-items: center; gap: 9px; text-decoration: none; color: inherit; }
-.brand img { width: 20px; height: 20px; display: block; }
-.top nav a { text-decoration: none; color: var(--ink-2); transition: color .3s; }
-.top nav a:hover { color: var(--ink); }
+/* 導覽列 */
+.topbar { position: sticky; top: 0; z-index: 30; background: var(--nav-glass); -webkit-backdrop-filter: saturate(160%) blur(20px); backdrop-filter: saturate(160%) blur(20px); box-shadow: 0 1px 0 var(--color-hairline); padding-top: env(safe-area-inset-top, 0px); }
+.topbar-in { display: flex; align-items: center; justify-content: space-between; gap: var(--space-lg); min-height: var(--bar-h); }
+.brand { display: flex; align-items: baseline; gap: var(--space-sm); text-decoration: none; color: var(--color-ink); font-family: var(--font-display); font-size: 19px; font-weight: 600; letter-spacing: 0.012em; white-space: nowrap; border-radius: 6px; }
+.brand small { font-size: var(--text-xs); font-weight: 400; letter-spacing: 0; color: var(--color-muted); }
+.nav { display: flex; align-items: center; gap: var(--space-lg); }
+.nav a { white-space: nowrap; font-size: var(--text-xs); color: var(--color-ink-2); text-decoration: none; padding-block: var(--space-sm); border-radius: 4px; transition: color var(--dur) var(--ease); }
+.nav a:hover { color: var(--color-ink); text-decoration: underline; text-underline-offset: 0.3em; text-decoration-color: var(--color-hairline); }
 
-.wrap { max-width: calc(var(--col) + 96px); margin: 0 auto; padding: 0 clamp(22px, 4vw, 48px); }
-
-.hero { padding: clamp(84px, 16vh, 176px) 0 clamp(56px, 9vh, 96px); }
-.hero .for { font-size: 14px; color: var(--ink-2); letter-spacing: .14em; margin: 0 0 28px; }
-.hero h1 { font-size: clamp(64px, 12vw, 128px); line-height: 1.02; letter-spacing: -.015em; margin: 0 0 30px; }
-.hero .sub { font-size: clamp(18px, 2.2vw, 22px); color: var(--ink-2); letter-spacing: .06em; line-height: 1.8; margin: 0 0 48px; }
-.ch { display: inline-block; }
-
-.dl { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; padding-top: 22px; border-top: 1px solid var(--line); }
-.btn {
-  font-family: var(--font); font-weight: 400; font-size: 16px; letter-spacing: .14em;
-  color: var(--ink); background: transparent; text-decoration: none; display: inline-block;
-  border: 1px solid var(--ink); border-radius: 999px; padding: 10px 30px; cursor: pointer;
-  transition: transform .4s var(--ease-spring), background .3s, color .3s, border-color .3s;
-}
-.btn:hover { background: var(--ink); color: var(--paper); }
-.btn:active { transform: scale(.96); }
-.btn[aria-disabled="true"] { border-color: var(--line-strong); color: var(--mute); pointer-events: none; }
-.dl .meta { font-size: 13.5px; color: var(--mute); letter-spacing: .05em; }
-
-section { padding: 72px 0 80px; border-top: 1px solid var(--line); }
-.no { font-size: 13px; color: var(--mute); letter-spacing: .14em; margin: 0 0 14px; }
-h2 { font-size: clamp(28px, 4vw, 38px); line-height: 1.3; letter-spacing: -.005em; margin: 0 0 16px; }
-.lede { font-size: 18px; color: var(--ink-2); line-height: 1.9; margin: 0 0 36px; }
-p { margin: 0 0 14px; }
-.muted { color: var(--ink-2); }
-
-/* 領取表單:髮絲線底線輸入框 */
-.claim { display: flex; gap: 18px; align-items: flex-end; flex-wrap: wrap; }
-.field { flex: 1 1 260px; min-width: 0; }
-.field label { display: block; font-size: 13px; color: var(--mute); letter-spacing: .12em; margin-bottom: 4px; }
-.field input {
-  width: 100%; border: 0; border-bottom: 1px solid var(--line-strong); background: transparent;
-  font-family: var(--font); font-weight: 400; font-size: 19px; letter-spacing: .03em; color: var(--ink);
-  padding: 8px 0 10px; border-radius: 0; outline: none; transition: border-color .3s;
-}
-.field input:focus { border-bottom-color: var(--ink); }
-.field input::placeholder { color: var(--mute); }
-.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-.msg { min-height: 26px; margin-top: 14px; font-size: 14.5px; color: var(--ink-2); letter-spacing: .03em; }
-.msg.err { color: #8A3B2E; }
-
-.result { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .7s var(--ease-out); }
-.result.on { grid-template-rows: 1fr; }
-.result > div { overflow: hidden; }
-.result .inner { padding-top: 26px; opacity: 0; filter: blur(6px); transform: translateY(6px);
-  transition: opacity .7s .1s var(--ease-out), filter .7s .1s var(--ease-out), transform .7s .1s var(--ease-out); }
-.result.on .inner { opacity: 1; filter: blur(0); transform: none; }
-.keyrow { display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
-  border-top: 1px solid var(--line-strong); border-bottom: 1px solid var(--line-strong); padding: 16px 0; }
-.keyrow code { flex: 1 1 auto; font-family: ui-monospace, Menlo, monospace; font-size: clamp(16px, 2.4vw, 21px); letter-spacing: .06em; color: var(--ink); word-break: break-all; }
-.ghost {
-  font-family: var(--font); font-weight: 400; font-size: 14px; letter-spacing: .1em; color: var(--ink);
-  background: transparent; border: 1px solid var(--line-strong); border-radius: 999px; padding: 6px 18px; min-width: 92px; cursor: pointer;
-  transition: transform .35s var(--ease-spring), border-color .3s;
-}
-.ghost:hover { border-color: var(--ink); }
-.ghost:active { transform: scale(.96); }
-.swap-t { display: inline-block; transition: opacity .28s, filter .28s, transform .28s; }
-.swap-t.out { opacity: 0; filter: blur(6px); transform: translateY(5px); }
-.next { list-style: none; margin: 22px 0 0; padding: 0; counter-reset: s; }
-.next li { counter-increment: s; display: grid; grid-template-columns: 34px minmax(0, 1fr); padding: 10px 0; border-bottom: 1px solid var(--line); color: var(--ink-2); font-size: 15.5px; }
-.next li::before { content: counter(s); color: var(--ink); font-size: 18px; line-height: 1.6; }
-.note { border-left: 1px solid var(--ai); padding: 2px 0 2px 20px; margin: 28px 0 0; color: var(--ink-2); font-size: 15px; }
-
-.rows { border-top: 1px solid var(--line); }
-.rows .r { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 20px; padding: 18px 0; border-bottom: 1px solid var(--line); }
-.rows .h { font-size: 17px; letter-spacing: .03em; }
-.rows .d { color: var(--ink-2); font-size: 15.5px; }
-
-footer { border-top: 1px solid var(--line); padding: 26px 0 56px; font-size: 13px; color: var(--mute); letter-spacing: .05em; display: flex; gap: 22px; flex-wrap: wrap; }
-footer a { text-decoration: none; }
-footer a:hover { color: var(--ink); }
-
-.js .hero .ch { opacity: 0; filter: blur(10px); transform: translateY(.14em); }
-.js .hero .ch.in { opacity: 1; filter: blur(0); transform: none; transition: opacity .8s var(--ease-out), filter .8s var(--ease-out), transform .8s var(--ease-out); }
-.js .reveal { opacity: 0; filter: blur(6px); transform: translateY(8px); }
-.js .reveal.in { opacity: 1; filter: blur(0); transform: none; transition: opacity .9s var(--ease-out), filter .9s var(--ease-out), transform .9s var(--ease-out); }
-
-@media (max-width: 640px) {
-  body { font-size: 16px; }
-  .rows .r { grid-template-columns: minmax(0, 1fr); gap: 2px; }
-  .top nav { gap: 16px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after { transition: none !important; }
-  .js .hero .ch, .js .reveal, .result .inner { opacity: 1 !important; filter: none !important; transform: none !important; }
-}
-</style>
-<style>
-/* ---------- 區塊版(與後台同一套) ---------- */
-:root { --block: #FBFBF9; --line: rgba(29,29,27,.15); --line-strong: rgba(29,29,27,.32); --mute: #8E8E86; }
-body { font-size: 15px; line-height: 1.75; }
-.top { height: 50px; border-bottom: 1px solid var(--line-strong); padding: 0 20px; background: rgba(244,244,241,.82); }
-.wrap { max-width: 900px; padding: 16px 20px 0; display: flex; flex-direction: column; gap: 14px; }
-.block { background: var(--block); border: 1px solid var(--line-strong); border-radius: 12px; overflow: hidden; }
-.block-h { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 9px 18px;
-  border-bottom: 1px solid var(--line-strong); background: rgba(29,29,27,.025); }
-.block-h h2 { margin: 0; font-size: 15px; line-height: 1.5; letter-spacing: .06em; }
-.block-h .meta { font-size: 12px; color: var(--mute); letter-spacing: .06em; }
-.block-b { padding: 18px 22px 22px; }
-.doc { padding: 0; }
-.doc h1 { font-size: clamp(28px, 4vw, 40px); line-height: 1.2; letter-spacing: -.01em; margin: 0 0 12px; }
-.doc .lede { font-size: 15px; line-height: 1.8; margin: 0 0 6px; }
-.doc h3 { font-size: 14px; letter-spacing: .06em; color: var(--ink-2); margin: 20px 0 6px; padding-bottom: 5px; border-bottom: 1px solid var(--line-strong); }
-.doc ul { margin: 0 0 8px; padding-left: 1.2em; color: var(--ink-2); font-size: 14px; }
-.doc li { margin-bottom: 4px; }
-.doc p.muted { font-size: 14px; margin: 0 0 6px; }
-.btn { background: var(--ink); color: var(--paper); border: 0; font-size: 15px; padding: 9px 26px; margin-top: 10px; }
-.btn:hover { background: #2C2C29; }
-footer { border-top: 0; padding: 6px 2px 40px; font-size: 12.5px; }
-@media (max-width: 520px) { .wrap { padding: 12px 12px 0; } .block-b { padding: 16px 16px 18px; } }
-/* 字體跟 App 一樣用系統字:中文蘋方、日文冬青黑體、西文 San Francisco */
-html[lang="zh-Hans"] { --font: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; }
-html[lang="ja"] { --font: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif; }
-html[lang="en"], html[lang="es"], html[lang="pt"] { --font: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Roboto, Arial, sans-serif; }
-html:is([lang="en"], [lang="es"], [lang="pt"]) body, html:is([lang="en"], [lang="es"], [lang="pt"]) body * { letter-spacing: normal !important; }
-/* 語言切換 */
-.lang { position: relative; display: inline-block; vertical-align: middle; }
-.lang-btn { display: inline-flex; align-items: center; gap: 6px; font: inherit; font-size: 13px; letter-spacing: 0; color: var(--ink-2); background: transparent;
-  border: 1px solid var(--line-strong); border-radius: 999px; padding: 3px 11px 3px 8px; cursor: pointer; transition: color .3s, border-color .3s; }
-.lang-btn:hover, .lang-btn[aria-expanded="true"] { color: var(--ink); border-color: rgba(29,29,27,.55); }
+/* 語言選單 */
+.lang { position: relative; }
+.lang-btn { display: inline-flex; align-items: center; gap: var(--space-xs); font: inherit; font-size: var(--text-xs); color: var(--color-ink-2); background: transparent; white-space: nowrap;
+  border: 1px solid var(--color-hairline); border-radius: var(--radius-pill); min-height: 28px; padding: 0 var(--space-sm) 0 var(--space-xs); cursor: pointer; transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease); }
+.lang-btn:hover, .lang-btn[aria-expanded="true"] { color: var(--color-ink); border-color: var(--color-ink); }
+.lang-btn:active { background: var(--wash); }
+.lang-btn:disabled { color: var(--color-muted); border-color: var(--color-hairline); background: var(--wash); cursor: default; }
 .lang-ico { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.1; flex: none; }
-.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-.lang-menu { position: absolute; right: 0; top: calc(100% + 8px); min-width: 168px; margin: 0; padding: 5px; list-style: none; background: #FBFBF9;
-  border: 1px solid var(--line-strong); border-radius: 10px; box-shadow: 0 14px 34px rgba(29,29,27,.14); z-index: 30; text-align: left; }
-.lang-menu button { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 14px; font-size: 14px; line-height: 1.4; letter-spacing: 0;
-  color: var(--ink); background: transparent; border: 0; border-radius: 6px; padding: 7px 10px; cursor: pointer; text-align: left; font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif; }
-.lang-menu button[lang="zh-Hant"] { font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", sans-serif; }
-.lang-menu button[lang="zh-Hans"] { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", sans-serif; }
-.lang-menu button[lang="ja"] { font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif; }
-.lang-menu button:hover, .lang-menu button:focus-visible { background: rgba(29,29,27,.06); outline: none; }
-.lang-menu button[aria-checked="true"]::after { content: ""; width: 9px; height: 5px; margin-top: -3px; border-left: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(-45deg); }
-/* 區塊標題:日期不拆行,放不下就換到下一行 */
-.block-h { flex-wrap: wrap; row-gap: 2px; }
-.block-h .meta { white-space: nowrap; }
-/* 頂欄放得下切換鈕 */
-.top nav { align-items: center; }
-.top-r { display: flex; align-items: center; gap: 14px; }
-.top .brand, .top nav a, .top-l .ttl, .top-r .home, .lang-btn { white-space: nowrap; }
-@media (max-width: 520px) { .top-l .sep, .top-l .ttl, .top-r .home, .top nav > a { display: none; } }
-@media (max-width: 520px) { .lang-cur { font-size: 0; } .lang-cur::after { content: attr(data-short); font-size: 13px; } .lang-btn { padding: 3px 9px 3px 7px; } }
+.lang-menu { position: absolute; right: 0; top: calc(100% + 8px); min-width: 168px; margin: 0; padding: var(--space-2xs); list-style: none; background: var(--color-card); border-radius: var(--radius-md); box-shadow: var(--shadow-lift); z-index: 40; }
+.lang-menu button { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: var(--space-md); font-size: var(--text-sm); line-height: 1.4; letter-spacing: 0;
+  color: var(--color-ink); background: transparent; border: 0; border-radius: 8px; padding: var(--space-xs) var(--space-sm); cursor: pointer; text-align: left; font-family: var(--font-latin); }
+.lang-menu button[lang="zh-Hant"] { font-family: var(--font-tc); }
+.lang-menu button[lang="zh-Hans"] { font-family: var(--font-sc); }
+.lang-menu button[lang="ja"] { font-family: var(--font-ja); }
+.lang-menu button:hover { background: var(--wash); }
+.lang-menu button:focus-visible { background: var(--wash); outline: 2px solid var(--color-focus); outline-offset: -2px; }
+.lang-menu button:active { background: var(--wash-2); }
+.lang-menu button[aria-checked="true"]::after { content: ""; width: 9px; height: 5px; margin-top: calc(var(--space-2xs) * -1); border-left: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(-45deg); }
+
+/* 膠囊按鈕：1px ink 外框，滑上去變 ink 底 */
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 40px; padding: 0 var(--space-lg); border-radius: var(--radius-pill); border: 1px solid var(--color-ink); color: var(--color-ink); background: transparent; font: inherit; font-size: var(--text-sm); font-weight: 500; text-decoration: none; cursor: pointer; white-space: nowrap;
+  transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease); }
+.btn:hover { background: var(--color-ink); color: var(--color-paper); }
+.btn:active { opacity: 0.85; }
+.btn[aria-disabled="true"] { border-color: var(--color-hairline); color: var(--color-muted); pointer-events: none; }
+.btn:disabled { border-color: var(--color-hairline); color: var(--color-muted); background: transparent; cursor: default; }
+.swap-t { display: inline-block; transition: opacity .28s, filter .28s, transform .28s; }
+.js .swap-t.out { opacity: 0; filter: blur(6px); transform: translateY(5px); }
+
+/* 頁尾 */
+.foot { margin-top: var(--space-2xl); background: var(--color-band); border-top: 1px solid var(--color-hairline); }
+.foot .container { display: flex; flex-wrap: wrap; gap: var(--space-sm) var(--space-xl); padding-block: var(--space-lg) calc(var(--space-xl) + env(safe-area-inset-bottom, 0px)); font-size: var(--text-xs); color: var(--color-muted); }
+.foot a { color: var(--color-ink-2); text-decoration: none; border-radius: 3px; }
+.foot a:hover { color: var(--color-ink); text-decoration: underline; }
+
+
+section { padding-block: 0; }
+body { min-height: 100dvh; display: flex; flex-direction: column; }
+body > main { flex: 1 0 auto; }
+/* 文件頁：照 send-ok 的寫法，一欄文字，每一段放在色帶卡片裡 */
+.doc { max-width: 46rem; padding-block: var(--space-3xl) var(--space-xl); }
+.doc h1 { font-size: var(--text-2xl); line-height: 1.08; letter-spacing: -0.02em; }
+.doc .lede { margin-top: var(--space-md); font-size: var(--text-lg); line-height: 1.4; color: var(--color-ink-2); }
+.doc .meta { display: flex; flex-wrap: wrap; gap: 0 var(--space-md); margin-top: var(--space-sm); font-size: var(--text-xs); color: var(--color-muted); }
+.doc .part { margin-top: var(--space-xl); padding: var(--space-xl); border-radius: var(--radius-xl); background: var(--color-band); }
+.doc h2 { font-size: var(--text-lg); line-height: 1.2; margin-bottom: var(--space-sm); }
+.doc .part p + p { margin-top: var(--space-sm); }
+.doc ol, .doc ul { margin: 0; padding-left: 1.2em; }
+.doc li { margin-bottom: var(--space-xs); }
+.doc li:last-child { margin-bottom: 0; }
+.doc a:not(.btn) { color: var(--color-ink); text-decoration: underline; text-decoration-color: var(--color-hairline); text-underline-offset: 0.25em; border-radius: 3px; }
+.doc a:not(.btn):hover { text-decoration-color: var(--color-ink); }
+.doc .part > ul + p, .doc .part > p.muted { margin-top: var(--space-sm); }
+.doc .act { margin-top: var(--space-xl); }
+@media (max-width: 40rem) {
+  :root { --gutter: 16px; --bar-h: 48px; }
+  .nav { gap: var(--space-md); }
+  .nav > a { display: none; }
+  .brand small { display: none; }
+  .lang-cur { font-size: 0; }
+  .lang-cur::after { content: attr(data-short); font-size: var(--text-xs); }
+  .doc { padding-block: var(--space-2xl) var(--space-lg); }
+  .doc h1 { font-size: var(--text-xl); }
+  .doc .lede { font-size: var(--text-md); }
+  .doc .part { padding: var(--space-lg); border-radius: var(--radius-lg); }
+}
+@media (max-width: 60rem) { :root { --gutter: 22px; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; } }
 </style>
 </head>
 <body>
-<header class="top">
-  <a class="brand" href="../"><img src="../icons/favicon-64.png" alt="" width="20" height="20"><span data-i="brand">備份都ok</span></a>
-  <nav><a href="../manual/" data-i="nav_manual">使用說明</a><a href="../privacy/" data-i="nav_privacy">隱私權政策</a> <div class="lang" id="lang"><button type="button" class="lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false" aria-controls="langMenu"><svg class="lang-ico" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.3"/><path d="M1.7 8h12.6M8 1.7c1.9 1.8 2.8 3.9 2.8 6.3S9.9 12.5 8 14.3M8 1.7C6.1 3.5 5.2 5.6 5.2 8s.9 4.5 2.8 6.3"/></svg><span class="lang-cur" id="langCur">繁體中文</span><span class="sr" data-i="lang_label">語言</span></button><ul class="lang-menu" id="langMenu" role="menu" hidden></ul></div></nav>
+<header class="topbar">
+  <div class="container topbar-in">
+    <a class="brand" href="../"><span data-i="brand">備份都ok</span><small>我都ok啊</small></a>
+    <nav class="nav" aria-label="網站"><a href="../manual/" data-i="nav_manual">使用說明</a><a href="../privacy/" data-i="nav_privacy" aria-current="page">隱私權政策</a> <div class="lang" id="lang"><button type="button" class="lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false" aria-controls="langMenu"><svg class="lang-ico" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.3"/><path d="M1.7 8h12.6M8 1.7c1.9 1.8 2.8 3.9 2.8 6.3S9.9 12.5 8 14.3M8 1.7C6.1 3.5 5.2 5.6 5.2 8s.9 4.5 2.8 6.3"/></svg><span class="lang-cur" id="langCur">繁體中文</span><span class="sr" data-i="lang_label">語言</span></button><ul class="lang-menu" id="langMenu" role="menu" hidden></ul></div></nav>
+  </div>
 </header>
-<main class="wrap">
-  <article class="doc block">
-    <div class="block-h"><h2>隱私權政策</h2><span class="meta">最後更新：2026 年 10 月 9 日</span></div>
-    <div class="block-b">
+<main class="container">
+  <article class="doc">
+    <div class="doc-head">
     <h1>你的照片只留在你的 Mac</h1>
     <p class="lede">備份都ok 在你的 Mac 上讀取記憶卡、寫入備份，這些檔案從來不會離開你的電腦。只有在領取金鑰、啟用授權與檢查更新時，會和我們的伺服器交換下面列出的最少資料。</p>
-
-    <h3>領取測試金鑰時</h3>
+    <p class="meta"><span>隱私權政策</span><span>最後更新：2026 年 10 月 9 日</span></p>
+    </div>
+    <section class="part">
+    <h2>領取測試金鑰時</h2>
     <ul>
       <li>你填寫的電子郵件，和發給你的金鑰存在一起，用來辨識金鑰的持有人，以及在你遺失金鑰時找回。</li>
       <li>送出請求的網路位址，只保存經過單向雜湊的結果，用來防止大量濫用領取；不保存位址本身，30 天後自動刪除。</li>
     </ul>
-
-    <h3>啟用與驗證授權時</h3>
+    </section>
+    <section class="part">
+    <h2>啟用與驗證授權時</h2>
     <ul>
       <li>金鑰。</li>
       <li>這台 Mac 的硬體識別碼，用來確認一把金鑰同一時間只在一台 Mac 上使用。</li>
       <li>電腦名稱與 App 版本，讓你在被登出時知道是哪一台電腦啟用了同一把金鑰。電腦名稱可能包含你的名字，可以在 系統設定 › 一般 › 關於本機 修改。</li>
       <li>伺服器另外記錄啟用時間與最後上線的日期。</li>
     </ul>
-
-    <h3>檢查更新時</h3>
+    </section>
+    <section class="part">
+    <h2>檢查更新時</h2>
     <ul>
       <li>App 會連到本網站讀取最新版本資訊，不附帶任何個人資料。</li>
     </ul>
-
-    <h3>我們不收集的</h3>
+    </section>
+    <section class="part">
+    <h2>我們不收集的</h2>
     <ul>
       <li>照片、影片、音檔與任何檔案內容。</li>
       <li>檔名、資料夾路徑、備份紀錄。這些都只存在你的 Mac 上（文件 › 備份都ok）。</li>
       <li>使用行為分析、廣告追蹤。</li>
     </ul>
-
-    <h3>用途與存放</h3>
+    </section>
+    <section class="part">
+    <h2>用途與存放</h2>
     <p class="muted">以上資料只用於發放金鑰、授權驗證與防止濫用，不會出售，也不會用於廣告。授權伺服器與資料庫架設在 Cloudflare；本網站由 GitHub Pages 提供，GitHub 可能為了安全目的記錄瀏覽者的網路位址。</p>
-
-    <h3>保存與刪除</h3>
+    </section>
+    <section class="part">
+    <h2>保存與刪除</h2>
     <p class="muted">資料在金鑰有效期間保存。你可以隨時要求刪除：刪除後，金鑰與所有裝置紀錄會一併移除，金鑰也會隨即失效。</p>
-
-    <h3>聯絡我們</h3>
+    </section>
+    <section class="part">
+    <h2>聯絡我們</h2>
     <p class="muted">查詢或刪除你的資料，請來信 <a href="mailto:imokahhhh@gmail.com">imokahhhh@gmail.com</a>，並附上你領取金鑰時使用的信箱。</p>
-    </div>
+    </section>
   </article>
 
-  <footer>
+</main>
+<footer class="foot"><div class="container">
     <a href="../" data-i="dl_btn">下載</a>
     <a href="../manual/" data-i="nav_manual">使用說明</a>
     <a href="../privacy/" data-i="nav_privacy">隱私權政策</a>
     <span data-i="copyright">© 2026 備份都ok</span>
-  </footer>
-</main>
+</div></footer>
 <template data-lang="zh-Hans" data-region="article.doc">
-<article class="doc block">
-    <div class="block-h"><h2>隐私政策</h2><span class="meta">最后更新：2026 年 10 月 9 日</span></div>
-    <div class="block-b">
+<article class="doc">
+    <div class="doc-head">
     <h1>你的照片只留在你的 Mac 上</h1>
     <p class="lede">备份都ok 在你的 Mac 上读取存储卡、写入备份，这些文件从来不会离开你的电脑。只有在领取密钥、启用授权和检查更新时，才会与我们的服务器交换下面列出的最少数据。</p>
-
-    <h3>领取测试密钥时</h3>
+    <p class="meta"><span>隐私政策</span><span>最后更新：2026 年 10 月 9 日</span></p>
+    </div>
+    <section class="part">
+    <h2>领取测试密钥时</h2>
     <ul>
       <li>你填写的电子邮箱，与发给你的密钥存放在一起，用于识别密钥的持有人，以及在你遗失密钥时帮你找回。</li>
       <li>发出请求的网络地址，只保存经过单向哈希处理后的结果，用于防止密钥被大量滥领；不保存地址本身，30 天后自动删除。</li>
     </ul>
-
-    <h3>启用和验证授权时</h3>
+    </section>
+    <section class="part">
+    <h2>启用和验证授权时</h2>
     <ul>
       <li>密钥。</li>
       <li>这台 Mac 的硬件标识符，用于确保同一个密钥同一时间只在一台 Mac 上使用。</li>
       <li>电脑名称和 App 版本，以便你在被退出登录时，知道是哪一台电脑启用了同一个密钥。电脑名称可能包含你的名字，可以在“系统设置 › 通用 › 关于本机”中修改。</li>
       <li>服务器另外记录启用时间和最后在线日期。</li>
     </ul>
-
-    <h3>检查更新时</h3>
+    </section>
+    <section class="part">
+    <h2>检查更新时</h2>
     <ul>
       <li>App 会连接本网站读取最新版本信息，不附带任何个人数据。</li>
     </ul>
-
-    <h3>我们不收集的</h3>
+    </section>
+    <section class="part">
+    <h2>我们不收集的</h2>
     <ul>
       <li>照片、视频、音频以及任何文件内容。</li>
       <li>文件名、文件夹路径、备份记录。这些都只保存在你的 Mac 上（文稿 › 备份都ok）。</li>
       <li>使用行为分析、广告追踪。</li>
     </ul>
-
-    <h3>用途与存放</h3>
+    </section>
+    <section class="part">
+    <h2>用途与存放</h2>
     <p class="muted">以上数据仅用于发放密钥、授权验证和防止滥用，不会出售，也不会用于广告。授权服务器和数据库部署在 Cloudflare 上；本网站由 GitHub Pages 托管，GitHub 可能出于安全目的记录访问者的网络地址。</p>
-
-    <h3>保存与删除</h3>
+    </section>
+    <section class="part">
+    <h2>保存与删除</h2>
     <p class="muted">数据在密钥有效期内保存。你可以随时要求删除：删除后，密钥和所有设备记录会一并移除，密钥也会随即失效。</p>
-
-    <h3>联系我们</h3>
+    </section>
+    <section class="part">
+    <h2>联系我们</h2>
     <p class="muted">如需查询或删除你的数据，请发邮件至 <a href="mailto:imokahhhh@gmail.com">imokahhhh@gmail.com</a>，并附上你领取密钥时使用的邮箱。</p>
     <p class="muted">本译文仅供参考。如与繁体中文版本有出入，以繁体中文版本为准。</p>
-    </div>
+    </section>
   </article>
 </template>
 <template data-lang="en" data-region="article.doc">
-<article class="doc block">
-    <div class="block-h"><h2>Privacy policy</h2><span class="meta">Last updated: October 9, 2026</span></div>
-    <div class="block-b">
+<article class="doc">
+    <div class="doc-head">
     <h1>Your photos stay on your Mac</h1>
     <p class="lede">Backup OK reads your memory cards and writes your backups on your Mac, and those files never leave your computer. Only when you get a key, activate your license or check for updates does the app exchange the minimal data listed below with our servers.</p>
-
-    <h3>When you get a tester key</h3>
+    <p class="meta"><span>Privacy policy</span><span>Last updated: October 9, 2026</span></p>
+    </div>
+    <section class="part">
+    <h2>When you get a tester key</h2>
     <ul>
       <li>The email address you enter. It’s stored together with the key issued to you and is used to identify who holds the key and to help you recover your key if you lose it.</li>
       <li>The network address the request comes from. Only a one-way hash of it is kept, to prevent large-scale abuse of key sign-ups. The address itself isn’t stored, and the hash is automatically deleted after 30 days.</li>
     </ul>
-
-    <h3>When you activate and verify your license</h3>
+    </section>
+    <section class="part">
+    <h2>When you activate and verify your license</h2>
     <ul>
       <li>Your key.</li>
       <li>This Mac’s hardware identifier, used to make sure each key is in use on only one Mac at a time.</li>
       <li>The computer name and app version, so that if you’re signed out, you can tell which computer activated the same key. The computer name may include your name. You can change it in System Settings › General › About.</li>
       <li>The server also records the activation time and the date you were last online.</li>
     </ul>
-
-    <h3>When you check for updates</h3>
+    </section>
+    <section class="part">
+    <h2>When you check for updates</h2>
     <ul>
       <li>The app connects to this website to get the latest version information. No personal data is sent.</li>
     </ul>
-
-    <h3>What we don’t collect</h3>
+    </section>
+    <section class="part">
+    <h2>What we don’t collect</h2>
     <ul>
       <li>Photos, videos, audio files or the contents of any file.</li>
       <li>File names, folder paths or backup logs. These exist only on your Mac (Documents › Backup OK).</li>
       <li>Usage analytics or ad tracking.</li>
     </ul>
-
-    <h3>How data is used and stored</h3>
+    </section>
+    <section class="part">
+    <h2>How data is used and stored</h2>
     <p class="muted">The data above is used only to issue keys, verify licenses and prevent abuse. It is never sold or used for advertising. The license server and database are hosted on Cloudflare. This website is hosted on GitHub Pages, and GitHub may log visitors’ network addresses for security purposes.</p>
-
-    <h3>Retention and deletion</h3>
+    </section>
+    <section class="part">
+    <h2>Retention and deletion</h2>
     <p class="muted">Your data is kept for as long as your key is valid. You can ask us to delete it at any time. When it’s deleted, your key and all device records are removed together, and the key stops working immediately.</p>
-
-    <h3>Contact us</h3>
+    </section>
+    <section class="part">
+    <h2>Contact us</h2>
     <p class="muted">To ask about or delete your data, email <a href="mailto:imokahhhh@gmail.com">imokahhhh@gmail.com</a> and include the email address you used to get your key.</p>
     <p class="muted">This translation is provided for convenience. If it differs from the Traditional Chinese version, the Traditional Chinese version prevails.</p>
-    </div>
+    </section>
   </article>
 </template>
 <template data-lang="ja" data-region="article.doc">
-<article class="doc block">
-    <div class="block-h"><h2>プライバシーポリシー</h2><span class="meta">最終更新：2026年10月9日</span></div>
-    <div class="block-b">
+<article class="doc">
+    <div class="doc-head">
     <h1>あなたの写真は、あなたの Mac の中だけに</h1>
     <p class="lede">Backup OK は、お使いの Mac 上でカードを読み取り、バックアップを書き込みます。これらのファイルがお使いのコンピュータの外に出ることはありません。キーの受け取り、ライセンスのアクティベート、アップデートの確認のときにのみ、以下に記載する必要最小限のデータを私たちのサーバーとやり取りします。</p>
-
-    <h3>テスター用キーを受け取るとき</h3>
+    <p class="meta"><span>プライバシーポリシー</span><span>最終更新：2026年10月9日</span></p>
+    </div>
+    <section class="part">
+    <h2>テスター用キーを受け取るとき</h2>
     <ul>
       <li>入力されたメールアドレス。発行したキーとともに保存し、キーの所有者を識別するため、およびキーを紛失した際に再取得するために使用します。</li>
       <li>リクエストを送信したネットワークアドレス。一方向ハッシュ化した値のみを保存し、キーの不正な大量取得を防ぐために使用します。アドレスそのものは保存せず、ハッシュ化した値も30日後に自動的に削除します。</li>
     </ul>
-
-    <h3>ライセンスのアクティベートと確認のとき</h3>
+    </section>
+    <section class="part">
+    <h2>ライセンスのアクティベートと確認のとき</h2>
     <ul>
       <li>キー。</li>
       <li>この Mac のハードウェア識別子。1つのキーが同時に1台の Mac でのみ使用されていることを確認するために使用します。</li>
       <li>コンピュータ名とアプリのバージョン。サインアウトされた際に、同じキーがどのコンピュータでアクティベートされたかがわかるようにするために使用します。コンピュータ名にはお名前が含まれる場合があります。コンピュータ名は「システム設定」›「一般」›「情報」で変更できます。</li>
       <li>このほか、サーバーではアクティベートした日時と、最後にオンラインになった日付を記録します。</li>
     </ul>
-
-    <h3>アップデートの確認のとき</h3>
+    </section>
+    <section class="part">
+    <h2>アップデートの確認のとき</h2>
     <ul>
       <li>アプリは本ウェブサイトに接続して最新バージョンの情報を取得します。個人情報は一切送信しません。</li>
     </ul>
-
-    <h3>収集しないもの</h3>
+    </section>
+    <section class="part">
+    <h2>収集しないもの</h2>
     <ul>
       <li>写真、動画、音声、およびあらゆるファイルの内容。</li>
       <li>ファイル名、フォルダのパス、バックアップの記録。これらはお使いの Mac 上（「書類」›「Backup OK」）にのみ保存されます。</li>
       <li>利用状況の分析、広告目的のトラッキング。</li>
     </ul>
-
-    <h3>利用目的と保管場所</h3>
+    </section>
+    <section class="part">
+    <h2>利用目的と保管場所</h2>
     <p class="muted">上記のデータは、キーの発行、ライセンスの確認、不正利用の防止にのみ使用し、販売することも、広告に使用することもありません。ライセンスサーバーとデータベースは Cloudflare 上で運用しています。本ウェブサイトは GitHub Pages で提供されており、GitHub がセキュリティ上の目的で閲覧者のネットワークアドレスを記録する場合があります。</p>
-
-    <h3>保存期間と削除</h3>
+    </section>
+    <section class="part">
+    <h2>保存期間と削除</h2>
     <p class="muted">データはキーの有効期間中保存されます。削除はいつでもご依頼いただけます。削除すると、キーとすべてのデバイスの記録がまとめて消去され、キーも直ちに無効になります。</p>
-
-    <h3>お問い合わせ</h3>
+    </section>
+    <section class="part">
+    <h2>お問い合わせ</h2>
     <p class="muted">データの照会や削除をご希望の場合は、キーを受け取る際に使用したメールアドレスを添えて、<a href="mailto:imokahhhh@gmail.com">imokahhhh@gmail.com</a> までメールでご連絡ください。</p>
     <p class="muted">この翻訳は便宜上のものです。繁体字中国語版と内容が異なる場合は、繁体字中国語版が優先されます。</p>
-    </div>
+    </section>
   </article>
 </template>
 <template data-lang="es" data-region="article.doc">
-<article class="doc block">
-    <div class="block-h"><h2>Política de privacidad</h2><span class="meta">Última actualización: 9 de octubre de 2026</span></div>
-    <div class="block-b">
+<article class="doc">
+    <div class="doc-head">
     <h1>Tus fotos se quedan en tu Mac</h1>
     <p class="lede">Backup OK lee las tarjetas de memoria y escribe las copias en tu Mac; esos archivos nunca salen de tu equipo. La app solo intercambia con nuestros servidores los datos mínimos que se indican a continuación cuando obtienes una clave, activas la licencia o buscas actualizaciones.</p>
-
-    <h3>Al obtener una clave de probador</h3>
+    <p class="meta"><span>Política de privacidad</span><span>Última actualización: 9 de octubre de 2026</span></p>
+    </div>
+    <section class="part">
+    <h2>Al obtener una clave de probador</h2>
     <ul>
       <li>El correo electrónico que escribes, que se guarda junto con la clave que se te asigna, para identificar al titular de la clave y recuperarla si la pierdes.</li>
       <li>La dirección de red desde la que se envía la solicitud: solo se guarda el resultado de un hash unidireccional, para evitar abusos masivos en la obtención de claves. La dirección en sí no se guarda, y este dato se elimina automáticamente a los 30 días.</li>
     </ul>
-
-    <h3>Al activar y verificar la licencia</h3>
+    </section>
+    <section class="part">
+    <h2>Al activar y verificar la licencia</h2>
     <ul>
       <li>La clave.</li>
       <li>El identificador de hardware de este Mac, para comprobar que cada clave se usa en un solo Mac a la vez.</li>
       <li>El nombre del Mac y la versión de la app, para que, si se cierra tu sesión, sepas qué equipo activó la misma clave. El nombre del Mac puede incluir tu nombre; puedes cambiarlo en Ajustes del Sistema › General › Información.</li>
       <li>Además, el servidor registra el momento de la activación y la fecha de la última conexión.</li>
     </ul>
-
-    <h3>Al buscar actualizaciones</h3>
+    </section>
+    <section class="part">
+    <h2>Al buscar actualizaciones</h2>
     <ul>
       <li>La app se conecta a este sitio web para leer la información de la última versión, sin enviar ningún dato personal.</li>
     </ul>
-
-    <h3>Lo que no recopilamos</h3>
+    </section>
+    <section class="part">
+    <h2>Lo que no recopilamos</h2>
     <ul>
       <li>Fotos, videos, archivos de audio ni el contenido de ningún archivo.</li>
       <li>Nombres de archivo, rutas de carpetas ni registros de copias. Todo eso solo se guarda en tu Mac (Documentos › Backup OK).</li>
       <li>Análisis de uso ni seguimiento publicitario.</li>
     </ul>
-
-    <h3>Uso y almacenamiento</h3>
+    </section>
+    <section class="part">
+    <h2>Uso y almacenamiento</h2>
     <p class="muted">Estos datos solo se usan para emitir claves, verificar licencias y prevenir abusos; no se venden ni se usan con fines publicitarios. El servidor de licencias y la base de datos están alojados en Cloudflare; este sitio web está alojado en GitHub Pages, y GitHub puede registrar las direcciones de red de los visitantes por motivos de seguridad.</p>
-
-    <h3>Conservación y eliminación</h3>
+    </section>
+    <section class="part">
+    <h2>Conservación y eliminación</h2>
     <p class="muted">Los datos se conservan mientras la clave sea válida. Puedes pedir su eliminación en cualquier momento: al eliminarlos, se borran la clave y todos los registros de dispositivos, y la clave deja de funcionar de inmediato.</p>
-
-    <h3>Contacto</h3>
+    </section>
+    <section class="part">
+    <h2>Contacto</h2>
     <p class="muted">Para consultar o eliminar tus datos, escribe a <a href="mailto:imokahhhh@gmail.com">imokahhhh@gmail.com</a> e indica el correo con el que obtuviste la clave.</p>
     <p class="muted">Esta traducción se ofrece por comodidad. Si difiere de la versión en chino tradicional, prevalece la versión en chino tradicional.</p>
-    </div>
+    </section>
   </article>
 </template>
 <template data-lang="pt" data-region="article.doc">
-<article class="doc block">
-    <div class="block-h"><h2>Política de Privacidade</h2><span class="meta">Última atualização: 9 de outubro de 2026</span></div>
-    <div class="block-b">
+<article class="doc">
+    <div class="doc-head">
     <h1>Suas fotos ficam só no seu Mac</h1>
     <p class="lede">O Backup OK lê os cartões de memória e grava os backups no seu Mac; esses arquivos nunca saem do seu computador. Somente quando você recebe uma chave, ativa a licença ou procura atualizações há troca de dados com nossos servidores, e apenas o mínimo listado abaixo.</p>
-
-    <h3>Ao receber uma chave de testador</h3>
+    <p class="meta"><span>Política de Privacidade</span><span>Última atualização: 9 de outubro de 2026</span></p>
+    </div>
+    <section class="part">
+    <h2>Ao receber uma chave de testador</h2>
     <ul>
       <li>O e-mail que você informa fica armazenado junto com a chave emitida para você, para identificar o titular da chave e recuperá-la caso você a perca.</li>
       <li>O endereço de rede de onde a solicitação é enviada: guardamos apenas o resultado de um hash unidirecional, para evitar solicitações abusivas em massa. O endereço em si não é armazenado, e o resultado é excluído automaticamente após 30 dias.</li>
     </ul>
-
-    <h3>Ao ativar e verificar a licença</h3>
+    </section>
+    <section class="part">
+    <h2>Ao ativar e verificar a licença</h2>
     <ul>
       <li>A chave.</li>
       <li>O identificador de hardware deste Mac, para garantir que uma chave seja usada em apenas um Mac por vez.</li>
       <li>O nome do computador e a versão do app, para que, se a sua sessão for encerrada, você saiba qual computador ativou a mesma chave. O nome do computador pode incluir o seu nome; você pode alterá-lo em Ajustes do Sistema › Geral › Sobre.</li>
       <li>O servidor também registra o horário da ativação e a data do último acesso online.</li>
     </ul>
-
-    <h3>Ao procurar atualizações</h3>
+    </section>
+    <section class="part">
+    <h2>Ao procurar atualizações</h2>
     <ul>
       <li>O app acessa este site para ler as informações da versão mais recente, sem enviar nenhum dado pessoal.</li>
     </ul>
-
-    <h3>O que não coletamos</h3>
+    </section>
+    <section class="part">
+    <h2>O que não coletamos</h2>
     <ul>
       <li>Fotos, vídeos, áudios e o conteúdo de qualquer arquivo.</li>
       <li>Nomes de arquivos, caminhos de pastas e histórico de backups. Tudo isso fica apenas no seu Mac (Documentos › Backup OK).</li>
       <li>Análise de comportamento de uso e rastreamento publicitário.</li>
     </ul>
-
-    <h3>Finalidade e armazenamento</h3>
+    </section>
+    <section class="part">
+    <h2>Finalidade e armazenamento</h2>
     <p class="muted">Os dados acima são usados apenas para emitir chaves, verificar licenças e evitar abusos. Eles não são vendidos nem usados para publicidade. O servidor de licenças e o banco de dados ficam hospedados na Cloudflare; este site é hospedado pelo GitHub Pages, e o GitHub pode registrar o endereço de rede dos visitantes por motivos de segurança.</p>
-
-    <h3>Retenção e exclusão</h3>
+    </section>
+    <section class="part">
+    <h2>Retenção e exclusão</h2>
     <p class="muted">Os dados são mantidos enquanto a chave for válida. Você pode pedir a exclusão a qualquer momento: a chave e todos os registros de dispositivos são removidos juntos, e a chave deixa de valer imediatamente.</p>
-
-    <h3>Fale conosco</h3>
+    </section>
+    <section class="part">
+    <h2>Fale conosco</h2>
     <p class="muted">Para consultar ou excluir seus dados, escreva para <a href="mailto:imokahhhh@gmail.com">imokahhhh@gmail.com</a> informando o e-mail que você usou para receber a chave.</p>
     <p class="muted">Esta tradução é fornecida por conveniência. Em caso de divergência, prevalece a versão em chinês tradicional.</p>
-    </div>
+    </section>
   </article>
 </template>
 <script>
